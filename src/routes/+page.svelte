@@ -56,7 +56,7 @@
             <div class="flex flex-col items-center gap-2 mb-4">
                 <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FFB3C6] via-[#E0ACD5] to-[#C5A3E0] bg-clip-text text-transparent leading-tight text-center drop-shadow-sm pb-2">
 					Mochify <br>
-					<span class="text-3xl md:text-4xl text-[#FF8FA3] font-bold">Bulk Image Optimizer</span>
+					<span class="text-3xl md:text-4xl text-[#FF8FA3] font-bold">Sustainable Image Vault</span>
 				</h1>
             </div>
             
