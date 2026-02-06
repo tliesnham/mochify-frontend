@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* --- 1. TAILWIND V4 THEME CONFIG --- */
+/* This tells Tailwind: "When I say font-sans, use Quicksand." */
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Optional: Map your colors here if you want to use them like 'bg-mochi-pink' */
+  --color-mochi-bg: #FDFBF7;
+  --color-mochi-card: #FFFFFF;
+  --color-cocoa-deep: #6C3F31;
+  --color-cocoa-milk: #875F42;
+  --color-mochi-pink: #F06292;
+  --color-matcha-green: #A5D6A7;
+  --color-matcha-dark: #81C784;
+}
+
+/* --- 2. CSS VARIABLES (Fallback & Usage) --- */
+:root {
+  /* We keep these for your custom CSS usage below */
+  --mochi-bg: var(--color-mochi-bg);
+  --mochi-card: var(--color-mochi-card);
+  --cocoa-deep: var(--color-cocoa-deep);
+  --cocoa-milk: var(--color-cocoa-milk);
+  --mochi-pink: var(--color-mochi-pink);
+  --matcha-green: var(--color-matcha-green);
+  --matcha-dark: var(--color-matcha-dark);
+}
+
+/* --- 3. BASE STYLES --- */
+@layer base {
+  body {
+    font-family: var(--font-sans); /* Uses Quicksand */
+    background-color: var(--mochi-bg);
+    color: var(--cocoa-deep);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .font-heading {
+    font-family: var(--font-heading); /* Uses Outfit */
+    color: var(--cocoa-deep);
+  }
+
+  /* Ordered list styling */
+  .prose ol,
+  .prose ul {
+    @apply pl-5;
+  }
+
+  .prose ol > li::marker,
+  .prose ul > li::marker {
+    color: var(--cocoa-deep);
+    font-weight: 700;
+  }
+
+  /* Typography Plugin Overrides */
+  .prose {
+    --tw-prose-bullets: var(--cocoa-deep);
+    --tw-prose-counters: var(--cocoa-deep);
+    --tw-prose-body: var(--cocoa-deep);
+    --tw-prose-headings: var(--cocoa-deep);
+    --tw-prose-bold: var(--cocoa-deep);
+    --tw-prose-links: var(--cocoa-deep);
+    --tw-prose-th-borders: color-mix(in srgb, var(--cocoa-deep) 20%, transparent);
+    --tw-prose-td-borders: color-mix(in srgb, var(--cocoa-deep) 12%, transparent);
+    color: var(--cocoa-deep);
+  }
+  
+  /* Force Prose colors */
+  .prose :where(p, li, td, th) {
+    color: var(--cocoa-deep) !important;
+  }
+  .prose :where(ol > li)::marker,
+  .prose :where(ul > li)::marker {
+    color: var(--cocoa-deep) !important;
+    font-weight: 700;
+  }
+}
+
+/* --- 4. MOCHI COMPONENTS --- */
+@layer components {
+  /* The "Squishy" Button Class */
+  .btn-mochi {
+    @apply bg-matcha-green text-white font-bold rounded-2xl shadow-sm transition-all duration-200;
+  }
+  
+  .btn-mochi:hover {
+    @apply bg-matcha-dark scale-105;
+  }
+
+  .btn-mochi:active {
+    @apply scale-95 brightness-95 shadow-none;
+    transform: translateY(2px);
+  }
+
+  /* Cards */
+  .card-mochi {
+    @apply bg-white rounded-2xl shadow-sm border border-transparent hover:shadow-md transition-shadow duration-200;
+  }
+  
+  /* FAQ Items */
+  .faq-item {
+    @apply bg-white rounded-xl mb-4 px-6 py-4 shadow-sm border border-pink-50;
+  }
+}
