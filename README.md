@@ -54,8 +54,8 @@ This project is built with **Svelte 5** and **TailwindCSS**, configured for depl
 
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/tliesnham/svelte-dracarys.git](https://github.com/tliesnham/svelte-dracarys.git)
-    cd svelte-dracarys
+    git clone https://github.com/tliesnham/mochify-frontend.git
+    cd mochify-frontend
     ```
 
 2.  **Install dependencies:**
