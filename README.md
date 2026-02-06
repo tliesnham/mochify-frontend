@@ -1,4 +1,4 @@
-# 🐉 Mochify (svelte-dracarys)
+# 🐉 Mochify Frontend
 
 ### **The Stateless Image Vault**
 **Privacy-First • Hardware-Hardened • Green C++ Engine**
