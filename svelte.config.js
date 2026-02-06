@@ -6,14 +6,20 @@ const config = {
     kit: {
         adapter: adapter(),
         csp: {
-            mode: 'auto', // Uses nonces for SSR and hashes for static pages
+            mode: 'auto',
             directives: {
                 'default-src': ['self'],
-                'script-src': ['self'],
-                'style-src': ['self', 'unsafe-inline'], // Tailwind needs inline styles
-                'connect-src': ['self', process.env.PUBLIC_API_URL || 'https://api.mochify.xyz'], // ONLY allow your C++ API
-                'img-src': ['self', 'data:', 'blob:'], // Needed for local image previews
-                'frame-ancestors': ['none'], // Prevents clickjacking
+                // 1. Allow the analytics script to load
+                'script-src': ['self', 'https://analytics.mochify.xyz'], 
+                'style-src': ['self', 'unsafe-inline'],
+                // 2. Allow the script to send data back to analytics
+                'connect-src': [
+                    'self', 
+                    process.env.PUBLIC_API_URL || 'https://api.mochify.xyz',
+                    'https://analytics.mochify.xyz' 
+                ],
+                'img-src': ['self', 'data:', 'blob:'],
+                'frame-ancestors': ['none'],
                 'upgrade-insecure-requests': true
             }
         }
