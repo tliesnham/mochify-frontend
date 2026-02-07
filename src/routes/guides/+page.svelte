@@ -20,6 +20,14 @@
             category: "Data Privacy",
             readTime: "6 min read",
             date: "Feb 05, 2026"
+        },
+        {
+            title: "The 2026 Guide to Next-Gen Formats: WebP, AVIF, and JPEG XL",
+            description: "Your 2MB JPEG homepage hero is killing your LCP score. Google's PageSpeed Insights keeps screaming \"Serve images in next-gen formats,\" but which one should you actually use? WebP has been around since 2010, AVIF promises 50% better compression, and JPEG XL keeps showing up in conversations despite near-zero browser support.",
+            url: "/guides/2026-guide-next-gen-formats",
+            category: "Image Formats",
+            readTime: "10 min read",
+            date: "Feb 07, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
