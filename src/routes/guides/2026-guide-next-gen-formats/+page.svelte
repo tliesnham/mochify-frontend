@@ -64,7 +64,7 @@
                         <a href="#format-overview" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <span class="flex items-center gap-4">
                                 <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">01</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">Format Overview</span>
+                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">Format Comparison Cheat Sheet</span>
                             </span>
                             <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -74,51 +74,12 @@
                         <a href="#modern-formats" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <span class="flex items-center gap-4">
                                 <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">02</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">Modern Formats</span>
+                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">Understanding Modern Image Formats</span>
                             </span>
                             <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="#webp" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
-                            <span class="flex items-center gap-4">
-                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">03</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">WebP</span>
-                            </span>
-                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </li>
-
-                     <li>
-                        <a href="#avif" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
-                            <span class="flex items-center gap-4">
-                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">04</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">AVIF</span>
-                            </span>
-                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#jpeg-xl" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
-                            <span class="flex items-center gap-4">
-                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">05</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">JPEG XL</span>
-                            </span>
-                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#heic" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
-                            <span class="flex items-center gap-4">
-                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">06</span>
-                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">HEIC</span>
-                            </span>
-                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </section>
@@ -216,13 +177,10 @@
                 </p>
             </div>
 
-        </section>
-
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="webp">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+        <div>
+            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="webp">
                 WebP: The Established Standard
-            </h2>
+            </h3>
             <p class="mb-6">
                Google released WebP in 2010, built on the VP8 video codec. It supports both lossy and lossless compression, alpha transparency, and animation (though animated WebP never caught on like we thought it would).
             </p>
@@ -233,13 +191,12 @@
                 WebP uses predictive coding for lossless images and block-based transform coding for lossy. The encoder offers quality settings from 0-100, but sweet spots typically land between 75-85 for photography.
             </InfoBox>
             
-        </section>
+        </div>
 
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="avif">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+        <div>
+            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="avif">
                 AVIF: Maximum Compression for Modern Browsers
-            </h2>
+            </h3>
             <p class="mb-4">AVIF (AV1 Image File Format) emerged from the Alliance for Open Media in 2019. Built on the AV1 video codec - the same tech powering Netflix's 4K streams - AVIF delivers compression efficiency that WebP simply can't match.</p>
 
             <p class="mb-4">Chrome added support in 2020, followed by Firefox and Safari. By 2026, AVIF reached 95% browser coverage. The holdouts? Older Android devices and a few enterprise environments stuck on legacy browsers.</p>
@@ -247,32 +204,32 @@
             <p class="mb-4">The compression advantage is real. AVIF consistently produces files 20-50% smaller than WebP at equivalent perceptual quality. For hero images and product photography, this translates directly to faster LCP scores. The format supports 10-bit and 12-bit color depth (compared to WebP's 8-bit), making it ideal for HDR content and professional photography workflows.</p>
 
             <p class="mb-4">The catch: Encoding speed. AVIF's computational complexity means slower generation times compared to WebP - a consideration if you're batch-processing thousands of images. (This is where our C-based engine at Mochify makes a measurable difference; interpreted languages struggle with AVIF encoding at scale.)</p>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="jpeg-xl">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+        <div>
+            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="jpeg-xl">
                 JPEG XL: The Resurrection
-            </h2>
+            </h3>
 
             <p class="mb-4">JPEG XL emerged from a 2018 standards competition, combining Google's PIK and Cloudinary's FUIF proposals. Finalized in 2022, it promised to be the "one format to rule them all"—replacing JPEG, PNG, GIF, and even WebP.</p>
 
-            <p class="mb-4">On paper, it’s a technical marvel. It offers progressive decoding (images get sharper as they load), lossless JPEG recompression (reducing legacy JPEG sizes by 20% with zero quality loss), and practically unlimited color depth. In high-fidelity benchmarks, it frequently beats AVIF by 10-30% while being significantly faster to encode.</p>
+            <p class="mb-4">On paper, it's a technical marvel. It offers progressive decoding (images get sharper as they load), lossless JPEG recompression (reducing legacy JPEG sizes by 20% with zero quality loss), and practically unlimited color depth. In high-fidelity benchmarks, it frequently beats AVIF by 10-30% while being significantly faster to encode.</p>
 
             <p class="mb-4">
                 The Reality in February 2026: The "dark ages" of JXL support are ending. After years of resistance, Google merged a memory-safe Rust decoder into Chromium in January 2026. While it's currently behind a flag in Chrome 145, a stable release is imminent. Apple’s Safari has offered support since version 17, and even Firefox has landed a prototype in Nightly builds. We are no longer asking if JPEG XL will happen, but when the stable rollout hits 90%.
             </p>
             <p class="mb-4">Our Take: Don't switch your entire library yet, but start preparing your <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">&lt;picture&gt;</code> tags. While global support is currently around 20-25%, the Chromium move means that by the end of this year, that number will likely jump to over 80%.</p>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="heic">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+        <div>
+            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="heic">
                 HEIC: Mobile-First Considerations
-            </h2>
+            </h3>
 
             <p class="mb-4">HEIC (High Efficiency Image Container) is Apple's default capture format on iPhones since iOS 11. It's based on HEVC (H.265) video compression and delivers file sizes similar to AVIF.</p>
             <p class="mb-4">The problem: HEIC isn't a web format. No browser renders it natively, and many online platforms - eBay, Etsy, Shopify - reject HEIC uploads entirely. If you're shooting on iPhone and uploading to e-commerce platforms or WordPress, you need conversion in your workflow. (This friction is exactly why we built dedicated HEIC-to-JPEG converters - the "Unsupported File" error on marketplaces is a daily pain point for mobile-first sellers.)</p>
+        </div>
+
         </section>
 
         <div class="my-12 bg-[#FFF5F7] p-8 md:p-10 rounded-3xl border border-pink-100 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">

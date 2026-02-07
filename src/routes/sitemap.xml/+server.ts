@@ -2,7 +2,7 @@ export const prerender = true;
 
 export async function GET() {
     const site = 'https://mochify.xyz';
-    const pages = ['', '/heic-to-jpeg', '/avif-to-jpg', '/jpg-to-jpegxl', '/avif-to-jpegxl', '/solutions', '/solutions/ebay-image-converter', '/solutions/hif-to-jpg', '/guides', '/guides/fujifilm-hif-to-jpg', '/guides/privacy-image-optimization', '/guides/2026-guide-next-gen-formats', '/terms', '/privacy', '/service-terms', '/about'];
+    const pages = ['', '/heic-to-jpeg', '/avif-to-jpg', '/jpg-to-jpegxl', '/avif-to-jpegxl', '/solutions', '/solutions/ebay-image-converter', '/solutions/hif-to-jpg', '/guides', '/guides/fujifilm-hif-to-jpg', '/guides/privacy-image-optimization', '/guides/2026-guide-next-gen-formats', '/guides/next-gen-image-formats-wordpress', '/terms', '/privacy', '/service-terms', '/about'];
 
     // Create rows without internal tabs/newlines
     const urlRows = pages.map(page => `
