@@ -34,18 +34,28 @@
             The 2026 Guide to Next-Gen Formats: WebP, AVIF, and JPEG XL
         </h1>
 
-        <p class="text-xl text-[#6C3F31] opacity-90 leading-relaxed max-w-2xl mb-8">
-            Your 2MB JPEG homepage hero is killing your LCP score. Google's PageSpeed Insights keeps screaming "Serve images in next-gen formats," but which one should you actually use?
-        </p>
-
-        <div class="bg-[#FFF5F7] rounded-3xl p-6 md:p-8 border border-pink-100 max-w-3xl">
-            <p class="text-lg text-[#6C3F31] leading-relaxed">
-                WebP has been around since 2010, AVIF promises 50% better compression, and JPEG XL keeps showing up in conversations despite near-zero browser support.
-                
-                <span class="block mt-4">
-                    This isn't another surface-level format comparison. We're diving into <strong class="text-[#D81B60] font-black">encoder efficiency</strong> and <strong class="text-[#D81B60] font-black">chroma subsampling trade-offs</strong>.
-                </span>
+       <div class="bg-[#FFF5F7] rounded-[2rem] p-8 md:p-10 border-2 border-pink-100 shadow-sm relative">
+            <div class="absolute top-4 right-4 bg-white/60 px-3 py-1 rounded-full text-[10px] font-mono text-pink-400 uppercase tracking-widest border border-pink-50">
+                Status: Feb 2026
+            </div>
+            
+            <p class="text-xl text-[#6C3F31] font-medium leading-relaxed mb-6">
+                Your 2MB JPEG homepage hero is killing your LCP score. Google's PageSpeed Insights keeps screaming "Serve images in next-gen formats," but which one should you actually use?
             </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-8">
+                <div>
+                    <p class="text-[#8B5E51] text-sm leading-relaxed">
+                        WebP has been around since 2010, AVIF promises 50% better compression, and JPEG XL keeps showing up in conversations despite near-zero browser support.
+                    </p>
+                </div>
+                <div class="bg-white/50 p-5 rounded-2xl border border-white/60">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-300 block mb-2">Technical Scope</span>
+                    <p class="text-xs text-[#8B5E51] font-medium">
+                        We aren't just comparing file sizes. We're diving into <strong class="text-[#D81B60]">encoder efficiency</strong>, <strong class="text-[#D81B60]">chroma subsampling</strong>, and the C++ architecture we use to solve it.
+                    </p>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -178,164 +188,169 @@
 </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="modern-formats">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+       <section class="mb-20">
+            <h2 class="text-3xl font-black text-[#4A2C2C] mb-8 flex items-center gap-3" id="modern-formats">
+                <span class="w-2 h-8 bg-[#F06292] rounded-full inline-block"></span>
                 Understanding Modern Image Formats
             </h2>
-            <p>
-               For 30 years, JPEG and PNG have been the web's backbone. While next-gen formats like WebP and AVIF offer superior transparency and ultra-low payloads for modern browsers, JPEG (enhanced by jpegli) remains a powerhouse, combining near-universal compatibility with modern compression that keeps your site fast and accessible on every device.
+            <p class="text-lg text-[#6C3F31] leading-relaxed mb-8">
+               For 30 years, JPEG and PNG were the web's backbone. While next-gen formats like WebP and AVIF offer superior transparency and ultra-low payloads, the landscape has shifted again in 2026.
             </p>
 
-            <div class="my-8 bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-2xl border border-pink-100">
-                <h3 class="text-lg font-black text-[#875F42] mb-3 flex items-center gap-2">
-                    <span class="text-xl">💡</span>
-                    Bonus: JPEGLI—Smarter JPEG, Same Compatibility
+            <div class="mb-12 bg-gradient-to-br from-[#FFF8F1] to-white p-8 rounded-[2.5rem] border border-orange-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-40 -mr-10 -mt-10"></div>
+                <h3 class="text-xl font-black text-[#8B5E51] mb-3 relative z-10 flex items-center gap-2">
+                    <span class="text-2xl">💡</span>
+                    The JPEGLI Factor
                 </h3>
-                <p class="text-base text-[#6C3F31] leading-relaxed">
-                    Modern JPEG encoders like JPEGLI give you a surprising amount of extra headroom before you even touch WebP or AVIF. JPEGLI keeps the standard .jpg extension and full viewer compatibility but uses more advanced psychovisual tricks to squeeze up to ~30-35% extra compression at high quality compared to traditional encoders such as libjpeg-turbo or MozJPEG.
+                <p class="text-[#8B5E51] leading-relaxed relative z-10">
+                    Before you ditch JPEG entirely, meet <strong>Jpegli</strong>. This modern encoder uses psychovisual tricks to squeeze <strong>~35% more compression</strong> out of standard JPEGs while keeping them 100% compatible with 1990s browsers. <br>
+                    <span class="text-xs font-bold uppercase tracking-widest text-orange-400 mt-2 block">Mochify Default: ON</span>
                 </p>
             </div>
 
-        <div>
-            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="webp">
-                WebP: The Established Standard
-            </h3>
-            <p class="mb-6">
-               Google released WebP in 2010, built on the VP8 video codec. It supports both lossy and lossless compression, alpha transparency, and animation (though animated WebP never caught on like we thought it would).
-            </p>
-            <p class="mb-6">
-                Why it matters in 2026: WebP hit 96% browser support and became the safe default for production environments. Safari finally implemented full support in 2020, and even IE's death in 2022 eliminated the last major compatibility concern. If you're still serving JPEG-only images, you're leaving 25-35% file size savings on the table.</p>
-
-            <InfoBox type="technical">
-                WebP uses predictive coding for lossless images and block-based transform coding for lossy. The encoder offers quality settings from 0-100, but sweet spots typically land between 75-85 for photography.
-            </InfoBox>
-            
-        </div>
-
-        <div>
-            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="avif">
-                AVIF: Maximum Compression for Modern Browsers
-            </h3>
-            <p class="mb-4">AVIF (AV1 Image File Format) emerged from the Alliance for Open Media in 2019. Built on the AV1 video codec - the same tech powering Netflix's 4K streams - AVIF delivers compression efficiency that WebP simply can't match.</p>
-
-            <p class="mb-4">Chrome added support in 2020, followed by Firefox and Safari. By 2026, AVIF reached 95% browser coverage. The holdouts? Older Android devices and a few enterprise environments stuck on legacy browsers.</p>
-
-            <p class="mb-4">The compression advantage is real. AVIF consistently produces files 20-50% smaller than WebP at equivalent perceptual quality. For hero images and product photography, this translates directly to faster LCP scores. The format supports 10-bit and 12-bit color depth (compared to WebP's 8-bit), making it ideal for HDR content and professional photography workflows.</p>
-
-            <p class="mb-4">The catch: Encoding speed. AVIF's computational complexity means slower generation times compared to WebP - a consideration if you're batch-processing thousands of images. (This is where our C-based engine at Mochify makes a measurable difference; interpreted languages struggle with AVIF encoding at scale.)</p>
-        </div>
-
-        <div>
-            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="jpeg-xl">
-                JPEG XL: The Resurrection
-            </h3>
-
-            <p class="mb-4">JPEG XL emerged from a 2018 standards competition, combining Google's PIK and Cloudinary's FUIF proposals. Finalized in 2022, it promised to be the "one format to rule them all"—replacing JPEG, PNG, GIF, and even WebP.</p>
-
-            <p class="mb-4">On paper, it's a technical marvel. It offers progressive decoding (images get sharper as they load), lossless JPEG recompression (reducing legacy JPEG sizes by 20% with zero quality loss), and practically unlimited color depth. In high-fidelity benchmarks, it frequently beats AVIF by 10-30% while being significantly faster to encode.</p>
-
-            <p class="mb-4">
-                The Reality in February 2026: The "dark ages" of JXL support are ending. After years of resistance, Google merged a memory-safe Rust decoder into Chromium in January 2026. While it's currently behind a flag in Chrome 145, a stable release is imminent. Apple’s Safari has offered support since version 17, and even Firefox has landed a prototype in Nightly builds. We are no longer asking if JPEG XL will happen, but when the stable rollout hits 90%.
-            </p>
-            <p class="mb-4">Our Take: Don't switch your entire library yet, but start preparing your <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">&lt;picture&gt;</code> tags. While global support is currently around 20-25%, the Chromium move means that by the end of this year, that number will likely jump to over 80%.</p>
-        </div>
-
-        <div>
-            <h3 class="text-xl font-bold text-[#875F42] mb-4 mt-8" id="heic">
-                HEIC: Mobile-First Considerations
-            </h3>
-
-            <p class="mb-4">HEIC (High Efficiency Image Container) is Apple's default capture format on iPhones since iOS 11. It's based on HEVC (H.265) video compression and delivers file sizes similar to AVIF.</p>
-            <p class="mb-4">The problem: HEIC isn't a web format. No browser renders it natively, and many online platforms - eBay, Etsy, Shopify - reject HEIC uploads entirely. If you're shooting on iPhone and uploading to e-commerce platforms or WordPress, you need conversion in your workflow. (This friction is exactly why we built dedicated HEIC-to-JPEG converters - the "Unsupported File" error on marketplaces is a daily pain point for mobile-first sellers.)</p>
-        </div>
-
-        </section>
-
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="when-to-use">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
-                When to Use Each Format
-            </h2>
-            <p class="mb-8">
-                Decision fatigue is real. Here's the practical breakdown.
-            </p>
-
-            <div class="space-y-10">
-                <div>
-                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
-                        WebP: Choose When Compatibility is Non-Negotiable
-                    </h3>
-                    <p class="mb-4 font-bold text-[#875F42]">Use WebP if:</p>
-                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
-                        <li>You need near-universal support without fallback complexity</li>
-                        <li>You're targeting older Android devices (pre-2021 models with outdated Chrome)</li>
-                        <li>Encoding speed matters more than maximum compression (batch processing thousands of images)</li>
-                        <li>Your CDN or hosting provider doesn't support AVIF yet (though most do by 2026)</li>
-                    </ul>
-                    <InfoBox type="example">
-                        <strong>Real-world scenario:</strong> E-commerce product galleries with 200+ SKU images. WebP converts fast, serves universally, and delivers 25-35% savings over JPEG - good enough for most workflows.
-                    </InfoBox>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
-                        AVIF: Choose When Performance is Priority
-                    </h3>
-                    <p class="mb-4 font-bold text-[#875F42]">Use AVIF if:</p>
-                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
-                        <li>You're optimizing for Core Web Vitals (LCP, CLS) and every kilobyte matters</li>
-                        <li>Your content includes hero images, above-the-fold graphics, or high-resolution photography</li>
-                        <li>You're comfortable implementing <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">&lt;picture&gt;</code> fallbacks (you should be)</li>
-                        <li>Storage costs concern you - AVIF's 20-50% advantage over WebP compounds at scale</li>
-                    </ul>
-                    <InfoBox type="example">
-                        <strong>Real-world scenario:</strong> Marketing landing pages with full-viewport hero images. A 2MB JPEG hero kills your LCP. A 400KB AVIF version (with WebP fallback) keeps you under budget and improves your Lighthouse score from 60 to 90+.
-                    </InfoBox>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
-                        JPEG XL: Choose When Future-Proofing Experiments
-                    </h3>
-                    <p class="mb-4 font-bold text-[#875F42]">Use JPEG XL if:</p>
-                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
-                        <li>You're running technical experiments or proof-of-concept projects</li>
-                        <li>You're implementing multi-format cascades anyway (JXL at top, AVIF/WebP fallbacks)</li>
-                        <li>You need lossless JPEG recompression for archival workflows (JXL can recompress existing JPEGs without generation loss - useful for massive legacy libraries)</li>
-                        <li>You have 6-12 months to wait for potential browser adoption (optimistic timeline)</li>
-                    </ul>
-                    <InfoBox type="example">
-                        <strong>Real-world scenario:</strong> Photography portfolios with multi-source fallbacks. Serve JXL to Safari users (partial support), AVIF to everyone else, WebP as final fallback. Users with JXL support get 10-30% better compression; everyone else still gets excellent quality.
-                    </InfoBox>
-                    <div class="mt-4 p-4 bg-[#FFF5F7] rounded-2xl border border-pink-100">
-                        <p class="text-[#6C3F31]">
-                            <strong class="text-[#D81B60]">Our honest take:</strong> Skip JPEG XL for production work in February 2026. Revisit in Q4 2026 if Chrome ships stable support. Until then, AVIF delivers 90% of the benefit with 95% browser coverage.
+            <div class="space-y-8">
+                
+                <div class="bg-white p-8 rounded-[2.5rem] border border-pink-100 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <h3 class="text-2xl font-bold text-[#4A2C2C]" id="webp">WebP</h3>
+                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border border-green-100">
+                            The Standard (96%)
+                        </span>
+                    </div>
+                    <p class="text-[#6C3F31] mb-6 leading-relaxed">
+                        Google released WebP in 2010. By 2026, it became the safe default. If you're still serving legacy JPEGs, you're leaving <strong>25-35% file size savings</strong> on the table. It works everywhere—even on your grandma's iPad.
+                    </p>
+                    <div class="bg-[#F7F9F9] p-6 rounded-3xl border border-gray-100">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Under the Hood</span>
+                        <p class="text-sm text-[#5C5C5C] leading-relaxed">
+                            WebP uses <strong>predictive coding</strong>—it guesses what the next pixel block looks like based on the previous one. 
+                            <span class="block mt-2 font-medium text-[#4A2C2C]">Sweet Spot: Quality 75-85.</span>
                         </p>
                     </div>
                 </div>
 
-                <div>
-                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
-                        HEIC: Don't Use for Web (Convert Instead)
-                    </h3>
-                    <p class="mb-4">
-                        HEIC isn't a web format. Period. If you're shooting on iPhone, convert to JPEG or AVIF before uploading to WordPress, Shopify, Etsy, or eBay. Most platforms reject HEIC uploads with "Unsupported File" errors - a daily frustration for mobile-first sellers.
+                <div class="bg-[#FFF0F3] p-8 rounded-[2.5rem] border border-pink-200 shadow-sm relative overflow-hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+                        <h3 class="text-2xl font-bold text-[#D81B60]" id="avif">AVIF</h3>
+                        <span class="bg-white/80 text-[#D81B60] px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border border-pink-100">
+                            High Performance
+                        </span>
+                    </div>
+                    <p class="text-[#8B5E51] mb-6 leading-relaxed relative z-10">
+                        The heavyweight champion. Built on the AV1 video codec (Netflix tech), AVIF is <strong>20-50% smaller than WebP</strong>. Crucially for photographers, it supports <strong>10-bit color depth</strong>, meaning your HDR gradients won't look banded.
                     </p>
-                    <InfoBox type="tip">
-                        <strong>Workflow tip:</strong> Convert HEIC to JPEG for marketplace compatibility, or convert to AVIF for your own website if you control the stack. (Our HEIC converter handles this in-memory without storing your product photos anywhere - crucial for pre-launch inventory that competitors would love to see.)
-                    </InfoBox>
+                    <div class="bg-white/60 p-6 rounded-3xl border border-white/50 relative z-10">
+                        <span class="text-xs font-bold text-[#D81B60] uppercase tracking-widest block mb-2">The Catch</span>
+                        <p class="text-sm text-[#8B5E51] leading-relaxed">
+                            AVIF is computationally heavy. Standard scripts choke on it. <br>
+                            <em>(This is why we built our engine in C++ with AVX-512—to make AVIF conversion instant.)</em>
+                        </p>
+                    </div>
                 </div>
+
+                <div class="bg-white p-8 rounded-[2.5rem] border border-pink-50 shadow-sm opacity-90">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <h3 class="text-2xl font-bold text-[#4A2C2C]" id="jpeg-xl">JPEG XL</h3>
+                        <span class="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                            Experimental
+                        </span>
+                    </div>
+                    <p class="text-[#6C3F31] mb-6 leading-relaxed">
+                        The promised land. It allows <strong>lossless recompression</strong> of existing JPEGs and progressive loading. 
+                        <br><br>
+                        <strong>The Reality in Feb 2026:</strong> The "dark ages" are ending with Chrome's new Rust decoder, but support is still spotty (~17%). Use it for experiments, not production.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-[2.5rem] border border-pink-50 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <h3 class="text-2xl font-bold text-[#4A2C2C]" id="heic">HEIC</h3>
+                        <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border border-blue-100">
+                            Mobile Capture
+                        </span>
+                    </div>
+                    <p class="text-[#6C3F31] mb-4 leading-relaxed">
+                        HEIC is an <strong>Apple capture format</strong>, not a web format. Browsers can't display it.
+                    </p>
+                    <div class="bg-orange-50 p-5 rounded-2xl border border-orange-100 flex items-start gap-3">
+                        <span class="text-xl">⚠️</span>
+                        <p class="text-sm text-[#8B5E51]">
+                            <strong>Don't upload HEIC to Shopify/Etsy.</strong> It will error out. Convert to JPEG or AVIF first.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="seo-impact">
-                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
-                SEO and Core Web Vitals Impact
+        <section class="mb-20">
+            <h2 class="text-3xl font-black text-[#4A2C2C] mb-8 flex items-center gap-3" id="when-to-use">
+                <span class="w-2 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                Decision Matrix: What should I use?
             </h2>
-            <p class="mb-6">
-                Format choice directly affects your search rankings through Core Web Vitals, particularly Largest Contentful Paint (LCP).
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="bg-[#FFF5F7] p-8 rounded-[2.5rem] border border-pink-100 flex flex-col">
+                    <div class="mb-4">
+                        <span class="text-3xl mb-2 block">🛍️</span>
+                        <h3 class="text-xl font-bold text-[#4A2C2C]">E-Commerce Galleries</h3>
+                        <p class="text-sm text-[#8B5E51] mt-2">You have 5,000 SKUs and need broad compatibility.</p>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-pink-200/50">
+                        <span class="text-xs font-bold text-[#6C3F31] uppercase tracking-wider">Verdict:</span>
+                        <div class="text-lg font-black text-[#D81B60]">Use WebP</div>
+                    </div>
+                </div>
+
+                <div class="bg-[#FFF0F3] p-8 rounded-[2.5rem] border border-pink-200 shadow-sm flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-pink-300 blur-2xl opacity-20"></div>
+                    <div class="mb-4 relative z-10">
+                        <span class="text-3xl mb-2 block">⚡</span>
+                        <h3 class="text-xl font-bold text-[#D81B60]">Hero Images & LCP</h3>
+                        <p class="text-sm text-[#8B5E51] mt-2">You need the absolute smallest file size for speed.</p>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-pink-300/30 relative z-10">
+                        <span class="text-xs font-bold text-[#8B5E51] uppercase tracking-wider">Verdict:</span>
+                        <div class="text-lg font-black text-[#D81B60]">Use AVIF</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-[2.5rem] border border-pink-50 flex flex-col">
+                    <div class="mb-4">
+                        <span class="text-3xl mb-2 block">🧪</span>
+                        <h3 class="text-xl font-bold text-[#4A2C2C]">Tech Experiments</h3>
+                        <p class="text-sm text-[#8B5E51] mt-2">Building a future-proof portfolio for 2027.</p>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-100">
+                        <span class="text-xs font-bold text-[#6C3F31] uppercase tracking-wider">Verdict:</span>
+                        <div class="text-lg font-black text-[#6C3F31]">Try JPEG XL</div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 flex flex-col">
+                    <div class="mb-4">
+                        <span class="text-3xl mb-2 block">📱</span>
+                        <h3 class="text-xl font-bold text-[#4A2C2C]">iPhone Uploads</h3>
+                        <p class="text-sm text-[#6C3F31] mt-2">Getting photos from phone to web.</p>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-200">
+                        <span class="text-xs font-bold text-[#6C3F31] uppercase tracking-wider">Verdict:</span>
+                        <div class="text-lg font-black text-[#4A2C2C]">Convert HEIC -> JPEG</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="text-3xl font-black text-[#4A2C2C] mb-8 flex items-center gap-3" id="seo-impact">
+                <span class="w-2 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                SEO & Core Web Vitals
+            </h2>
+            <p class="text-lg text-[#6C3F31] leading-relaxed">
+                Google doesn't penalize you for using JPEG, but they <em>do</em> penalize you for slow <strong>Largest Contentful Paint (LCP)</strong> times. By switching a 2MB JPEG hero image to a 400KB AVIF, you directly improve the metric that impacts your ranking.
             </p>
         </section>
 
