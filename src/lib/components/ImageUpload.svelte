@@ -62,6 +62,7 @@
     let errorMessage: string = $state('');
     let successMessage: string = $state('');
     let totalOriginalSize: number = $state(0);
+    let fileInputElement: HTMLInputElement;
     const MAX_FILES = 25;
     const CONCURRENT_UPLOADS = 3;
     const MAX_INDIVIDUAL_FILE_SIZE = 20 * 1024 * 1024; // 20MB
@@ -70,6 +71,8 @@
         const target = event.target as HTMLInputElement;
         if (target.files && target.files.length > 0) {
             processFiles(Array.from(target.files));
+            // Reset the input so the same file can be selected again
+            target.value = '';
         }
     }
 
@@ -310,6 +313,11 @@
             selectedFiles = selectedFiles.filter((_, i) => fileProgress[i].status !== 'complete');
             fileProgress = fileProgress.filter(fp => fp.status !== 'complete');
             totalOriginalSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
+            
+            // Reset file input to allow selecting new files
+            if (fileInputElement) {
+                fileInputElement.value = '';
+            }
         } catch (error) {
             errorMessage = error instanceof Error ? error.message : 'Failed to compress images';
             if (typeof window.umami !== 'undefined') {
@@ -356,6 +364,11 @@
         errorMessage = '';
         successMessage = '';
         imageType = 'jpg';
+        
+        // Reset file input
+        if (fileInputElement) {
+            fileInputElement.value = '';
+        }
     }
 
     function removeFile(index: number) {
@@ -374,6 +387,7 @@
         <div class={compact ? 'mb-6' : 'mb-8'}>
             <label for="file-input" class="block">
                 <input
+                    bind:this={fileInputElement}
                     id="file-input"
                     type="file"
                     accept={types}
