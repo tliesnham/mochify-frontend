@@ -80,6 +80,26 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="#when-to-use" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <span class="flex items-center gap-4">
+                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">03</span>
+                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">When to Use Each Format</span>
+                            </span>
+                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#seo-impact" class="group flex items-center justify-between p-5 rounded-2xl bg-white border border-pink-50 shadow-sm hover:shadow-md hover:shadow-pink-100 hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <span class="flex items-center gap-4">
+                                <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-xs font-black text-[#F06292] border border-pink-100 group-hover:scale-110 transition-transform">04</span>
+                                <span class="text-[#6C3F31] font-bold group-hover:text-[#F06292] transition-colors">SEO and Core Web Vitals Impact</span>
+                            </span>
+                            <svg class="w-4 h-4 text-pink-300 group-hover:text-[#F06292] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
         </section>
@@ -232,6 +252,93 @@
 
         </section>
 
+        <section>
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="when-to-use">
+                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                When to Use Each Format
+            </h2>
+            <p class="mb-8">
+                Decision fatigue is real. Here's the practical breakdown.
+            </p>
+
+            <div class="space-y-10">
+                <div>
+                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
+                        WebP: Choose When Compatibility is Non-Negotiable
+                    </h3>
+                    <p class="mb-4 font-bold text-[#875F42]">Use WebP if:</p>
+                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
+                        <li>You need near-universal support without fallback complexity</li>
+                        <li>You're targeting older Android devices (pre-2021 models with outdated Chrome)</li>
+                        <li>Encoding speed matters more than maximum compression (batch processing thousands of images)</li>
+                        <li>Your CDN or hosting provider doesn't support AVIF yet (though most do by 2026)</li>
+                    </ul>
+                    <InfoBox type="example">
+                        <strong>Real-world scenario:</strong> E-commerce product galleries with 200+ SKU images. WebP converts fast, serves universally, and delivers 25-35% savings over JPEG - good enough for most workflows.
+                    </InfoBox>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
+                        AVIF: Choose When Performance is Priority
+                    </h3>
+                    <p class="mb-4 font-bold text-[#875F42]">Use AVIF if:</p>
+                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
+                        <li>You're optimizing for Core Web Vitals (LCP, CLS) and every kilobyte matters</li>
+                        <li>Your content includes hero images, above-the-fold graphics, or high-resolution photography</li>
+                        <li>You're comfortable implementing <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">&lt;picture&gt;</code> fallbacks (you should be)</li>
+                        <li>Storage costs concern you - AVIF's 20-50% advantage over WebP compounds at scale</li>
+                    </ul>
+                    <InfoBox type="example">
+                        <strong>Real-world scenario:</strong> Marketing landing pages with full-viewport hero images. A 2MB JPEG hero kills your LCP. A 400KB AVIF version (with WebP fallback) keeps you under budget and improves your Lighthouse score from 60 to 90+.
+                    </InfoBox>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
+                        JPEG XL: Choose When Future-Proofing Experiments
+                    </h3>
+                    <p class="mb-4 font-bold text-[#875F42]">Use JPEG XL if:</p>
+                    <ul class="list-disc list-outside ml-6 space-y-2 mb-4 text-[#6C3F31]">
+                        <li>You're running technical experiments or proof-of-concept projects</li>
+                        <li>You're implementing multi-format cascades anyway (JXL at top, AVIF/WebP fallbacks)</li>
+                        <li>You need lossless JPEG recompression for archival workflows (JXL can recompress existing JPEGs without generation loss - useful for massive legacy libraries)</li>
+                        <li>You have 6-12 months to wait for potential browser adoption (optimistic timeline)</li>
+                    </ul>
+                    <InfoBox type="example">
+                        <strong>Real-world scenario:</strong> Photography portfolios with multi-source fallbacks. Serve JXL to Safari users (partial support), AVIF to everyone else, WebP as final fallback. Users with JXL support get 10-30% better compression; everyone else still gets excellent quality.
+                    </InfoBox>
+                    <div class="mt-4 p-4 bg-[#FFF5F7] rounded-2xl border border-pink-100">
+                        <p class="text-[#6C3F31]">
+                            <strong class="text-[#D81B60]">Our honest take:</strong> Skip JPEG XL for production work in February 2026. Revisit in Q4 2026 if Chrome ships stable support. Until then, AVIF delivers 90% of the benefit with 95% browser coverage.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-4">
+                        HEIC: Don't Use for Web (Convert Instead)
+                    </h3>
+                    <p class="mb-4">
+                        HEIC isn't a web format. Period. If you're shooting on iPhone, convert to JPEG or AVIF before uploading to WordPress, Shopify, Etsy, or eBay. Most platforms reject HEIC uploads with "Unsupported File" errors - a daily frustration for mobile-first sellers.
+                    </p>
+                    <InfoBox type="tip">
+                        <strong>Workflow tip:</strong> Convert HEIC to JPEG for marketplace compatibility, or convert to AVIF for your own website if you control the stack. (Our HEIC converter handles this in-memory without storing your product photos anywhere - crucial for pre-launch inventory that competitors would love to see.)
+                    </InfoBox>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="seo-impact">
+                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                SEO and Core Web Vitals Impact
+            </h2>
+            <p class="mb-6">
+                Format choice directly affects your search rankings through Core Web Vitals, particularly Largest Contentful Paint (LCP).
+            </p>
+        </section>
+
         <div class="my-12 bg-[#FFF5F7] p-8 md:p-10 rounded-3xl border border-pink-100 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
             <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-pink-100 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
             
@@ -255,6 +362,8 @@
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
         </div>
+
+
 
     </div>
 </article>
