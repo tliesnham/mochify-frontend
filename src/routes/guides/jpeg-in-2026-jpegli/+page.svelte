@@ -19,7 +19,7 @@
 
 <article class="bg-white rounded-3xl p-8 md:p-12 border border-pink-50 shadow-sm relative overflow-hidden">
     
-<header class="mb-12 border-b border-pink-50 pb-12">
+    <header class="mb-12 border-b border-pink-50 pb-12">
         <div class="flex flex-wrap items-center gap-4 mb-6">
             <span class="inline-block px-3 py-1 rounded-full bg-pink-50 text-pink-500 text-xs font-bold uppercase tracking-wider border border-pink-100">
                 {metadata.category}

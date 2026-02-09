@@ -4,8 +4,8 @@
     
     const metadata = {
         category: "WordPress Optimization",
-        readTime: "8 min read",
-        date: "February 07, 2026"
+        readTime: "15 min read",
+        date: "February 09, 2026"
     };
 </script>
 
@@ -131,6 +131,17 @@
         </section>
 
         <section>
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="understanding">
+                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                Why this shows up next to LCP
+            </h2>
+
+            <p class="mb-4">Largest Contentful Paint (LCP) measures how long it takes for the largest element in the viewport (often a hero image, featured image, or large banner) to render.</p>
+
+            <p class="mb-4">So if your LCP element is a 900KB JPEG hero, you're effectively asking the browser to download and decode a big file before you can “look fast.” Convert that hero to WebP/AVIF, and you often reduce transfer size enough to move LCP in the right direction (especially on mobile connections).</p>
+        </section>
+
+        <section>
             <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="bloat">
                 <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
                 Why More Image Plugins Often Make Things Worse
@@ -153,13 +164,23 @@
                 The Clean External Workflow (Mochify)
             </h2>
             <p class="mb-4">
-                Mochify is built for exactly this: pre-optimizing images before they ever hit WordPress. The workflow is straightforward:
+                Mochify is built for exactly this: pre-optimizing images before they ever hit WordPress. Here is the workflow we recommend:
             </p>
             <ol class="list-decimal list-outside ml-6 space-y-3 mb-6 text-[#6C3F31]">
-                <li><strong>Export</strong> your hero and key content images (the ones PageSpeed calls out).</li>
-                <li><strong>Drag</strong> them into Mochify, convert JPG/PNG → WebP or AVIF, and compress.</li>
-                <li><strong>Upload</strong> the optimized files to WordPress, replacing the originals.</li>
+                <li><strong>Export or identify</strong> your hero and key content images (the ones PageSpeed calls out).</li>
+                <li>Drag them into Mochify, convert <strong>JPG/PNG → WebP or AVIF</strong>, and compress.</li>
+                <li>Download the optimized files and <strong>re-upload to WordPress</strong>, replacing the originals in your content/theme.</li>
             </ol>
+
+            <h3 class="text-xl font-bold text-[#4A2C2C] mb-3">
+                Why Mochify fits this job:
+            </h3>
+
+            <ul class="list-disc list-outside ml-6 space-y-2 mb-6 text-[#6C3F31]">
+                <li>Images are processed in memory and discarded immediately-no disk storage, no retention.</li>
+                <li>Mochify runs a high-performance C++ engine for fast conversions and compression.</li>
+                <li>You can process up to 25 images in parallel in a batch (for free), which makes "cleaning up" a page or a small library realistic in one sitting.</li>
+            </ul>
             
             <div class="my-8 bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-2xl border border-pink-100">
                 <h3 class="text-lg font-black text-[#875F42] mb-3 flex items-center gap-2">
@@ -177,11 +198,11 @@
                 <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
                 Step-by-Step: Fixing One Template/Page
             </h2>
-            <p class="mb-6">Pick one page that matters commercially - homepage, a top category, or a best-selling product page.</p>
+            <p class="mb-6">Pick one page that matters commercially - homepage, a top category, or a best-selling product page. We're going to fix that page, not "optimize your whole site" in theory.</p>
 
             <div class="space-y-8">
                 <div>
-                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-2">1. Identify the offending images</h3>
+                    <h3 class="text-xl font-bold text-[#4A2C2C] mb-2">1. Identify the offending images (PageSpeed / Lighthouse)</h3>
                     <p>Run PageSpeed Insights on the exact URL (mobile first). Open "Opportunities" and find "Serve images in next-gen formats." Copy the image URLs and note which one is likely your LCP element (often the hero/featured image).</p>
                 </div>
 
@@ -213,7 +234,10 @@
                 
                 <div>
                     <h3 class="text-xl font-bold text-[#4A2C2C] mb-2">5. Confirm WordPress can upload WebP</h3>
-                    <p>WordPress has supported uploading/using WebP images natively since WordPress 5.8.</p>
+                    <p class="mb-4">WordPress has supported uploading/using WebP images natively since WordPress 5.8.</p>
+                    <p>
+                        That means your no-plugin workflow can be as simple as "convert to WebP, uploads, use it like any other image" on modern WordPress installs.
+                    </p>
                 </div>
             </div>
         </section>
@@ -224,7 +248,11 @@
                 Best-Practice Settings & Dimensions
             </h2>
             <p class="mb-6">
-               This is where most WordPress sites quietly lose: they upload a beautiful 5000px-wide image and let WordPress generate derivatives that are still too heavy.
+               This is where most WordPress sites quietly lose: they upload a beautiful 5000px-wide image, then let WordPress generate a dozen derivatives, and still end up serving something too heavy for the first viewport.
+            </p>
+
+            <p>
+                Below is a cheat-sheet you can use as a starting point (not dogma-test against your theme layout and audience).
             </p>
 
             <div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
@@ -258,33 +286,126 @@
                                 <td class="py-5 px-6">1000-1600px</td>
                                 <td class="py-5 px-6 text-[#4A2C2C]">70-180KB</td>
                             </tr>
+                            <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                                <td class="py-5 px-6 font-bold text-[#4A2C2C]">Logos / simple icons</td>
+                                <td class="py-5 px-6">Consider SVG where appropriate</td>
+                                <td class="py-5 px-6 text-[#4A2C2C]">Under 20KB</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="mt-4 px-2 text-xs font-medium text-[#875F42] opacity-70 flex items-center gap-1.5">
-                <span class="text-[#F06292] font-black">*</span>
-                <span>Example ranges only.</span>
-            </div>
+
+            <h3 class="text-xl font-bold text-[#4A2C2C] mb-3">
+                Two rules I use in audits:
+            </h3>
+
+            <ol class="list-decimal list-outside ml-6 space-y-3 mb-6 text-[#6C3F31]">
+                <li>If an image is above the fold, you should be able to justify its byte cost.</li>
+                <li>If an image is below the fold, don't let it be larger than the above-the-fold hero.</li>
+            </ol>
         </section>
 
-        <section class="mt-12 pt-12 border-t border-pink-50">
-            <h2 class="text-2xl font-black text-[#4A2C2C] mb-8">FAQ</h2>
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-bold text-[#4A2C2C] text-lg">Does converting to WebP/AVIF directly help SEO?</h4>
-                    <p class="mt-2 text-[#6C3F31]">Indirectly: it helps by reducing bytes and improving user-perceived speed, which can improve Core Web Vitals like LCP.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-[#4A2C2C] text-lg">Do I need a plugin to use WebP in WordPress?</h4>
-                    <p class="mt-2 text-[#6C3F31]">On modern WordPress, WebP uploads are supported natively (since 5.8), so a no-plugin workflow is viable.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-[#4A2C2C] text-lg">Is it safe to upload client/product images to Mochify?</h4>
-                    <p class="mt-2 text-[#6C3F31]">Mochify is designed around in-memory processing with immediate discard (no disk storage/retention).</p>
-                </div>
-            </div>
+        <section>
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="settings">
+                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                A Small Format Comparsion (Example)
+            </h2>
+            <p class="mb-6">Here's what "serve images in next-gen formats" looks like in practice-same visual image, different encodings.</p>
+<div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
+                <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#FFF5F7] border-b border-pink-100">
+                                <th class="py-5 px-6 text-sm font-black text-[#4A2C2C] uppercase tracking-wider w-1/3">Format</th>
+                                <th class="py-5 px-6 text-sm font-black text-[#875F42] uppercase tracking-wider w-1/3">File Size</th>
+                                <th class="py-5 px-6 text-sm font-black text-[#F06292] uppercase tracking-wider w-1/3">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-pink-50 text-[#6C3F31]">
+                            <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                                <td class="py-5 px-6 font-bold text-[#4A2C2C]">Original JPEG (hero)</td>
+                                <td class="py-5 px-6">900KB</td>
+                                <td class="py-5 px-6 text-[#4A2C2C]">Looks fine, but heavy for mobile LCP.</td>
+                            </tr>
+                            <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                                <td class="py-5 px-6 font-bold text-[#4A2C2C]">WebP (converted)</td>
+                                <td class="py-5 px-6">260KB</td>
+                                <td class="py-5 px-6 text-[#4A2C2C]">Often the best "default" win with minimal fuss.</td>
+                            </tr>
+                            <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                                <td class="py-5 px-6 font-bold text-[#4A2C2C]">AVIF (converted)</td>
+                                <td class="py-5 px-6">180KB</td>
+                                <td class="py-5 px-6 text-[#4A2C2C]">Smaller still; great for heroes if you handle fallback.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+
+                    <p>The point isn't chasing perfect numbers - it's removing hundred of kilobytes from the crtical rendering path.</p>
         </section>
+
+        <section>
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="settings">
+                <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+                Measuring the Impact (Before vs. After)
+            </h2>
+            <p class="mb-4">After you replace the images:</p>
+            <ol class="list-decimal list-outside ml-6 space-y-3 mb-6 text-[#6C3F31]">
+                <li class="mb-3">Run PageSpeed Insights again on the same URL.</li>
+                <li class="mb-3">You should see "Serve images in next-gen formats" disappear from the Opportunities section.</li>
+                <li class="mb-3">Check your LCP metric - it should improve, often by a significant margin (especially on mobile).</li>
+                <li class="mb-3">If you use Core Web Vitals in Google Search Console, you may see an improvement there as well after Google re-crawls your page.</li>
+            </ol>     
+            
+            <h3 class="text-xl font-bold text-[#4A2C2C] mb-3">
+                A simple before/after story (example)
+            </h3>
+
+            <ul class="list-disc list-outside ml-6 space-y-2 mb-6 text-[#6C3F31]">
+                <li>Before: hero JPEG ~900KBl LCP ~3.2s (mobile).</li>
+                <li>After: hero AVIF ~180KB LCP ~2.1s (mobile).</li>
+            </ul>
+
+            <p>
+                Treat those numbers as an illustration, not a promise. But the mechanism is real: LCP is driven by the render time of the largest viewport element, and on many WordPress sites that element is an image.
+            </p>
+</section>
+
+<section>
+    <h2 class="text-2xl font-black text-[#4A2C2C] mb-4 flex items-center gap-3" id="settings">
+        <span class="w-1.5 h-8 bg-[#F06292] rounded-full inline-block"></span>
+        When You Might Want Automation (Mochify Pro)
+    </h2>
+
+    <p class="mb-6">The manual workflow is perfect for:</p>
+
+    <ul class="list-disc list-outside ml-6 space-y-2 mb-6 text-[#6C3F31]">
+        <li>A handful of high-traffic pages.</li>
+        <li>A small catalog.</li>
+        <li>A publisher cleaning up top posts once per quarter.</li>
+    </ul>
+
+    <p class="mb-4">
+        But if you're processing thousands of product images, running multiple client sites, or building a CI-style media pipeline, you eventually want automation.
+    </p>
+
+    <p class="mb-4">
+        That's where <strong>Mochify Pro (coming soon)</strong> fits:
+    </p>
+
+        <ul class="list-disc list-outside ml-6 space-y-2 mb-6 text-[#6C3F31]">
+        <li>An API for high-volume, automated conversion/compression.</li>
+        <li>Parameters to fine tine quality and size.</li>
+    </ul>
+
+    <p>
+        Importantly, the privacy model doesn't change: Mochify is designed around in-memory processing and immediate discard-accounts would store settings and keys, not your images.
+    </p>
+
+</section>
+
 
         <div class="my-12 bg-[#FFF5F7] p-8 md:p-10 rounded-3xl border border-pink-100 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
             <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-pink-100 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
@@ -311,4 +432,22 @@
         </div>
 
     </div>
+
+        <section class="mt-12 pt-12 border-t border-pink-50">
+            <h2 class="text-2xl font-black text-[#4A2C2C] mb-8">FAQ</h2>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-bold text-[#4A2C2C] text-lg">Does converting to WebP/AVIF directly help SEO?</h4>
+                    <p class="mt-2 text-[#6C3F31]">Indirectly: it helps by reducing bytes and improving user-perceived speed, which can improve Core Web Vitals like LCP.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#4A2C2C] text-lg">Do I need a plugin to use WebP in WordPress?</h4>
+                    <p class="mt-2 text-[#6C3F31]">On modern WordPress, WebP uploads are supported natively (since 5.8), so a no-plugin workflow is viable.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#4A2C2C] text-lg">Is it safe to upload client/product images to Mochify?</h4>
+                    <p class="mt-2 text-[#6C3F31]">Mochify is designed around in-memory processing with immediate discard (no disk storage/retention).</p>
+                </div>
+            </div>
+        </section>
 </article>
