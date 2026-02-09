@@ -36,6 +36,14 @@
             category: "Image Formats",
             readTime: "10 min read",
             date: "Feb 07, 2026"
+        },
+        {
+            title: "Jpegli Guide 2026: Why Jpegli Changes the Quality-Per-Byte Game",
+            description: "Boost eBay & Etsy sales with Jpegli. Get 35% better compression than MozJPEG with no quality loss. Master chroma & workflows via Mochify's encoder.",
+            url: "/guides/jpeg-in-2026-jpegli",
+            category: "Image Optimization",
+            readTime: "7 min read",
+            date: "Feb 09, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
