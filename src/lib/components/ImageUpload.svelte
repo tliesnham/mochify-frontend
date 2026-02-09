@@ -406,12 +406,12 @@
                     <svg class={`w-16 h-16 mx-auto mb-4 ${colors.text} ${colors.textHover} transition-colors`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
-                    <p class="text-lg text-gray-700 font-semibold mb-1">
-                    {selectedFiles.length > 0 ? `${selectedFiles.length} file${selectedFiles.length > 1 ? 's' : ''} selected` : 'Drop your images here or click to browse'}
-                </p>
-                <p class="text-sm text-gray-500">
-                    {types} supported · Max {MAX_FILES} files
-                    </p>
+                    <p class="text-lg text-[#6C3F31] font-semibold mb-1">
+    {selectedFiles.length > 0 ? `${selectedFiles.length} file${selectedFiles.length > 1 ? 's' : ''} selected` : 'Drop your images here or click to browse'}
+</p>
+                <p class="text-sm text-[#B38B91]">
+    {types} supported · Max {MAX_FILES} files
+</p>
                 </div>
             </label>
 
