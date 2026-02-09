@@ -54,15 +54,17 @@
         
         <header class="text-center mb-16">
             <div class="flex flex-col items-center gap-2 mb-4">
-                <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FFB3C6] via-[#E0ACD5] to-[#C5A3E0] bg-clip-text text-transparent leading-tight text-center drop-shadow-sm pb-2">
-					Mochify <br>
-					<span class="text-3xl md:text-4xl text-[#FF8FA3] font-bold">Sustainable Image Vault</span>
-				</h1>
-            </div>
+    <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FFB3C6] via-[#E0ACD5] to-[#C5A3E0] bg-clip-text text-transparent leading-tight text-center pb-2 drop-shadow-[0_2px_10px_rgba(224,172,213,0.3)]">
+        Mochify <br>
+        <span class="text-3xl md:text-4xl text-[#FF8FA3] font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)]">
+            Sustainable Image Vault
+        </span>
+    </h1>
+</div>
             
-            <p class="mt-4 text-base text-[#6C3F31] max-w-2xl mx-auto leading-relaxed">
-				No more 5MB limits. Compress <strong class="text-[#7E685E]">25 images (20MB each)</strong> at once with our <strong class="text-[#7E685E]">native C++ engine</strong>. 
-				Get next-gen <strong class="text-[#7E685E]">Jpegli</strong>, <strong class="text-[#7E685E]">AVIF</strong>, and <strong class="text-[#7E685E]">JPEG XL</strong> – smaller files, same quality, instant results.
+            <p class="mt-4 text-[#6C3F31] text-base max-w-2xl mx-auto leading-relaxed">
+				No more 5MB limits. Compress <strong>25 images (20MB each)</strong> at once with our <strong>native C++ engine</strong>. 
+				Get next-gen <strong>Jpegli</strong>, <strong>AVIF</strong>, and <strong>JPEG XL</strong> – smaller files, same quality, instant results.
 			</p>
 
             <div class="flex flex-wrap justify-center gap-4 mt-8">
