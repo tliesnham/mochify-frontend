@@ -160,54 +160,6 @@
     </div>
 </div>
 
-<section class="my-20 max-w-5xl mx-auto px-4">
-    
-    <div class="text-center mb-10">
-        <h2 class="text-3xl font-black text-[#6C3F31]">The Greenest Engine on the Web</h2>
-        <p class="text-[#9C7A6F] mt-2">
-            Efficiency isn't just about speed. It's about energy. 
-            Our C++ architecture cuts the "Digital Waste" of image processing.
-        </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="bg-[#E8F5E9] rounded-3xl p-8 border border-green-100 flex flex-col items-center text-center relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500">
-                <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <span class="text-5xl font-black text-[#15803d] mb-2 tracking-tighter">75x</span>
-            <span class="text-lg font-bold text-[#14532d] mb-2">More Efficient</span>
-            <p class="text-sm text-[#166534] opacity-80 leading-relaxed">
-                Compiled C++ vs. interpreted JavaScript/WASM. We do more math with fewer CPU cycles.
-            </p>
-        </div>
-
-        <div class="bg-[#F0FDF4] rounded-3xl p-8 border border-green-100 flex flex-col items-center text-center relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500">
-                <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            </div>
-            <span class="text-5xl font-black text-[#15803d] mb-2 tracking-tighter">0g</span>
-            <span class="text-lg font-bold text-[#14532d] mb-2">Disk Waste</span>
-            <p class="text-sm text-[#166534] opacity-80 leading-relaxed">
-                Zero hard drive spins. Zero temp files. RAM-only processing consumes significantly less power.
-            </p>
-        </div>
-
-        <div class="bg-[#DCFCE7] rounded-3xl p-8 border border-green-100 flex flex-col items-center text-center relative overflow-hidden group">
-            <div class="absolute -right-4 -top-4 opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500">
-                <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
-            </div>
-            <span class="text-5xl font-black text-[#15803d] mb-2 tracking-tighter">100%</span>
-            <span class="text-lg font-bold text-[#14532d] mb-2">Clean Code</span>
-            <p class="text-sm text-[#166534] opacity-80 leading-relaxed">
-                Bloat-free software runs cooler. We strip away the frameworks so your servers don't sweat.
-            </p>
-        </div>
-
-    </div>
-</section>
-
         <section class="mt-20 max-w-4xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-4">
