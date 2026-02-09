@@ -1,5 +1,6 @@
 <script>
     import ReadProgress from '$lib/components/ReadProgress.svelte';
+    import BackToTop from '$lib/components/BackToTop.svelte';
 
     const metadata = {
         title: "Fuji HIF Files Explained: How to Convert X‑T5 / X‑H2 / X100VI / X‑T50 HIF to JPEG",
@@ -161,3 +162,5 @@
 
     </div>
 </article>
+
+<BackToTop />
