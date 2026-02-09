@@ -13,7 +13,7 @@
     };
 
     const props = $props();
-    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '' } = props;
+    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '', queryParams = '' } = props;
     const hasOutputOverride = 'output' in props;
 
     // Theme color mappings
@@ -224,7 +224,7 @@
                             }, 100);
                         });
                         
-                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}`);
+                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}${queryParams ? '&' + queryParams : ''}`);
                         xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
                         xhr.responseType = 'blob';
                         xhr.send(file);
