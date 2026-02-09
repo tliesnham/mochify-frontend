@@ -17,7 +17,7 @@
     <meta property="og:description" content="Secure your images with Zero-Retention optimization. The only way to ensure 100% data privacy in 2026. Fast, private, and storage-free image processing." />
 </svelte:head>
 
-<article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border border-pink-50 shadow-sm relative overflow-hidden">
+<article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">
     
 <header class="mb-12 border-b border-pink-50 pb-12">
         <div class="flex flex-wrap items-center gap-4 mb-6">

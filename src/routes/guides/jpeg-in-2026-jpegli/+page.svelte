@@ -18,7 +18,7 @@
     <meta property="og:description" content="Deliver better JPEG quality at smaller file sizes with Google's jpegli encoder. Get up to 35% compression improvement for eBay, Etsy, and platform-locked workflows without losing compatibility." />
 </svelte:head>
 
-<article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border border-pink-50 shadow-sm relative overflow-hidden">
+<article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">
     
     <header class="mb-12 border-b border-pink-50 pb-12">
         <div class="flex flex-wrap items-center gap-4 mb-6">

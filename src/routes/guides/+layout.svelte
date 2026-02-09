@@ -8,11 +8,11 @@
 
     <Navigation />
 
-    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-0 md:px-4 py-6 md:py-12">
+    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-0 md:px-4 py-2 md:py-12">
         <slot />
     </main>
 
-    <div class="mt-40">
+    <div class="mt-12 md:mt-40">
         <Footer />
     </div>
 </div>
