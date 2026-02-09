@@ -42,7 +42,7 @@
             description: "Boost eBay & Etsy sales with Jpegli. Get 35% better compression than MozJPEG with no quality loss. Master chroma & workflows via Mochify's encoder.",
             url: "/guides/jpeg-in-2026-jpegli",
             category: "Image Optimization",
-            readTime: "7 min read",
+            readTime: "20 min read",
             date: "Feb 09, 2026"
         }
     ];
