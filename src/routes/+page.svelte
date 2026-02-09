@@ -86,10 +86,84 @@
 
         <ImageUpload />
 
+       <div class="my-16 max-w-3xl mx-auto">
+    <div class="text-center mb-6">
+        <h3 class="text-xl font-bold text-[#6C3F31]">Real-World Efficiency</h3>
+        <p class="text-sm text-[#9C7A6F]">
+            Our C++ engine proves you don't always need new formats to get small files.
+        </p>
+    </div>
+    
+    <div class="overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-[#FFF5F7] border-b border-pink-100">
+                        <th class="py-4 px-6 text-xs font-black text-[#875F42] uppercase tracking-wider">Optimization</th>
+                        <th class="py-4 px-6 text-xs font-black text-[#875F42] uppercase tracking-wider">Efficiency</th>
+                        <th class="py-4 px-6 text-xs font-black text-[#875F42] uppercase tracking-wider text-right">Result</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-pink-50 text-[#6C3F31]">
+                    
+                    <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                        <td class="py-4 px-6">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded">JPG</span>
+                                <div>
+                                    <span class="font-bold text-sm block">Jpegli Re-encode</span>
+                                    <span class="text-[10px] text-gray-500 font-medium">100% Compatibility</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-6">
+                            <div class="flex items-center gap-2">
+                                <div class="h-2 w-24 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-[94%]"></div>
+                                </div>
+                                <span class="text-xs font-bold text-blue-600">-94%</span>
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 text-right font-mono text-sm">
+                            <span class="text-gray-400 line-through mr-2">12MB</span>
+                            <span class="font-bold text-[#6C3F31]">710KB</span>
+                        </td>
+                    </tr>
+
+                    <tr class="group hover:bg-[#FFF9FB] transition-colors duration-200">
+                        <td class="py-4 px-6">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded">AVIF</span>
+                                <div>
+                                    <span class="font-bold text-sm block">Convert to AVIF</span>
+                                    <span class="text-[10px] text-gray-500 font-medium">Modern Browsers</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-6">
+                            <div class="flex items-center gap-2">
+                                <div class="h-2 w-24 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-purple-500 w-[90%]"></div>
+                                </div>
+                                <span class="text-xs font-bold text-purple-600">-90%</span>
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 text-right font-mono text-sm">
+                            <span class="text-gray-400 line-through mr-2">12MB</span>
+                            <span class="font-bold text-[#6C3F31]">1.1MB</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
         <section class="mt-20 max-w-4xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-bold">Why is Mochify Faster?</h3>
+                    <h3 class="text-2xl font-bold">The Engineering</h3>
                     <p class="leading-relaxed">
                         Most online compressors run on slow interpreted scripts. Mochify runs on a custom C++20 engine directly on the server hardware, so we can handle much larger files (up to 20 MB) and return downloads almost instantly.
                     </p>
@@ -131,6 +205,7 @@
                     </div>
                 </div>
             </div>
+            
         </section>
     </main>
 

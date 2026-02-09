@@ -45,7 +45,7 @@
         </div>
 
         <div class="mb-16">
-            <ImageUpload types=".HEIF, .HIF" quality={90} output="jpg" showQuality={true} showTypes={false} compact />
+            <ImageUpload types=".HEIF, .HIF" quality={90} output="jpg" showQuality={true} showTypes={false} compact queryParams="photography=1" />
         </div>
 
         <section class="mt-20 max-w-4xl mx-auto">
