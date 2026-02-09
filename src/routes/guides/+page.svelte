@@ -88,12 +88,26 @@
     {/each}
 </div>
 
-<div class="bg-white p-10 rounded-3xl border border-pink-50 shadow-sm text-center space-y-6">
-    <h3 class="text-2xl font-black text-[#4A2C2C]">Ready to squish some images?</h3>
-    <p class="text-[#875F42] max-w-md mx-auto">
+<div class="my-12 bg-[#FFF5F7] p-8 md:p-10 rounded-3xl border border-pink-100 text-center relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-pink-100 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
+    
+    <div class="relative z-10 mb-6">
+        <span class="inline-block px-3 py-1 rounded-full bg-white text-[#F06292] text-[10px] font-black uppercase tracking-widest border border-pink-100 shadow-sm">
+            Free Tool
+        </span>
+    </div>
+
+    <h3 class="text-2xl md:text-3xl font-black text-[#4A2C2C] relative z-10 mb-3 flex items-center justify-center gap-3">
+        <span class="text-3xl">🚀</span>
+        Ready to squish some images?
+    </h3>
+
+    <p class="text-[#6C3F31] text-lg max-w-lg mx-auto relative z-10 mb-8 leading-relaxed">
         Try our native C++ engine for instant Jpegli, AVIF, and WebP compression.
     </p>
-    <a href="/" class="inline-flex items-center gap-2 px-10 py-4 bg-[#F06292] hover:bg-[#ec407a] text-white font-black rounded-2xl shadow-lg hover:-translate-y-1 transition-all duration-300 no-underline">
-        Start Optimizing Now
+
+    <a href="/" class="relative z-10 inline-flex items-center gap-3 px-8 py-4 bg-[#F06292] hover:bg-[#D81B60] text-white font-black text-lg rounded-2xl shadow-lg hover:shadow-pink-300/50 hover:-translate-y-1 transition-all duration-300 no-underline">
+        <span>Start Optimizing Now</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
     </a>
 </div>
