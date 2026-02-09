@@ -408,9 +408,9 @@
                     
                     <ol class="list-decimal list-outside ml-6 space-y-3 mb-6 text-[#6C3F31]">
                         <li><strong>Export from Lightroom at maximum quality</strong> (90-95) with sRGB color profile and no size limit. Do <em>not</em> resize or compress in Lightroom—Lightroom's JPEG encoder (as of 2026) still uses an older library, not jpegli.</li>
-                        <li><strong>Batch process the exported JPEGs externally</strong> – Resize to 2560px long edge (sufficient for 4K display). Compress using jpegli at quality 85. Target 800KB-1.2MB per image.</li>
-                        <li><strong>Strip unnecessary metadata</strong> – Remove GPS, camera serial numbers, and embedded thumbnails. Keep copyright EXIF if contractually required.</li>
-                        <li><strong>Test decode compatibility</strong> – Open a few files in common client tools (Windows Photo Viewer, macOS Preview, Gmail image preview). Jpegli JPEGs are fully compatible, but it never hurts to verify before delivering 500 files.</li>
+                        <li><strong>Batch process the exported JPEGs externally</strong> - Resize to 2560px long edge (sufficient for 4K display). Compress using jpegli at quality 85. Target 800KB-1.2MB per image.</li>
+                        <li><strong>Strip unnecessary metadata</strong> - Remove GPS, camera serial numbers, and embedded thumbnails. Keep copyright EXIF if contractually required.</li>
+                        <li><strong>Test decode compatibility</strong> - Open a few files in common client tools (Windows Photo Viewer, macOS Preview, Gmail image preview). Jpegli JPEGs are fully compatible, but it never hurts to verify before delivering 500 files.</li>
                     </ol>
 
                     <InfoBox type="technical">
@@ -566,7 +566,6 @@ time cjpeg -quality 85 input.png > output_mozjpeg.jpg</pre>
             </div>
 
             <h3 class="text-2xl md:text-3xl font-black text-[#4A2C2C] relative z-10 mb-3 flex items-center justify-center gap-3">
-                <span class="text-3xl">🚀</span>
                 Try It: Compare Jpegli on One Real Image
             </h3>
 
