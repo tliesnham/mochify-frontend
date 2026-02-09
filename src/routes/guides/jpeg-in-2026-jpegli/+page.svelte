@@ -34,13 +34,12 @@
             JPEG Compression in 2026: Why Jpegli Changes the Quality-Per-Byte Game
         </h1>
 
-        <p class="text-xl mb-6">
+        <p class="text-xl text-[#6C3F31] opacity-90 leading-relaxed max-w-2xl mb-8">
             <strong>The problem:</strong> I have to deliver JPEG because the platform only accepts JPEG (eBay, Etsy, legacy CMS, print upload portals), but I still need smaller files without ugly artifacts. The old tools give me two bad choices—crank quality to 90 and bloat the file, or drop to 70 and watch detail collapse into blocky mush.
         </p>
 
-        <p>
-            Modern JPEG encoders changed that trade-off. Google's jpegli library (released in 2024) delivers reported compression improvements of up to 35% at high quality settings while maintaining full compatibility with every JPEG viewer on the planet. This isn't a new format requiring browser support or user education—it's better math inside the same old container.
-        </p>
+        <div class="bg-[#FFF5F7] rounded-3xl p-6 md:p-8 border border-pink-100 max-w-3xl"><p class="text-lg text-[#6C3F31] leading-relaxed">            Modern JPEG encoders changed that trade-off. Google's jpegli library (released in 2024) delivers reported compression improvements of up to 35% at high quality settings while maintaining full compatibility with every JPEG viewer on the planet. This isn't a new format requiring browser support or user education—it's better math inside the same old container.
+</p></div>
     </header>
 
     <div class="space-y-8 text-lg text-[#6C3F31] leading-relaxed">
