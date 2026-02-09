@@ -23,7 +23,7 @@
         on:click={scrollToTop}
         in:fly={{ y: 20, duration: 400 }}
         out:fade={{ duration: 200 }}
-        class="fixed bottom-8 right-8 z-[999] group flex items-center justify-center w-14 h-14 bg-white/90 backdrop-blur-sm border-2 border-pink-100 rounded-full shadow-lg shadow-pink-100/50 hover:shadow-pink-200 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+        class="fixed bottom-8 right-8 z-[9999] group flex items-center justify-center w-14 h-14 bg-white/90 backdrop-blur-sm border-2 border-pink-100 rounded-full shadow-lg shadow-pink-100/50 hover:shadow-pink-200 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
         aria-label="Back to top"
     >
         <div class="absolute inset-0 bg-[#FFF0F3] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

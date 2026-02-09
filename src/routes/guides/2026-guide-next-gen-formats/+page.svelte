@@ -1,6 +1,5 @@
 <script>
     import ReadProgress from '$lib/components/ReadProgress.svelte';
-    import BackToTop from '$lib/components/BackToTop.svelte';
     
     const metadata = {
         category: "Image Formats",
@@ -382,5 +381,3 @@
 
     </div>
 </article>
-
-<BackToTop />

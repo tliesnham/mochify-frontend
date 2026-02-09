@@ -1,7 +1,6 @@
 <script>
     import ReadProgress from '$lib/components/ReadProgress.svelte';
     import InfoBox from '$lib/components/InfoBox.svelte';
-    import BackToTop from '$lib/components/BackToTop.svelte';
     
     const metadata = {
         category: "Image Optimization",
@@ -645,5 +644,3 @@ time cjpeg -quality 85 input.png > output_mozjpeg.jpg</pre>
     </div>
 
 </article>
-
-<BackToTop />

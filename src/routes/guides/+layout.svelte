@@ -1,6 +1,7 @@
 <script>
     import Navigation from '$lib/components/Navigation.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    import BackToTop from '$lib/components/BackToTop.svelte';
 </script>
 
 <div class="min-h-screen bg-[#FDFBF7] flex flex-col relative">
@@ -8,13 +9,15 @@
 
     <Navigation />
 
-    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-0 md:px-4 py-2 md:py-12">
+    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-0 md:px-4 md:py-12">
         <slot />
     </main>
 
     <div class="mt-12 md:mt-40">
         <Footer />
     </div>
+
+    <BackToTop />
 </div>
 
 <style>

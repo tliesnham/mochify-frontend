@@ -1,7 +1,6 @@
 <script>
     import ReadProgress from '$lib/components/ReadProgress.svelte';
     import InfoBox from '$lib/components/InfoBox.svelte';
-    import BackToTop from '$lib/components/BackToTop.svelte';
     
     const metadata = {
         category: "WordPress Optimization",
@@ -451,5 +450,3 @@
             </div>
         </section>
 </article>
-
-<BackToTop />

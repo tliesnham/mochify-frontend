@@ -53,6 +53,8 @@
     <title>{metadata.title}</title>
     <meta name="description" content={metadata.description}>
 </svelte:head>
+
+<div class="px-4 py-12 sm:px-6 lg:px-8">
         
 <header class="text-center mb-16">
     <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FFB3C6] via-[#E0ACD5] to-[#C5A3E0] bg-clip-text text-transparent leading-tight pb-2 mb-6">
@@ -109,4 +111,6 @@
         <span>Start Optimizing Now</span>
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
     </a>
+</div>
+
 </div>

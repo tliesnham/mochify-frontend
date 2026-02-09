@@ -1,6 +1,5 @@
 <script>
     import ReadProgress from '$lib/components/ReadProgress.svelte';
-    import BackToTop from '$lib/components/BackToTop.svelte';
     
     const metadata = {
         category: "Data Privacy",
@@ -285,5 +284,3 @@
 
     </div>
 </article>
-
-<BackToTop />
