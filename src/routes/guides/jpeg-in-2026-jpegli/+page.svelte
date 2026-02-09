@@ -34,19 +34,13 @@
             JPEG Compression in 2026: Why Jpegli Changes the Quality-Per-Byte Game
         </h1>
 
-        <div class="bg-[#FFF5F7] rounded-[2rem] p-8 md:p-10 border-2 border-pink-100 shadow-sm relative">
-            <div class="absolute top-4 right-4 bg-white/60 px-3 py-1 rounded-full text-[10px] font-mono text-pink-400 uppercase tracking-widest border border-pink-50">
-                Status: Feb 2026
-            </div>
-            
-            <p class="text-xl text-[#6C3F31] font-bold leading-relaxed mb-6">
-                <strong>The problem:</strong> I have to deliver JPEG because the platform only accepts JPEG (eBay, Etsy, legacy CMS, print upload portals), but I still need smaller files without ugly artifacts. The old tools give me two bad choices—crank quality to 90 and bloat the file, or drop to 70 and watch detail collapse into blocky mush.
-            </p>
+        <p class="text-xl mb-6">
+            <strong>The problem:</strong> I have to deliver JPEG because the platform only accepts JPEG (eBay, Etsy, legacy CMS, print upload portals), but I still need smaller files without ugly artifacts. The old tools give me two bad choices—crank quality to 90 and bloat the file, or drop to 70 and watch detail collapse into blocky mush.
+        </p>
 
-            <p class="text-[#8B5E51] leading-relaxed">
-                Modern JPEG encoders changed that trade-off. Google's jpegli library (released in 2024) delivers reported compression improvements of up to 35% at high quality settings while maintaining full compatibility with every JPEG viewer on the planet. This isn't a new format requiring browser support or user education—it's better math inside the same old container.
-            </p>
-        </div>
+        <p>
+            Modern JPEG encoders changed that trade-off. Google's jpegli library (released in 2024) delivers reported compression improvements of up to 35% at high quality settings while maintaining full compatibility with every JPEG viewer on the planet. This isn't a new format requiring browser support or user education—it's better math inside the same old container.
+        </p>
     </header>
 
     <div class="space-y-8 text-lg text-[#6C3F31] leading-relaxed">
