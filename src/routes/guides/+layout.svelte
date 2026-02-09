@@ -8,7 +8,7 @@
 
     <Navigation />
 
-    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-0 md:px-4 py-6 md:py-12">
         <slot />
     </main>
 
