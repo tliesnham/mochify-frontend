@@ -98,7 +98,6 @@
     </div>
 
     <h3 class="text-2xl md:text-3xl font-black text-[#4A2C2C] relative z-10 mb-3 flex items-center justify-center gap-3">
-        <span class="text-3xl">🚀</span>
         Ready to squish some images?
     </h3>
 
