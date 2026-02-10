@@ -58,7 +58,7 @@
                     Mochify
                 </h1>
                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#FF8FA3] tracking-tight">
-                    Sustainable Image Vault
+                    Zero-Retention Image Optimization
                 </h2>
             </div>
             
