@@ -58,7 +58,7 @@
                         HIF is a modern container used by professional cameras to store <strong class="text-[#7E685E]">10-bit HDR photos</strong>. While they offer better color depth, they often fail to open on web browsers or older editing software.
                     </p>
                     <p class="leading-relaxed text-[#6C3F31]">
-                        Mochify converts these into **modern AVIF files**, which maintain the incredible compression efficiency of HEIF while being supported by all major browsers. Crucially, AVIF supports <strong class="text-[#7E685E]">native 10-bit color</strong>, allowing you to preserve the full dynamic range of your original shots without the banding often seen in 8-bit JPEGs.
+                        Mochify converts these into <strong class="text-[#7E685E]">modern AVIF files</strong>, which maintain the incredible compression efficiency of HEIF while being supported by all major browsers. Crucially, AVIF supports <strong class="text-[#7E685E]">native 10-bit color</strong>, allowing you to preserve the full dynamic range of your original shots without the banding often seen in 8-bit JPEGs.
                     </p>
                 </div>
 
