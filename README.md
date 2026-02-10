@@ -1,9 +1,9 @@
-# 🐉 Mochify Frontend
+# Mochify Frontend
 
 ### **The Stateless Image Vault**
 **Privacy-First • Hardware-Hardened • Green C++ Engine**
 
-![License](https://img.shields.io/badge/License-MIT-green) ![Svelte](https://img.shields.io/badge/Svelte-5-orange) ![Security](https://img.shields.io/badge/Security-Auditable-blue) ![Analytics](https://img.shields.io/badge/Analytics-Cookie--Free-purple)
+![License](https://img.shields.io/badge/License-MIT-green) ![Svelte](https://img.shields.io/badge/Svelte-5-orange) ![Security](https://img.shields.io/badge/Security-Auditable-blue) ![Analytics](https://img.shields.io/badge/Analytics-Cookie--Free-purple) ![Docker Pulls](https://img.shields.io/docker/pulls/mochify/mochify-lite?color=blue)
 
 Mochify is a high-performance image processing utility built for 2026 privacy standards. Unlike traditional "Cloud" converters that buffer images to disk and leak data to swap files, Mochify uses a **Stateless C++ Engine** to ensure your pixels never touch a permanent storage medium.
 
@@ -85,3 +85,14 @@ To create a production build (using `@sveltejs/adapter-cloudflare`):
 
 ```bash
 npm run build
+
+## 📦 Self-Hosted Infrastructure
+
+While this frontend is open-source for auditability, the **Mochify Lite** engine is available as a hardened Docker image for developers who want to run their own private image-optimization infrastructure.
+
+* **Docker Hub:** [mochify/mochify-lite](https://hub.docker.com/r/mochify/mochify-lite)
+* **Hardening:** Includes the same RAM-only, zero-persistence configuration used by our production API.
+* **Compatibility:** Multi-arch support for `amd64` and `arm64` (Apple Silicon/AWS Graviton).
+
+```bash
+docker pull mochify/mochify-lite:latest
