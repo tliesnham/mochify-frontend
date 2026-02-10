@@ -125,7 +125,89 @@
                 JPEG Encoder Comparison: 2026 Cheat Sheet
             </h2>
 
-            <div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
+            <!-- Mobile: Card Layout -->
+            <div class="my-8 md:hidden space-y-4">
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">libjpeg-turbo</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Speed</span>
+                            <span class="text-base">Very fast (baseline)</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Quality-per-Byte</span>
+                            <span class="text-base">Standard</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Compatibility</span>
+                            <span class="text-base">Universal</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Best For</span>
+                            <span class="text-base">High-volume pipelines prioritizing speed over size</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Current Adoption</span>
+                            <span class="text-base">Default in most Linux distros</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">MozJPEG</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Speed</span>
+                            <span class="text-base">Fast</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Quality-per-Byte</span>
+                            <span class="text-base">Better than libjpeg-turbo (especially at medium quality)</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Compatibility</span>
+                            <span class="text-base">Universal</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Best For</span>
+                            <span class="text-base">WordPress, CDN edge, general web delivery</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Current Adoption</span>
+                            <span class="text-base">Widely adopted in web optimization tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-pink-50/30 rounded-2xl border border-pink-100 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#D81B60] text-lg mb-4">jpegli</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Speed</span>
+                            <span class="text-base">Fast (comparable to MozJPEG)</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#D81B60] uppercase tracking-wider block mb-1">Quality-per-Byte</span>
+                            <span class="text-base font-bold text-[#D81B60]">Best reported (up to 35% smaller at high quality vs libjpeg-turbo)</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Compatibility</span>
+                            <span class="text-base">Universal (fully interoperable)</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Best For</span>
+                            <span class="text-base">High-quality exports, photography, platform-locked scenarios</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Current Adoption</span>
+                            <span class="text-base">Emerging (2024 release, not yet in mainstream tools)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop: Table Layout -->
+            <div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white hidden md:block">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -483,7 +565,89 @@ time cjpeg -quality 85 input.png > output_mozjpeg.jpg</pre>
                     
                     <p class="mb-4">Create a simple table:</p>
 
-                    <div class="my-6 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
+                    <!-- Mobile: Card Layout -->
+                    <div class="my-6 md:hidden space-y-4">
+                        <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">libjpeg-turbo</h4>
+                            <div class="grid grid-cols-2 gap-4 text-[#6C3F31]">
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Quality</span>
+                                    <span class="text-base">78</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">File Size</span>
+                                    <span class="text-base">305KB</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Encoding Time</span>
+                                    <span class="text-base">45ms</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Visual Score</span>
+                                    <span class="text-base">0.92</span>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Subjective Notes</span>
+                                    <span class="text-base">Slight blocking in sky</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">MozJPEG</h4>
+                            <div class="grid grid-cols-2 gap-4 text-[#6C3F31]">
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Quality</span>
+                                    <span class="text-base">82</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">File Size</span>
+                                    <span class="text-base">298KB</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Encoding Time</span>
+                                    <span class="text-base">98ms</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Visual Score</span>
+                                    <span class="text-base">0.94</span>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Subjective Notes</span>
+                                    <span class="text-base">Clean, good detail</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-pink-50/30 rounded-2xl border border-pink-100 shadow-sm p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-[#D81B60] text-lg mb-4">jpegli 4:2:0</h4>
+                            <div class="grid grid-cols-2 gap-4 text-[#6C3F31]">
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Quality</span>
+                                    <span class="text-base">85</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">File Size</span>
+                                    <span class="text-base">303KB</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Encoding Time</span>
+                                    <span class="text-base">71ms</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Visual Score</span>
+                                    <span class="text-base">0.95</span>
+                                </div>
+                                <div class="col-span-2">
+                                    <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Subjective Notes</span>
+                                    <span class="text-base">Cleanest gradients</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop: Table Layout -->
+                    <div class="my-6 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white hidden md:block">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead>
@@ -543,7 +707,6 @@ time cjpeg -quality 85 input.png > output_mozjpeg.jpg</pre>
 
             <div class="bg-gradient-to-br from-pink-50 to-orange-50 p-8 rounded-[2rem] border border-pink-100">
                 <h3 class="text-lg font-black text-[#875F42] mb-3 flex items-center gap-2">
-                    <span class="text-2xl">🔒</span>
                     Why this matters for JPEG workflows specifically
                 </h3>
                 <p class="text-[#6C3F31] leading-relaxed mb-4">

@@ -255,7 +255,81 @@
                 Below is a cheat-sheet you can use as a starting point (not dogma-test against your theme layout and audience).
             </p>
 
-            <div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
+            <!-- Mobile: Card Layout -->
+            <div class="my-8 md:hidden space-y-4">
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">Hero / LCP image</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#875F42] uppercase tracking-wider block mb-1">Recommended Width</span>
+                            <span class="text-base">1600-2400px</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#F06292] uppercase tracking-wider block mb-1">Target Size</span>
+                            <span class="text-base">150-300KB (WebP)<br><span class="text-xs opacity-70">~80-250KB (AVIF)</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">Blog featured image</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#875F42] uppercase tracking-wider block mb-1">Recommended Width</span>
+                            <span class="text-base">1200-1600px</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#F06292] uppercase tracking-wider block mb-1">Target Size</span>
+                            <span class="text-base">80-200KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">In-article images</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#875F42] uppercase tracking-wider block mb-1">Recommended Width</span>
+                            <span class="text-base">1000-1400px</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#F06292] uppercase tracking-wider block mb-1">Target Size</span>
+                            <span class="text-base">60-150KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">WooCommerce product</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#875F42] uppercase tracking-wider block mb-1">Recommended Width</span>
+                            <span class="text-base">1000-1600px</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#F06292] uppercase tracking-wider block mb-1">Target Size</span>
+                            <span class="text-base">70-180KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-pink-50 shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-[#4A2C2C] text-lg mb-4">Logos / simple icons</h4>
+                    <div class="space-y-3 text-[#6C3F31]">
+                        <div>
+                            <span class="text-xs font-black text-[#875F42] uppercase tracking-wider block mb-1">Recommended Width</span>
+                            <span class="text-base">Consider SVG where appropriate</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-[#F06292] uppercase tracking-wider block mb-1">Target Size</span>
+                            <span class="text-base">Under 20KB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop: Table Layout -->
+            <div class="my-8 overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white hidden md:block">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
