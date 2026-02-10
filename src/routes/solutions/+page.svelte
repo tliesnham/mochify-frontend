@@ -49,6 +49,14 @@
             icon: "🖼️",
             theme: "from-green-500 to-teal-500",
             tag: "Web"
+        },
+        {
+            name: "HIF to AVIF Converter",
+            slug: "solutions/hif-to-avif",
+            desc: "Convert Fuji, Canon & Sony HIF photos to universally compatible AVIFs while preserving 10-bit quality.",
+            icon: "📷",
+            theme: "from-pink-500 to-green-500",
+            tag: "Photography"
         }
     ];
 </script>
