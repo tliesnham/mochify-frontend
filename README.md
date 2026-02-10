@@ -85,6 +85,7 @@ To create a production build (using `@sveltejs/adapter-cloudflare`):
 
 ```bash
 npm run build
+```
 
 ## 📦 Self-Hosted Infrastructure
 
