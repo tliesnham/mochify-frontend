@@ -49,7 +49,7 @@
         </div>
 
         <section class="mt-20 max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
             
             <div class="space-y-8">
                 <div class="space-y-4">
@@ -58,7 +58,7 @@
                         HIF is a modern container used by professional cameras to store <strong class="text-[#7E685E]">10-bit HDR photos</strong>. While they offer better color depth, they often fail to open on web browsers or older editing software.
                     </p>
                     <p class="leading-relaxed text-[#6C3F31]">
-                        Mochify converts these into standard 8-bit JPEGs using <strong class="text-[#7E685E]">AVX-512 accelerated C++</strong>, ensuring your photos look perfect on Instagram or in print.
+                        Mochify converts these into standard 8-bit JPEGs using the advanced <strong class="text-[#7E685E]">Google Jpegli encoder</strong>. This ensures that while the file becomes 8-bit, the 10-bit dynamic range is visually preserved through advanced psychovisual quantization.
                     </p>
                 </div>
 
@@ -78,7 +78,8 @@
                 {#each [
                     { q: "Do you see my photos?", a: "Never. Your images are processed in RAM and deleted the instant you download them." },
                     { q: "What is the difference?", a: "HIF stores 10-bit color data in a tiny file. JPG is the 8-bit global standard. Shoots in HIF, share in JPG." },
-                    { q: "Does this keep Fuji film sims?", a: "Yes, Mochify preserves Fuji film simulations (Velvia, Classic Chrome, etc.) so your intended look stays intact." }
+                    { q: "Does this keep Fuji film sims?", a: "Yes, Mochify preserves Fuji film simulations (Velvia, Classic Chrome, etc.) so your intended look stays intact." },
+                    { q: "What about EXIF metadata?", a: "By default, we preserve all camera metadata (ISO, Shutter, GPS). If you want to remove it for privacy, simply check the 'Strip Metadata' option before converting."}
                 ] as faq}
                     <details class="group bg-white border border-pink-50 rounded-2xl shadow-sm hover:shadow-md transition-all">
                         <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-[#4A2C2C] list-none select-none">
