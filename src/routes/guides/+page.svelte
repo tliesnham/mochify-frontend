@@ -34,8 +34,8 @@
             description: "Your 2MB JPEG homepage hero is killing your LCP score. Google's PageSpeed Insights keeps screaming \"Serve images in next-gen formats,\" but which one should you actually use? WebP has been around since 2010, AVIF promises 50% better compression, and JPEG XL keeps showing up in conversations despite near-zero browser support.",
             url: "/guides/2026-guide-next-gen-formats",
             category: "Image Formats",
-            readTime: "10 min read",
-            date: "Feb 07, 2026"
+            readTime: "20 min read",
+            date: "Feb 10, 2026"
         },
         {
             title: "Jpegli Guide 2026: Why Jpegli Changes the Quality-Per-Byte Game",
