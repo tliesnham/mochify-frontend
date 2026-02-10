@@ -86,7 +86,7 @@
     </div>
     
     
-    <div class="mt-32 md:mt-40">
+    <div class="mt-16 md:mt-40">
         <Footer />
     </div>
 </div>

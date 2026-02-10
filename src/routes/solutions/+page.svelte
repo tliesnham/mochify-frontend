@@ -195,5 +195,7 @@
             </a>
         </div>
     </div>
-    <Footer />
+    <div class="mt-16 md:mt-40">
+        <Footer />
+    </div>
 </div>

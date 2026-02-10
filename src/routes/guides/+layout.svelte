@@ -12,7 +12,7 @@
         <slot />
     </main>
 
-    <div class="mt-12 md:mt-40">
+    <div class="mt-16 md:mt-40">
         <Footer />
     </div>
 
