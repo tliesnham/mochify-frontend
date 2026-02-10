@@ -21,7 +21,7 @@ We believe in **Trust through Transparency**. This frontend repository is open-s
 ### **Security Hardening**
 Mochify isn't just "private"; it's **physically incapable** of retaining data.
 
-* **RAM-Pinned (`mlock`):** Our backend uses kernel-level memory locking to prevent your images from ever being swapped to an SSD.
+* **Volatile RAM Only:** We strictly prevent temporary file creation and disable container swap, guaranteeing your images are buffered fully in volatile RAM and wiped instantly.
 * **Zero-Buffer Streaming:** Request buffering is disabled. Data streams directly from the user's TLS connection into the C++ process's L3 cache.
 * **Strict CSP:** This frontend implements a rigid Content Security Policy (`connect-src`) that physically prevents the browser from sending data to any domain other than our verified API.
 
