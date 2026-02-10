@@ -398,7 +398,7 @@
                     class="hidden"
                 />
                 <div 
-                    class={`border-[3px] border-dashed ${colors.borderLight} ${colors.borderHover} rounded-2xl p-8 text-center cursor-pointer transition-all duration-300 bg-[#FFF5F7] hover:${colors.bg} group`}
+                    class={`border-[4px] border-dashed ${colors.borderLight} ${colors.borderHover} rounded-2xl p-8 text-center cursor-pointer transition-all duration-300 bg-[#FFF5F7] hover:${colors.bg} group`}
                     ondragover={handleDragOver}
                     ondrop={handleDrop}
                     role="button"
@@ -516,7 +516,7 @@
         <div class={`grid gap-6 grid-cols-1 ${compact ? 'mb-6' : 'mb-8'}`}>
             <!-- Format Control -->
             <div class="space-y-3">
-                <label for="type" class="block text-gray-800 font-semibold">
+                <label for="type" class="block text-[#6C3F31] font-semibold">
                     Output Format
                 </label>
                 <select

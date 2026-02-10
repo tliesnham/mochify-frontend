@@ -53,16 +53,16 @@
     <main class="relative z-10 flex-grow w-full max-w-5xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         
         <header class="text-center mb-16">
-            <div class="flex flex-col items-center gap-2 mb-4">
-    <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FFB3C6] via-[#E0ACD5] to-[#C5A3E0] bg-clip-text text-transparent leading-tight text-center pb-2 drop-shadow-[0_2px_10px_rgba(224,172,213,0.3)]">
-        Mochify <br>
-        <span class="text-3xl md:text-4xl text-[#FF8FA3] font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)]">
-            Sustainable Image Vault
-        </span>
-    </h1>
-</div>
+            <div class="flex flex-col items-center gap-4 mb-6">
+                <h1 class="text-5xl md:text-7xl font-black text-[#4A2C2C] leading-tight">
+                    Mochify
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#FF8FA3] tracking-tight">
+                    Sustainable Image Vault
+                </h2>
+            </div>
             
-            <p class="mt-4 text-[#6C3F31] text-base max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-6 text-[#6C3F31] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
 				No more 5MB limits. Compress <strong>25 images (20MB each)</strong> at once with our <strong>native C++ engine</strong>. 
 				Get next-gen <strong>Jpegli</strong>, <strong>AVIF</strong>, and <strong>JPEG XL</strong> – smaller files, same quality, instant results.
 			</p>
@@ -89,12 +89,12 @@
         <ImageUpload />
 
        <div class="my-16 max-w-3xl mx-auto">
-    <div class="text-center mb-6">
-        <h3 class="text-xl font-bold text-[#6C3F31]">Real-World Efficiency</h3>
-        <p class="text-sm text-[#9C7A6F]">
-            Our C++ engine proves you don't always need new formats to get small files.
-        </p>
-    </div>
+            <div class="text-center mb-6">
+                <h3 class="text-xl font-bold text-[#6C3F31]">Real-World Efficiency</h3>
+                <p class="text-sm text-[#9C7A6F]">
+                    Our C++ engine proves you don't always need new formats to get small files.
+                </p>
+            </div>
     
     <div class="overflow-hidden rounded-3xl border border-pink-50 shadow-sm bg-white">
         <div class="overflow-x-auto">
