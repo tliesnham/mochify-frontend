@@ -535,24 +535,25 @@
         {/if}
 
 {#if showExifOption}
-<div class="mb-6 flex items-center gap-3 p-4 bg-[#FFF8E1] rounded-2xl border border-[#FFE082]/30 shadow-sm">
-    <label class="relative flex items-center cursor-pointer group">
+<div class="mb-6 flex items-center gap-3 p-4 bg-[#FFF8E1] rounded-2xl border border-[#FFE082]/50 shadow-sm transition-colors hover:bg-[#FFF3CD]">
+    <label class="relative flex items-center cursor-pointer select-none">
         <input 
             type="checkbox" 
             bind:checked={stripExif}
-            class="peer sr-only"
+            class="sr-only" 
         />
         
-        <div class="w-6 h-6 bg-white border-2 border-[#FFD54F] rounded-lg 
-                    peer-checked:bg-[#F06292] peer-checked:border-[#F06292] 
-                    transition-all duration-200 flex items-center justify-center shadow-inner">
+        <div class={`
+            w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 shadow-inner
+            ${stripExif ? 'bg-[#F06292] border-[#F06292]' : 'bg-white border-[#FFD54F]'}
+        `}>
             
             <svg 
-                class="w-4 h-4 text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-200" 
-                viewBox="0 0 24 24" 
+                class={`w-4 h-4 text-white transition-all duration-200 ${stripExif ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} 
                 fill="none" 
+                viewBox="0 0 24 24" 
                 stroke="currentColor" 
-                stroke-width="4" 
+                stroke-width="3" 
                 stroke-linecap="round" 
                 stroke-linejoin="round"
             >
@@ -562,7 +563,7 @@
 
         <div class="ml-3">
             <span class="block text-sm font-bold text-[#6C3F31]">Remove EXIF Data</span>
-            <span class="block text-xs text-[#875F42]/70">Strip GPS and camera metadata for extra privacy.</span>
+            <span class="block text-xs text-[#875F42]/80">Strip GPS and camera metadata for extra privacy.</span>
         </div>
     </label>
 </div>
