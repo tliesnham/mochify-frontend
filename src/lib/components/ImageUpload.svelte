@@ -534,22 +534,35 @@
         </div>
         {/if}
 
-        {#if showExifOption}
-<div class="mb-6 flex items-center gap-3 p-4 bg-[#FFF5F7] rounded-2xl border border-[#FFE5EC]">
-    <label class="relative flex items-center cursor-pointer">
+{#if showExifOption}
+<div class="mb-6 flex items-center gap-3 p-4 bg-[#FFF8E1] rounded-2xl border border-[#FFE082]/30 shadow-sm">
+    <label class="relative flex items-center cursor-pointer group">
         <input 
             type="checkbox" 
             bind:checked={stripExif}
             class="peer sr-only"
         />
-        <div class="w-6 h-6 bg-white border-2 border-[#FFB3C6] rounded-lg peer-checked:bg-[#F06292] peer-checked:border-[#F06292] transition-all duration-200 flex items-center justify-center shadow-sm">
-            <svg class="w-4 h-4 text-white scale-0 peer-checked:scale-100 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"/>
+        
+        <div class="w-6 h-6 bg-white border-2 border-[#FFD54F] rounded-lg 
+                    peer-checked:bg-[#F06292] peer-checked:border-[#F06292] 
+                    transition-all duration-200 flex items-center justify-center shadow-inner">
+            
+            <svg 
+                class="w-4 h-4 text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-200" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="4" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+            >
+                <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
         </div>
+
         <div class="ml-3">
             <span class="block text-sm font-bold text-[#6C3F31]">Remove EXIF Data</span>
-            <span class="block text-xs text-[#B38B91]">Strip GPS, camera info, and timestamps for privacy.</span>
+            <span class="block text-xs text-[#875F42]/70">Strip GPS and camera metadata for extra privacy.</span>
         </div>
     </label>
 </div>
