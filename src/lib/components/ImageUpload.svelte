@@ -13,8 +13,10 @@
     };
 
     const props = $props();
-    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '', queryParams = '' } = props;
+    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '', queryParams = '', showExifOption = false } = props;
     const hasOutputOverride = 'output' in props;
+
+    let stripExif: boolean = $state(false);
 
     // Theme color mappings
     const colors = theme === 'blue' ? {
@@ -227,7 +229,7 @@
                             }, 100);
                         });
                         
-                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}${queryParams ? '&' + queryParams : ''}`);
+                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}&strip_exif=${stripExif}${queryParams ? '&' + queryParams : ''}`);
                         xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
                         xhr.responseType = 'blob';
                         xhr.send(file);
@@ -531,6 +533,27 @@
             </div>
         </div>
         {/if}
+
+        {#if showExifOption}
+<div class="mb-6 flex items-center gap-3 p-4 bg-[#FFF5F7] rounded-2xl border border-[#FFE5EC]">
+    <label class="relative flex items-center cursor-pointer">
+        <input 
+            type="checkbox" 
+            bind:checked={stripExif}
+            class="peer sr-only"
+        />
+        <div class="w-6 h-6 bg-white border-2 border-[#FFB3C6] rounded-lg peer-checked:bg-[#F06292] peer-checked:border-[#F06292] transition-all duration-200 flex items-center justify-center shadow-sm">
+            <svg class="w-4 h-4 text-white scale-0 peer-checked:scale-100 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        <div class="ml-3">
+            <span class="block text-sm font-bold text-[#6C3F31]">Remove EXIF Data</span>
+            <span class="block text-xs text-[#B38B91]">Strip GPS, camera info, and timestamps for privacy.</span>
+        </div>
+    </label>
+</div>
+{/if}
 
         <!-- Action Button -->
         <button
