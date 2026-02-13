@@ -3,8 +3,8 @@
     import InfoBox from '$lib/components/InfoBox.svelte';
 
     const metadata = {
-        title: "EXIF Data Risks in Image Compression: Strip Metadata for Privacy (2026 Guide)",
-        description: "A photographer's geotag led to a significant GDPR fine. Learn why EXIF metadata is a privacy risk and how Mochify strips it by default.",
+        title: "EXIF Data Risks: Strip Image Metadata for Global Privacy",
+        description: "Avoid privacy risks and data leaks. Learn why stripping EXIF metadata is vital for global compliance and how to secure images without losing quality.",
         category: "Data Privacy",
         readTime: "15 min read",
         date: "February 13, 2026"
