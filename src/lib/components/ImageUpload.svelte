@@ -178,6 +178,7 @@
 
             let totalCompressedSize = 0;
             const compressedBlobs: Blob[] = new Array(selectedFiles.length);
+            let hitRateLimit = false;
 
             const processFile = async (index: number) => {
                 const file = selectedFiles[index];
@@ -211,7 +212,9 @@
                                 if (latency) console.log(`[C++ Engine] ${file.name} squished in ${latency}`);
                                 resolve(xhr.response);
                             } else {
-                                reject(new Error(`Server error: ${xhr.status}`));
+                                const error: any = new Error(`Server error: ${xhr.status}`);
+                                error.status = xhr.status;
+                                reject(error);
                             }
                         });
                         
@@ -240,34 +243,57 @@
                     
                     fileProgress[index].progress = 100;
                     fileProgress[index].status = 'complete';
-                } catch (error) {
+                } catch (error: any) {
                     fileProgress[index].status = 'error';
-                    fileProgress[index].error = error instanceof Error ? error.message : 'Unknown error';
-                    throw error;
+                    
+                    // Check if it's a 429 rate limit error
+                    if (error.status === 429) {
+                        hitRateLimit = true;
+                        fileProgress[index].error = 'Rate limit exceeded';
+                    } else {
+                        fileProgress[index].error = error instanceof Error ? error.message : 'Unknown error';
+                    }
                 }
             };
 
-            for (let i = 0; i < selectedFiles.length; i += CONCURRENT_UPLOADS) {
+            // Process files in batches, but stop if we hit rate limit
+            batchLoop: for (let i = 0; i < selectedFiles.length; i += CONCURRENT_UPLOADS) {
                 const batch = [];
                 for (let j = i; j < Math.min(i + CONCURRENT_UPLOADS, selectedFiles.length); j++) {
                     batch.push(processFile(j));
                 }
-                await Promise.all(batch);
+                await Promise.allSettled(batch);
+                
+                // If any file in this batch hit rate limit, stop processing
+                if (hitRateLimit) {
+                    break batchLoop;
+                }
             }
 
             // --- DOWNLOAD LOGIC (fflate) ---
             
-            if (selectedFiles.length === 1) {
-                const nameWithoutExt = selectedFiles[0].name.replace(/\.[^/.]+$/, '');
+            // Filter for only successful conversions
+            const successfulFiles = selectedFiles.filter((_, i) => fileProgress[i].status === 'complete');
+            const failedFiles = selectedFiles.filter((_, i) => fileProgress[i].status === 'error');
+            
+            if (successfulFiles.length === 0) {
+                throw new Error('All files failed to convert');
+            }
+            
+            if (successfulFiles.length === 1) {
+                const index = selectedFiles.findIndex((_, i) => fileProgress[i].status === 'complete');
+                const nameWithoutExt = successfulFiles[0].name.replace(/\.[^/.]+$/, '');
                 const extension = imageType === 'jpeg' ? 'jpg' : imageType;
                 const newFileName = `${nameWithoutExt}.${extension}`;
-                downloadBlob(compressedBlobs[0], newFileName);
+                downloadBlob(compressedBlobs[index], newFileName);
             } else {
-                // Multiple files: Zip with fflate
+                // Multiple files: Zip with fflate (only successful ones)
                 const zipData: Record<string, Uint8Array> = {};
 
-                // 1. Convert Blobs to Uint8Arrays in parallel
+                // 1. Convert Blobs to Uint8Arrays in parallel (only successful files)
                 await Promise.all(selectedFiles.map(async (file, i) => {
+                    if (fileProgress[i].status !== 'complete') return;
+                    
                     const nameWithoutExt = file.name.replace(/\.[^/.]+$/, '');
                     const extension = imageType === 'jpeg' ? 'jpg' : imageType;
                     const fileName = `${nameWithoutExt}.${extension}`;
@@ -293,9 +319,16 @@
             const reduction = ((1 - totalCompressedSize / totalOriginalSize) * 100).toFixed(1);
             const spaceSaved = formatFileSize(totalOriginalSize - totalCompressedSize);
 
-            successMessage = selectedFiles.length === 1
-                ? `Successfully squished! You saved ${spaceSaved} (${reduction}% reduction).`
-                : `Batch complete! ${selectedFiles.length} images optimized. Total space saved: ${spaceSaved}.`;
+            if (hitRateLimit) {
+                const pendingFiles = fileProgress.filter(fp => fp.status === 'pending').length;
+                successMessage = `Rate limit reached! Downloaded ${successfulFiles.length} successful conversion(s). ${pendingFiles} file(s) remain in queue - please wait a moment before retrying.`;
+            } else if (failedFiles.length > 0) {
+                successMessage = `${successfulFiles.length} of ${selectedFiles.length} images squished successfully! Saved ${spaceSaved}. ${failedFiles.length} file(s) failed.`;
+            } else {
+                successMessage = selectedFiles.length === 1
+                    ? `Successfully squished! You saved ${spaceSaved} (${reduction}% reduction).`
+                    : `Batch complete! ${selectedFiles.length} images optimized. Total space saved: ${spaceSaved}.`;
+            }
 
             if (typeof window.umami !== 'undefined') {
                 window.umami.track('compress-success', {
