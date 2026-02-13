@@ -44,6 +44,14 @@
             category: "Image Optimization",
             readTime: "20 min read",
             date: "Feb 09, 2026"
+        },
+        {
+            title: "The Risks of EXIF Data in Image Compression (2026 Guide)",
+            description: "Learn why stripping EXIF metadata during image compression is crucial for privacy and security. Understand the risks of leaving GPS coordinates, device info, and other sensitive data in your images.",
+            url: "/guides/exif-data-risks-image-compression-2026",
+            category: "Data Privacy",
+            readTime: "15 min read",
+            date: "Feb 13, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
