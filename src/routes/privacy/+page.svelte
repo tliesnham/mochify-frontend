@@ -204,7 +204,7 @@
 
             <h3>ICO Registration</h3>
             <ol start="31">
-                <li>Mochify is registered with the UK Information Commissioner's Office (ICO) for data protection compliance. Our ICO registration number is available upon request.</li>
+                <li>Mochify is registered with the UK Information Commissioner's Office (ICO) for data protection compliance. Our ICO registration number is <a href="https://ico.org.uk/ESDWebPages/Entry/ZC088248" target="_blank" rel="noopener noreferrer">ZC088248</a>.</li>
             </ol>
 
             <h3>Attribution</h3>

@@ -40,7 +40,7 @@
                 <li>The <strong>User</strong> (or <strong>you</strong>);</li>
             </ol>
 
-            <p>which sets out the terms under which the User is granted a licence by the Provider to use the Provider’s Software. Users must only use the Software in accordance with these Terms of Use. By indicating acceptance of these Terms of Use in order to access or use the Software, the User enters into the Agreement and accepts all of these Terms of Use and must always abide by them when using the Software or the Software’s output. If you do not agree with these Terms of Use, you must not use the Software.</p>
+            <p>which sets out the terms under which the User is granted a licence by the Provider to use the Provider's Software. Users must only use the Software in accordance with these Terms of Use. By indicating acceptance of these Terms of Use in order to access or use the Software, the User enters into the Agreement and accepts all of these Terms of Use and must always abide by them when using the Software or the Software's output. If you do not agree with these Terms of Use, you must not use the Software.</p>
 
             <h3>Definitions</h3>
             <ol start="3">
@@ -77,7 +77,7 @@
                     </tr>
                     <tr>
                         <td><strong>Parties</strong></td>
-                        <td>the Provider and the User; either of which may be referred to singularly within this Agreement as a ‘Party’.</td>
+                        <td>the Provider and the User; either of which may be referred to singularly within this Agreement as a 'Party'.</td>
                     </tr>
                     <tr>
                         <td><strong>Software</strong></td>
@@ -85,7 +85,7 @@
                     </tr>
                     <tr>
                         <td><strong>UK Data Protection Laws</strong></td>
-                        <td>all UK laws relevant to the regulation of the processing of individuals’ personal data (as defined in the UK General Data Protection Regulation (i.e. ‘UK GDPR’ or the retained Regulation (EU) 2016/679 of the European Parliament and of the Council)), particularly the UK GDPR and the Data Protection Act 2018.</td>
+                        <td>all UK laws relevant to the regulation of the processing of individuals' personal data (as defined in the UK General Data Protection Regulation (i.e. 'UK GDPR' or the retained Regulation (EU) 2016/679 of the European Parliament and of the Council)), particularly the UK GDPR and the Data Protection Act 2018.</td>
                     </tr>
                 </tbody>
             </table>
@@ -99,14 +99,14 @@
 
             <h3>Term and Termination</h3>
             <ol start="7">
-                <li>The <strong>Term</strong> of the User’s Licence begins on the Effective Date and shall continue until the Agreement is terminated by either Party.</li>
+                <li>The <strong>Term</strong> of the User's Licence begins on the Effective Date and shall continue until the Agreement is terminated by either Party.</li>
                 <li>The User may immediately terminate the Agreement by cancelling their account (either by emailing the Provider requesting that their account be cancelled or by following alternative instructions for such provided by the Provider).</li>
-                <li>The Provider may immediately terminate the Agreement by providing written notice to the User of their intention to end the User’s Licence to use the Software.</li>
+                <li>The Provider may immediately terminate the Agreement by providing written notice to the User of their intention to end the User's Licence to use the Software.</li>
             </ol>
 
             <h3>Effect of Termination</h3>
             <ol start="10">
-                <li>When the Agreement is terminated or expires, the User’s Licence to use the Software and the Provider’s obligation to provide the Software will end.</li>
+                <li>When the Agreement is terminated or expires, the User's Licence to use the Software and the Provider's obligation to provide the Software will end.</li>
                 <li>The terms contained in the sections headed “Restrictions on Use”, “Intellectual Property Rights”, “Proprietary Rights to Data”, and “Data Protection and Privacy”, any other terms that by their nature must survive this Agreement, shall remain effective after termination or expiry of the Agreement. All other obligations between the Parties shall end at the time of termination.</li>
             </ol>
 
@@ -122,20 +122,20 @@
             </ol>
             <ol start="1" type="1">
                 <li>Alter, reproduce, sell, disassemble, edit, rebrand, distribute, lend, hire, or sub-license the Software or any right of use of the Software to any other parties;</li>
-                <li>Allow others to use the Software via the User’s exclusive permitted access (e.g. using the User’s email address and account);</li>
+                <li>Allow others to use the Software via the User's exclusive permitted access (e.g. using the User's email address and account);</li>
                 <li>Use the Software, its components, or its output in any way that may infringe the Intellectual Property Rights or any other proprietary rights of the Provider or of any third party;</li>
                 <li>Remove or alter any markings that indicate ownership of the Software or of its output, for example, trade mark or copyright symbols;</li>
-                <li>Input any parties’ personal data or other private information into the Software, or use any of the Software’s output that contains such, except in accordance with UK Data Protection Laws and with this Agreement;</li>
-                <li>Attempt to reverse engineer or otherwise access or use the Software or its components in order to set up or contribute to an endeavour that may compete with the Provider’s Software, whether such an endeavour is commercial or not (e.g. by using aspects of the Software as part of the development of the User’s own software product);</li>
+                <li>Input any parties' personal data or other private information into the Software, or use any of the Software's output that contains such, except in accordance with UK Data Protection Laws and with this Agreement;</li>
+                <li>Attempt to reverse engineer or otherwise access or use the Software or its components in order to set up or contribute to an endeavour that may compete with the Provider's Software, whether such an endeavour is commercial or not (e.g. by using aspects of the Software as part of the development of the User's own software product);</li>
                 <li>Use the Software to construct any kind of database or to conduct automated or systemic data scraping, data mining, data extraction, or similar data collection activities;</li>
                 <li>Negligently or intentionally input content into the Software that introduces any virus, worm, cancelbot, trojan horse, or other destructive or contaminating code or programme;</li>
                 <li>Attempt to damage, interfere with, slow, or otherwise alter the Software, its performance, or its integrity;</li>
                 <li>If the User is a Consumer, use the Software for any commercial purposes;</li>
-                <li>Rely on the Software’s output as being factually accurate, up-to-date, or complete;</li>
-                <li>Users must not use the Software in any way that damages, disables or overburdens the Website or interferes with any other User’s use of the Software;</li>
+                <li>Rely on the Software's output as being factually accurate, up-to-date, or complete;</li>
+                <li>Users must not use the Software in any way that damages, disables or overburdens the Website or interferes with any other User's use of the Software;</li>
                 <li>Users must not upload any content to the Software that is unlawful, defamatory, obscene, infringing, or that contains viruses or other malicious code;</li>
-                <li>Users must not use the Software to infringe any person’s intellectual property rights, including by compressing or converting images they do not have the right to use;</li>
-                <li>Users must not use automated scripts, bots or scraping tools to access or interact with the Software without the Provider’s prior written permission;</li>
+                <li>Users must not use the Software to infringe any person's intellectual property rights, including by compressing or converting images they do not have the right to use;</li>
+                <li>Users must not use automated scripts, bots or scraping tools to access or interact with the Software without the Provider's prior written permission;</li>
                 <li>Users must not attempt to reverse engineer, decompile, disassemble or otherwise access the source code of the Software except to the extent expressly permitted by applicable law;</li>
                 <li>Users must not use the Software to provide a competing service or to resell, rent or sub-license access to the Software to any third party;</li>
                 <li>Input information into the Software or use the Software in a manner that breaches any applicable laws, regulations, or other rules;</li>
@@ -159,15 +159,15 @@
 
             <h3>Indemnities</h3>
             <ol start="20">
-                <li>The Provider shall indemnify the User against all losses, liabilities, costs, expenses, or damages, whether due to claims or action by third parties or otherwise, that the User directly or indirectly incurs arising out of or as a consequence of any breach of the Provider’s Warranties set out above under the heading “Warranties”.</li>
-                <li>The User shall indemnify the Provider against all losses, liabilities, costs, expenses, or damages, whether due to claims or action by third parties or otherwise, that the Provider directly or indirectly incurs arising out of or as a consequence of any breach of the User’s Warranties set out above under the heading “Warranties”.</li>
-                <li>The Provider shall indemnify the User against any legal proceedings for infringement of Intellectual Property Rights arising out of the User’s use of the Software, in its at-the-time current and unaltered iteration in accordance with the Agreement, that were not caused wholly or in part by the specific manner in which the User used the Software (e.g. due to the specific content that the User entered into the Software). This indemnification is conditional upon the User notifying the Provider of relevant legal proceedings as soon as reasonably possible, the User granting the Provider the sole right to defend the claim(s), and the User offering their reasonable assistance in such.</li>
-                <li>The User shall indemnify the Provider against any reasonably foreseeable direct losses, damages, or reasonable expenses that the Provider incurs in relation to the User’s breach of the Agreement, the User’s infringement of any third party’s rights, or the User’s otherwise unlawful use of the Software.</li>
+                <li>The Provider shall indemnify the User against all losses, liabilities, costs, expenses, or damages, whether due to claims or action by third parties or otherwise, that the User directly or indirectly incurs arising out of or as a consequence of any breach of the Provider's Warranties set out above under the heading “Warranties”.</li>
+                <li>The User shall indemnify the Provider against all losses, liabilities, costs, expenses, or damages, whether due to claims or action by third parties or otherwise, that the Provider directly or indirectly incurs arising out of or as a consequence of any breach of the User's Warranties set out above under the heading “Warranties”.</li>
+                <li>The Provider shall indemnify the User against any legal proceedings for infringement of Intellectual Property Rights arising out of the User's use of the Software, in its at-the-time current and unaltered iteration in accordance with the Agreement, that were not caused wholly or in part by the specific manner in which the User used the Software (e.g. due to the specific content that the User entered into the Software). This indemnification is conditional upon the User notifying the Provider of relevant legal proceedings as soon as reasonably possible, the User granting the Provider the sole right to defend the claim(s), and the User offering their reasonable assistance in such.</li>
+                <li>The User shall indemnify the Provider against any reasonably foreseeable direct losses, damages, or reasonable expenses that the Provider incurs in relation to the User's breach of the Agreement, the User's infringement of any third party's rights, or the User's otherwise unlawful use of the Software.</li>
             </ol>
 
             <h3>Limitation of Liability</h3>
             <ol start="24">
-                <li>Nothing in this Agreement limits or excludes either Party’s liability in any way for:</li>
+                <li>Nothing in this Agreement limits or excludes either Party's liability in any way for:</li>
             </ol>
             <ol start="1" type="1">
                 <li>Death or personal injury caused by its negligence;</li>
@@ -175,7 +175,7 @@
                 <li>Any other losses that cannot be limited or excluded by applicable law.</li>
             </ol>
             <ol start="25">
-                <li><strong>This clause applies to Consumers only</strong>: except as set out in the first clause of this section (i.e. the section headed “Limitation of Liability”) and in the sections headed “Warranties” and “Indemnities”, the Provider is only liable to the User for loss or damage resulting from the Provider’s negligence or the Provider’s breach of the Agreement when such loss or damage is foreseeable (i.e. when both the User and the Provider knew at the time the Agreement was formed that this loss or damage may reasonably occur as a result of the Provider’s conduct). The Provider is not liable for any unforeseeable loss or damage, any business damage or loss, any loss or damage not caused by the Provider’s negligence or breach of the Agreement, or any loss or damage caused by the User’s reliance on the output of the Software against these Terms of Use.</li>
+                <li><strong>This clause applies to Consumers only</strong>: except as set out in the first clause of this section (i.e. the section headed “Limitation of Liability”) and in the sections headed “Warranties” and “Indemnities”, the Provider is only liable to the User for loss or damage resulting from the Provider's negligence or the Provider's breach of the Agreement when such loss or damage is foreseeable (i.e. when both the User and the Provider knew at the time the Agreement was formed that this loss or damage may reasonably occur as a result of the Provider's conduct). The Provider is not liable for any unforeseeable loss or damage, any business damage or loss, any loss or damage not caused by the Provider's negligence or breach of the Agreement, or any loss or damage caused by the User's reliance on the output of the Software against these Terms of Use.</li>
                 <li><strong>This clause applies to Business Customers only</strong>: except as set out in the first clause of this section (i.e. the section headed “Limitation of Liability”) and in the sections headed “Warranties” and “Indemnities”, the Provider shall not have any direct or indirect liability to the User, whether in contract, tort (including negligence), for breach of statutory duty, or otherwise, arising under or in connection with this Agreement or in connection with the use or lack of use of the Software, for:</li>
             </ol>
             <ol start="1" type="1">
@@ -185,42 +185,42 @@
                 <li>Any indirect, special, incidental, or consequential loss.</li>
             </ol>
             <ol start="27">
-                <li><strong>This clause applies to Business Customers only</strong>: except as set out in the first clause of this section (i.e. the section headed “Limitation of Liability”) and in the sections headed “Warranties” and “Indemnities”, the total liability of the Provider for any losses experienced by the User in respect of any one event or series of connected events in relation to the Provider’s conduct in relation to this Agreement shall not exceed the lower of the total aggregate of the payments made by the User to the Provider under this Agreement within the last 12 months or £100.00.</li>
-                <li>Particularly, except as set out elsewhere in these Terms of Use, note that the Provider is not responsible for issues that occur as a result of the User’s use of the Software that may be due to the Software’s use of AI, including but not limited to:</li>
+                <li><strong>This clause applies to Business Customers only</strong>: except as set out in the first clause of this section (i.e. the section headed “Limitation of Liability”) and in the sections headed “Warranties” and “Indemnities”, the total liability of the Provider for any losses experienced by the User in respect of any one event or series of connected events in relation to the Provider's conduct in relation to this Agreement shall not exceed the lower of the total aggregate of the payments made by the User to the Provider under this Agreement within the last 12 months or £100.00.</li>
+                <li>Particularly, except as set out elsewhere in these Terms of Use, note that the Provider is not responsible for issues that occur as a result of the User's use of the Software that may be due to the Software's use of AI, including but not limited to:</li>
             </ol>
             <ol start="1" type="1">
-                <li>Intellectual Property Right infringements occurring due to the User’s use of the Software or their use of the output created by use of the Software;</li>
+                <li>Intellectual Property Right infringements occurring due to the User's use of the Software or their use of the output created by use of the Software;</li>
                 <li>Losses or inefficiencies incurred due to the provision of inaccurate, misleading, or non-specific information;</li>
-                <li>Breaches of UK Data Protection Laws occurring due to the User’s use of the Software or their use of the output created by their use of the Software;</li>
+                <li>Breaches of UK Data Protection Laws occurring due to the User's use of the Software or their use of the output created by their use of the Software;</li>
                 <li>Breaches of equality laws or specific data protection laws related to decision making;</li>
-                <li>Breaches of advertising or marketing laws occurring due to the User’s use of the Software or their use of the output created by their use of the Software;</li>
-                <li>Breaches of defamation laws occurring due to the User’s use of the Software or their use of the output created by their use of the Software;</li>
-                <li>Breaches of any duty held by the User not to disclose another party’s Confidential Information; or</li>
+                <li>Breaches of advertising or marketing laws occurring due to the User's use of the Software or their use of the output created by their use of the Software;</li>
+                <li>Breaches of defamation laws occurring due to the User's use of the Software or their use of the output created by their use of the Software;</li>
+                <li>Breaches of any duty held by the User not to disclose another party's Confidential Information; or</li>
                 <li>Losses incurred due to damage to technical infrastructure.</li>
             </ol>
 
             <h3>Intellectual Property Rights</h3>
             <ol start="29">
-                <li>The Provider retains all Intellectual Property Rights it owns in the Software and in aspects of the Provider’s wider business, including but not limited to trade marks, copyrights, moral rights, patents, design rights, and data rights.</li>
+                <li>The Provider retains all Intellectual Property Rights it owns in the Software and in aspects of the Provider's wider business, including but not limited to trade marks, copyrights, moral rights, patents, design rights, and data rights.</li>
                 <li>The User retains all Intellectual Property Rights it owns in any data or content that they input into the Software or otherwise use as part of their use of the Software.</li>
-                <li>The User owns any Intellectual Property Rights arising in, or that it registers in relation to, any original creations produced as output of the Software due to the User’s use of the Software in accordance with the Agreement.</li>
+                <li>The User owns any Intellectual Property Rights arising in, or that it registers in relation to, any original creations produced as output of the Software due to the User's use of the Software in accordance with the Agreement.</li>
                 <li>If the User inputs data or content in which the User holds Intellectual Property Rights into the Software, and consequent output of the Software contains elements of this data or content as well as data or content in which the Provider (or, in the case of Intellectual Property Rights that the Provider has permission to use, other parties) holds Intellectual Property Rights, all parties involved will retain ownership of their respective Intellectual Property Rights. This clause qualifies the clause on Intellectual Property Rights ownership immediately preceding this clause. Subject to the indemnities set out above, the User is responsible for ensuring that it does not use any such Software output in a way that infringes on the Intellectual Property Rights of any other parties.</li>
             </ol>
 
             <h3>Proprietary Rights to Data</h3>
             <ol start="33">
                 <li>The User retains all rights, interests, and titles held in any data that it inputs into the Software.</li>
-                <li>The User grants the Provider a royalty-free, worldwide, transferable, irrevocable, perpetual licence regarding any data that the User inputs into the Software, under which the Provider may use the data only when anonymised and aggregated with other users’ data and only in order to improve the Software (e.g. by incorporating the data into the Software by using it to contribute to training the underlying AI model(s)).</li>
+                <li>The User grants the Provider a royalty-free, worldwide, transferable, irrevocable, perpetual licence regarding any data that the User inputs into the Software, under which the Provider may use the data only when anonymised and aggregated with other users' data and only in order to improve the Software (e.g. by incorporating the data into the Software by using it to contribute to training the underlying AI model(s)).</li>
             </ol>
 
             <h3>Data Protection and Privacy</h3>
             <ol start="35">
-                <li>Both the User and the Provider commit to abiding by UK Data Protection Laws in relation to the Software and its development and use. The Provider commits to using any of the User’s data that is provided to it only in accordance with UK Data Protection Laws and will not disclose this data to any third parties unless authorised to do so. For more information on how the Provider uses users’ data, see the Provider’s Website Privacy Policy, accessible here: <a href="https://mochify.xyz/privacy">mochify.xyz/privacy</a>.</li>
+                <li>Both the User and the Provider commit to abiding by UK Data Protection Laws in relation to the Software and its development and use. The Provider commits to using any of the User's data that is provided to it only in accordance with UK Data Protection Laws and will not disclose this data to any third parties unless authorised to do so. For more information on how the Provider uses users' data, see the Provider's Website Privacy Policy, accessible here: <a href="https://mochify.xyz/privacy">mochify.xyz/privacy</a>.</li>
                 <li>The User is responsible for and maintains control over any personal data that it is the data controller of or that it is otherwise responsible for and authorised to use as input into the Software. The User (and not the Provider) is responsible for ensuring that processing of any such personal data using the Software is carried out in reliance on a lawful basis for processing and in accordance with UK Data Protection Laws. If such personal data is:</li>
             </ol>
             <ol start="1" type="1">
-                <li>Included in output of the Software, it is the User’s responsibility to ensure that use of this output does not infringe upon anybody’s data protection rights.</li>
-                <li>Used by the Provider to improve the Software under the licence granted to the Provider in the section headed “Proprietary Rights to Data”, the Provider will only use this data in an anonymised and aggregated manner, however, if personal data input by the User is used to improve the Software and is consequently included in an identifiable form in its output or in output from other programmes using the same underlying AI model(s), the User is responsible for any breaches of the relevant data subjects’ data protection rights.</li>
+                <li>Included in output of the Software, it is the User's responsibility to ensure that use of this output does not infringe upon anybody's data protection rights.</li>
+                <li>Used by the Provider to improve the Software under the licence granted to the Provider in the section headed “Proprietary Rights to Data”, the Provider will only use this data in an anonymised and aggregated manner, however, if personal data input by the User is used to improve the Software and is consequently included in an identifiable form in its output or in output from other programmes using the same underlying AI model(s), the User is responsible for any breaches of the relevant data subjects' data protection rights.</li>
             </ol>
 
             <h3>Service Provision Information</h3>
@@ -232,7 +232,7 @@
                 <li>The Software is accessed via a modern web browser and does not require installation. The Software is compatible with current versions of major browsers (such as Chrome, Firefox, Safari and Edge) that support standard web technologies (HTML5, JavaScript and HTTPS). To use the Software, the User must have a stable internet connection and a device capable of uploading and downloading image files. The Software supports common web image formats (for example JPEG, PNG, WebP and AVIF) as input; the User is responsible for ensuring that their own systems and applications can open and use any compressed or converted files they download.</li>
             </ol>
             <ol start="39">
-                <li>Descriptions of the Software are available on the Provider’s website. Make sure that you read these before agreeing to the Terms of Use.</li>
+                <li>Descriptions of the Software are available on the Provider's website. Make sure that you read these before agreeing to the Terms of Use.</li>
                 <li>If the User is a Consumer, the User has a statutory right to cancel the Agreement (e.g. their purchase of access to the Software) within a period of 14 days from the date of purchase. However, by accepting these Terms of Use, the User expressly requests the Provider to grant the User immediate access to the Software following the acceptance of the Terms of Use and the User acknowledges that, in making such a request, they waive the right to cancel as described.</li>
                 <li>The Software has the following functionality:</li>
             </ol>
@@ -240,7 +240,7 @@
                 <li>The Software is a browser-based image optimisation tool that allows a User to upload supported image files (for example JPEG, PNG, WebP, AVIF) and download compressed and/or converted versions for their own use. The Software runs on our servers and processes files in memory only; uploaded files are not permanently stored once processing is complete. The Software does not include any region coding and does not apply digital rights management (DRM) or other technical restrictions to the files you download, beyond standard format and size limits (for example, maximum file size per upload and limits on the number of images per batch in the free tier).</li>
             </ol>
             <ol start="42">
-                <li>Any complaints regarding the Software or the Provider’s provision of it will be dealt with by the Provider as follows:</li>
+                <li>Any complaints regarding the Software or the Provider's provision of it will be dealt with by the Provider as follows:</li>
             </ol>
             <ol start="1" type="1">
                 <li>If a User has a complaint about the Software or the Provider's services, they should contact us at <a href="mailto:complaints@mochify.xyz">complaints@mochify.xyz</a> and we will acknowledge receipt within 5 business days and aim to resolve the complaint promptly thereafter.</li>
@@ -268,7 +268,7 @@
             </ol>
             <ol start="1" type="1">
                 <li>Changes may be made by the Provider in accordance with other terms of these Terms of Use; and</li>
-                <li>Changes may be made by the Provider to these Terms of Use. The version of the Terms of Use that applies to a specific Agreement are those that are current on the Effective Date. Notification of any changes to the Terms of Use will be made in writing either in a manner that brings notice to the User’s attention before they next use the Software (e.g. via a pop-up on a login screen) or via direct communication with the User (e.g. by email). If changes are made to the Terms of Use, the User’s use of the Software after the changes are communicated and implemented is deemed to constitute their acceptance of the new Terms. If the User does not wish to accept the new Terms of Use, they can terminate the Agreement in accordance with the provisions above in the section headed “Term and Termination”.</li>
+                <li>Changes may be made by the Provider to these Terms of Use. The version of the Terms of Use that applies to a specific Agreement are those that are current on the Effective Date. Notification of any changes to the Terms of Use will be made in writing either in a manner that brings notice to the User's attention before they next use the Software (e.g. via a pop-up on a login screen) or via direct communication with the User (e.g. by email). If changes are made to the Terms of Use, the User's use of the Software after the changes are communicated and implemented is deemed to constitute their acceptance of the new Terms. If the User does not wish to accept the new Terms of Use, they can terminate the Agreement in accordance with the provisions above in the section headed “Term and Termination”.</li>
             </ol>
             <ol start="54">
                 <li>The Contracts (Rights of Third Parties) Act 1999 does not apply to the Agreement and no third party has any right to enforce or rely on any provision of the Agreement.</li>
