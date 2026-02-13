@@ -8,6 +8,32 @@
     <title>Convert HIF to JPG Online (Fuji/Canon) - Free & Fast | Mochify</title>
     <meta name="description" content="Convert Fuji, Canon & Sony HIF photos to JPEG instantly. Perfect for photographers using X-T5, R5, or Sony Alpha. Free, secure, and runs in-memory.">
     <meta property="og:title" content="Convert HIF to JPG (Fuji/Canon) - Soft & Squishy Image Tools">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Mochify HIF to JPG Converter",
+            "operatingSystem": "Any",
+            "applicationCategory": "MultimediaApplication",
+            "url": "https://mochify.xyz/solutions/hif-to-jpg",
+            "description": "Instantly turn 10-bit Fuji, Canon & Sony HIF photos into universally compatible JPEGs using advanced Google Jpegli encoding.",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+            },
+            "featureList": [
+                "Preserves 10-bit dynamic range via Jpegli psychovisual quantization",
+                "Converts professional HDR containers to standard 8-bit JPEGs",
+                "Browser-side privacy (no file uploads to server)",
+                "Supports 10-bit HEIF/HIF formats from Fuji X-T5, Sony A7 IV, Canon R5"
+            ],
+            "applicationSubCategory": "Image Converter",
+            "softwareRequirements": "Modern Web Browser"
+        }
+    </script>
 </svelte:head>
 
 <div class="flex-1 bg-[#FDFBF7] selection:bg-[#FFF0F3] selection:text-pink-900 min-h-screen flex flex-col">
