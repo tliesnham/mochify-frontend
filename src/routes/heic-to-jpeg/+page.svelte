@@ -8,6 +8,21 @@
     <title>Convert HEIC to JPEG Online - Free & Fast | Mochify</title>
     <meta name="description" content="Convert iPhone HEIC photos to JPEG instantly. Free, secure, and runs in-memory. No software installation required.">
     <meta property="og:title" content="Convert HEIC to JPEG - Soft & Squishy Image Tools">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Mochify HEIC to JPEG Converter",
+            "operatingSystem": "Any",
+            "applicationCategory": "MultimediaApplication",
+            "offers": {
+            "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "featureList": "Privacy-focused, browser-side conversion, no file uploads to server"
+        }
+    </script>
 </svelte:head>
 
 <div class="flex-1 bg-[#FDFBF7] selection:bg-[#FFF0F3] selection:text-pink-900 min-h-screen flex flex-col">
