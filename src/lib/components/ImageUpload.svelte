@@ -68,6 +68,11 @@
     const MAX_FILES = 25;
     const CONCURRENT_UPLOADS = 3;
     const MAX_INDIVIDUAL_FILE_SIZE = 20 * 1024 * 1024; // 20MB
+    
+    // Token limit tracking
+    let availableTokens: number = $state(0);
+    let hasCheckedTokens: boolean = $state(false);
+    let tokenCheckError: boolean = $state(false);
 
     function handleFileSelect(event: Event) {
         const target = event.target as HTMLInputElement;
@@ -91,8 +96,25 @@
         }
     }
 
+    async function checkTokenLimit(): Promise<void> {
+        try {
+            const response = await fetch(`${API_URL}/v1/check-limit`);
+            if (!response.ok) {
+                throw new Error('Failed to check token limit');
+            }
+            const data = await response.json();
+            availableTokens = (data.free_tokens || 0) + (data.paid_tokens || 0);
+            hasCheckedTokens = true;
+            tokenCheckError = false;
+        } catch (error) {
+            console.error('Token check failed:', error);
+            tokenCheckError = true;
+            hasCheckedTokens = false;
+        }
+    }
+
     // Helper to unify file processing logic
-    function processFiles(allFiles: File[]) {
+    async function processFiles(allFiles: File[]) {
         const oversizedFiles = allFiles.filter(f => f.size > MAX_INDIVIDUAL_FILE_SIZE);
         
         if (oversizedFiles.length > 0) {
@@ -135,6 +157,9 @@
         } else if (selectedFiles.length >= MAX_FILES && allFiles.length > addedCount) {
             errorMessage = `Maximum ${MAX_FILES} files. Added ${addedCount} file(s).`;
         }
+        
+        // Check token limit after files are added
+        await checkTokenLimit();
     }
 
     function formatFileSize(bytes: number): string {
@@ -150,6 +175,11 @@
             imageType = output;
         }
     });
+
+    // Check if user has enough tokens for the selected files
+    const insufficientTokens = $derived(
+        hasCheckedTokens && selectedFiles.length > 0 && selectedFiles.length > availableTokens
+    );
 
     async function compressImage() {
         if (selectedFiles.length === 0) {
@@ -353,6 +383,9 @@
             if (fileInputElement) {
                 fileInputElement.value = '';
             }
+            
+            // Re-check token limit after successful compression
+            await checkTokenLimit();
         } catch (error) {
             errorMessage = error instanceof Error ? error.message : 'Failed to compress images';
             if (typeof window.umami !== 'undefined') {
@@ -602,10 +635,36 @@
 </div>
 {/if}
 
+        {#if hasCheckedTokens && selectedFiles.length > 0 && !insufficientTokens}
+            <div class="mb-6 px-6 py-4 bg-[#E8F5E9] border-2 border-[#A5D6A7] rounded-2xl flex items-center gap-3 shadow-sm">
+                <svg class="w-5 h-5 text-[#66BB6A] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-sm text-[#33691E] font-semibold">
+                    Ready to squish! You have <span class="font-bold">{availableTokens} token{availableTokens !== 1 ? 's' : ''}</span> available.
+                </p>
+            </div>
+        {/if}
+
+        {#if insufficientTokens}
+            <div class="mb-6 px-6 py-4 bg-[#FFF3CD] border-2 border-[#FFD54F] rounded-2xl flex items-start gap-3 shadow-sm">
+                <svg class="w-6 h-6 text-[#F57C00] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <p class="text-[#6C3F31] font-bold mb-1">Not enough tokens!</p>
+                    <p class="text-sm text-[#875F42]">
+                        You have <span class="font-bold">{availableTokens} token{availableTokens !== 1 ? 's' : ''}</span> available but selected <span class="font-bold">{selectedFiles.length} file{selectedFiles.length !== 1 ? 's' : ''}</span>. 
+                        Please remove {selectedFiles.length - availableTokens} file{selectedFiles.length - availableTokens !== 1 ? 's' : ''} to continue.
+                    </p>
+                </div>
+            </div>
+        {/if}
+
         <!-- Action Button -->
         <button
             onclick={compressImage}
-            disabled={selectedFiles.length === 0 || isLoading}
+            disabled={selectedFiles.length === 0 || isLoading || insufficientTokens}
             class={`w-full py-4 px-6 bg-[#A5D6A7] hover:bg-[#81C784] hover:scale-[1.02] active:scale-[0.96] active:brightness-95 disabled:bg-[#EFEBE9] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl disabled:shadow-none transition-all duration-300 disabled:cursor-not-allowed flex items-center justify-center gap-3 group cursor-pointer`}
         >
             {#if isLoading}
@@ -614,6 +673,11 @@
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
                 <span>Squishing {selectedFiles.length > 1 ? `${selectedFiles.length} images` : ''}...</span>
+            {:else if insufficientTokens}
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <span>Insufficient Tokens</span>
             {:else}
                 <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
