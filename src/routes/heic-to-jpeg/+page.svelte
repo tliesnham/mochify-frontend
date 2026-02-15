@@ -16,10 +16,10 @@
             "operatingSystem": "Any",
             "applicationCategory": "MultimediaApplication",
             "offers": {
-            "@type": "Offer",
+                "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "USD"
-            },
+                },
             "featureList": "Privacy-focused, browser-side conversion, no file uploads to server"
         }
     </script>

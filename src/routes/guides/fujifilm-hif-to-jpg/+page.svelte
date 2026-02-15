@@ -17,6 +17,61 @@
     <meta name="description" content={metadata.description}>
     <meta property="og:title" content={metadata.title} />
     <meta property="og:description" content={metadata.description} />
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Convert Fujifilm HIF to JPG",
+            "description": "A quick guide to converting Fujifilm .HIF (10-bit HEIF) files to JPG directly in your browser without uploading data to a server.",
+            "totalTime": "PT1M",
+            "supply": [
+                {
+                    "@type": "HowToSupply",
+                    "name": "Fujifilm .HIF image files"
+                }
+            ],
+            "tool": [
+                {
+                    "@type": "HowToTool",
+                    "name": "Modern Web Browser (Chrome, Safari, Edge, or Firefox)"
+                },
+                {
+                    "@type": "HowToTool",
+                    "name": "Mochify HIF to JPG Converter"
+                }
+            ],
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step1",
+                    "name": "Access the Converter",
+                    "itemListElement": [{
+                        "@type": "HowToDirection",
+                        "text": "Navigate to the dedicated HIF to JPG conversion tool on the Mochify website."
+                    }]
+                },
+                {
+                    "@type": "HowToStep",
+                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step2",
+                    "name": "Select Your Files",
+                    "itemListElement": [{
+                        "@type": "HowToDirection",
+                        "text": "Click the file selection area to browse your computer or drag and drop your .HIF files directly into the browser window."
+                    }]
+                },
+                {
+                    "@type": "HowToStep",
+                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step3",
+                    "name": "Convert and Download",
+                    "itemListElement": [{
+                        "@type": "HowToDirection",
+                        "text": "The tool processes the conversion locally in your browser. Once finished, click the download button to save your new .JPG files."
+                    }]
+                }
+            ]
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">
