@@ -66,7 +66,7 @@
     let totalOriginalSize: number = $state(0);
     let fileInputElement: HTMLInputElement;
     const MAX_FILES = 25;
-    const CONCURRENT_UPLOADS = 3;
+    const CONCURRENT_UPLOADS = 2;
     const MAX_INDIVIDUAL_FILE_SIZE = 20 * 1024 * 1024; // 20MB
     
     // Token limit tracking
