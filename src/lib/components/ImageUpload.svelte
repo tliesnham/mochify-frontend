@@ -98,7 +98,7 @@
 
     async function checkTokenLimit(): Promise<void> {
         try {
-            const response = await fetch(`${API_URL}/v1/check-limit`);
+            const response = await fetch(`${API_URL}/v1/checkTokens`);
             if (!response.ok) {
                 throw new Error('Failed to check token limit');
             }
