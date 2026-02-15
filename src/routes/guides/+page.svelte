@@ -52,6 +52,14 @@
             category: "Data Privacy",
             readTime: "15 min read",
             date: "Feb 13, 2026"
+        },
+        {
+            title: "The History of Image Compression: From BMP to AVIF & Jpegli (2026 Guide)",
+            description: "Trace the evolution of images from BMP to AVIF and Jpegli. Learn how 2026 compression tech boosts Core Web Vitals and SEO for developers and creators.",
+            url: "/guides/history-image-compression-2026",
+            category: "Image Formats",
+            readTime: "15 min read",
+            date: "Feb 15, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
