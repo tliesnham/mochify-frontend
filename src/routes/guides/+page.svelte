@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { title } from "process";
+
     const metadata = {
         title: "Image Optimization Guides | Mochify",
         description: "Learn about modern image formats, compression techniques, and optimization strategies with our in-depth guides."
@@ -60,6 +62,14 @@
             category: "Image Formats",
             readTime: "15 min read",
             date: "Feb 15, 2026"
+        },
+        {
+            title: "Top 5 Secure Image Compressors of 2026: Privacy, Performance, and Format Support Comparison",
+            description: "Compare the best secure image compressors of 2026. Find out which tools offer true zero-retention privacy, support HEIC/AVIF/JPEG XL, and deliver the smallest files.",
+            url: "/guides/top-5-secure-image-compressors-2026",
+            category: "Image Optimization",
+            readTime: "15 min read",
+            date: "Feb 17, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
