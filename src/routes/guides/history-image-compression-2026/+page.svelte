@@ -3,9 +3,9 @@
     import InfoBox from '$lib/components/InfoBox.svelte';
 
     const metadata = {
-        title: "Image Compression History: BMP to AVIF & Jpegli | 2026 Guide",
-        description: "Trace the evolution of images from BMP to AVIF and Jpegli. Learn how 2026 compression tech boosts Core Web Vitals and SEO for developers and creators.",
-        category: "Image Formats",
+        title: "5 Best TinyPNG Alternatives 2026: Secure & Private Optimizers",
+        description: "Ditch TinyPNG's 20-file limits. Compare 2026's best secure optimizers like Squoosh & Mochify. AVIF, HEIC, and Jpegli support. 100% zero-retention privacy.",
+        category: "Image Optimization",
         readTime: "15 min read",
         date: "February 15, 2026"
     };
