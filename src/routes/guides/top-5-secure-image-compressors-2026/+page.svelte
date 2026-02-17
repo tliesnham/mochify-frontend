@@ -18,33 +18,67 @@
     <meta property="og:description" content="Compare the best secure image compressors of 2026. Find out which tools offer true zero-retention privacy, support HEIC/AVIF/JPEG XL, and deliver the smallest files." />
 
     <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "Top 5 Secure Image Compressors - Privacy & Performance Comparison (2026)",
-        "description": "A detailed comparison of TinyPNG, Squoosh, ShortPixel, Cloudinary, and Mochify focusing on privacy retention, modern format support (AVIF, HEIC, JPEG XL), and JPEG encoder efficiency.",
-        "url": "https://mochify.xyz/guides/top-5-secure-image-compressors-2026",
-        "inLanguage": "en",
-        "isPartOf": {
+       {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Top 5 Secure Image Compressors for 2026: Privacy-First Optimization",
+            "description": "A 2026 ranking of the most secure image compressors prioritising zero-retention, in-memory processing, no-AI-training guarantees, and modern codecs like jpegli, AVIF, and WebP, with detailed comparisons of features, privacy policies, and performance.",
+            "url": "https://mochify.xyz/guides/top-5-secure-image-compressors-2026",
+            "inLanguage": "en",
+            "isPartOf": {
             "@type": "CollectionPage",
             "name": "Image Optimization Guides",
             "url": "https://mochify.xyz/guides"
-        },
-        "publisher": {
+            },
+            "publisher": {
             "@type": "Organization",
             "name": "Mochify",
             "url": "https://mochify.xyz"
-        },
-        "about": [
-            "secure image compression",
-            "privacy focused image compressor",
-            "TinyPNG alternatives",
-            "Squoosh vs Mochify",
-            "HEIC converter online",
-            "JPEG XL support 2026"
-        ],
-        "datePublished": "2026-02-17",
-        "dateModified": "2026-02-17"
+            },
+            "about": [
+            "secure image compression 2026",
+            "privacy-first image optimizers",
+            "zero-retention image tools",
+            "jpegli AVIF WebP compressors",
+            "top image compressor comparison"
+            ],
+            "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Mochify (Zero-Retention Leader)",
+            "description": "In-memory C++ processing, jpegli/AVIF/WebP support, 25-file batching, no disk storage, explicit no-AI-training policy."
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "xpacto (Browser-Based)",
+            "description": "100% local processing, unlimited batching, strong privacy focus, excellent for sensitive workflows."
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Squoosh (Google Open-Source)",
+            "description": "Client-side compression, extensive codec support, no server uploads, ideal for testing and experimentation."
+            },
+            {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "ImageOptim (Desktop Tool)",
+            "description": "Lossless optimization, no quality loss, local processing, supports multiple formats and metadata stripping."
+            },
+            {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Optimage (Mac CLI/App)",
+            "description": "Automatic consistent quality optimization, batch processing, supports JPEG/PNG/SVG/GIF/WebP."
+            }
+            ]
+            },
+            "datePublished": "2026-02-17",
+            "dateModified": "2026-02-17"
         }
     </script>
 </svelte:head>
