@@ -98,6 +98,11 @@
         },
         "mainEntity": [
             {
+            "@type": "Article",
+            "name": "Top 5 Secure Image Compressors for 2026: Privacy-First Optimization",
+            "url": "https://mochify.xyz/guides/top-5-secure-image-compressors-2026"
+            },
+            {
             "@type": ["TechArticle", "HowTo"],
             "name": "EXIF Data Risks in Image Compression: Strip Metadata for Privacy (2026 Guide)",
             "url": "https://mochify.xyz/guides/exif-data-risks-image-compression-2026"
