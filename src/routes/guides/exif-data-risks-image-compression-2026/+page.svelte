@@ -18,6 +18,63 @@
     <meta name="description" content={metadata.description}>
     <meta property="og:title" content={metadata.title} />
     <meta property="og:description" content={metadata.description} />
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": ["TechArticle", "HowTo"],
+        "headline": "EXIF Data Risks in Image Compression: Strip Metadata for Privacy (2026 Guide)",
+        "description": "A 2026 guide explaining EXIF metadata privacy risks, GDPR and cybersecurity implications, and a practical workflow for stripping or selectively retaining EXIF data with Mochify.",
+        "url": "https://mochify.xyz/guides/exif-data-risks-image-compression-2026",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "EXIF metadata privacy risks",
+            "GDPR and EXIF data",
+            "image metadata stripping workflow",
+            "Mochify EXIF handling",
+            "jpegli-based compression with EXIF control"
+        ],
+        "step": [
+            {
+            "@type": "HowToStep",
+            "name": "Audit your images for EXIF metadata",
+            "text": "Sample existing images from your library and inspect them with an EXIF viewer to confirm the presence of GPS coordinates, timestamps, device identifiers, and software tags."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Upload a batch to Mochify",
+            "text": "Upload up to 25 HEIC, HEIF, JPEG, PNG, WebP, or AVIF images to Mochify, where files are processed entirely in RAM with zero disk retention."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Select EXIF stripping or retention",
+            "text": "Use the default mode to strip EXIF metadata from your compressed output, or enable the optional \"Retain EXIF\" checkbox when you need metadata preserved for workflows like contests or print-ready files."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Download privacy-safe JPEGs",
+            "text": "Download the jpegli-encoded JPEGs with unnecessary EXIF fields removed, reducing file size and eliminating GPS, device, and software identifiers."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Replace originals in your stack",
+            "text": "Swap the cleaned images into your CMS, marketplace listings, or client deliverables to minimise GDPR liability and reduce the risk of stalking, doxxing, or data leakage."
+            }
+        ],
+        "datePublished": "2026-02-13",
+        "dateModified": "2026-02-13"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">

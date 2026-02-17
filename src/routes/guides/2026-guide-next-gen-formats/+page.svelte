@@ -16,6 +16,61 @@
     <meta name="description" content="Fix LCP errors using WebP, AVIF, and JPEG XL. Compare 2026 benchmarks, browser support, and privacy-first speeds. Master your image workflow with Mochify." />
     <meta property="og:title" content="WebP vs AVIF vs JPEG XL: 2026 Comparison Guide | Mochify" />
     <meta property="og:description" content="Fix LCP errors using WebP, AVIF, and JPEG XL. Compare 2026 benchmarks, browser support, and privacy-first speeds. Master your image workflow with Mochify." />
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": ["TechArticle", "HowTo"],
+        "headline": "WebP vs AVIF vs JPEG XL: 2026 Comparison Guide",
+        "description": "A 2026 comparison of WebP, AVIF, and JPEG XL focusing on compression gains, decoding performance, browser support, and practical rollout strategies for Core Web Vitals and real-world production sites.",
+        "url": "https://mochify.xyz/guides/2026-guide-next-gen-formats",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "WebP vs AVIF vs JPEG XL",
+            "next-gen image formats in 2026",
+            "Core Web Vitals and LCP",
+            "production rollout and fallback strategy"
+        ],
+        "step": [
+            {
+            "@type": "HowToStep",
+            "name": "Identify images with the biggest performance impact",
+            "text": "Map hero images, product photos, and high-traffic assets that dominate bandwidth and Largest Contentful Paint on key pages."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Choose a default next-gen format",
+            "text": "Pick AVIF or JPEG XL for critical high-detail visuals where supported, and WebP as the broadly compatible default for the rest of your catalog."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Implement picture-based fallbacks",
+            "text": "Use the picture element to serve AVIF or JPEG XL first, then WebP, and finally a JPEG fallback so legacy browsers still receive a compatible image."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Optimize quality settings per format",
+            "text": "Tune quality levels for AVIF, WebP, and JPEG XL based on test images so you hit target file sizes without visible artefacts in critical UI states."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Measure and iterate using real user data",
+            "text": "Monitor Core Web Vitals and bandwidth usage after rollout, then adjust formats and quality based on field data from your analytics and RUM tooling."
+            }
+        ],
+        "datePublished": "2026-02-05",
+        "dateModified": "2026-02-10"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">

@@ -16,6 +16,36 @@
     <meta name="description" content="Deliver better JPEG quality at smaller file sizes with Google's jpegli encoder. Get up to 35% compression improvement for eBay, Etsy, and platform-locked workflows without losing compatibility.">
     <meta property="og:title" content="JPEG Compression in 2026: Why Jpegli Changes the Quality-Per-Byte Game" />
     <meta property="og:description" content="Deliver better JPEG quality at smaller file sizes with Google's jpegli encoder. Get up to 35% compression improvement for eBay, Etsy, and platform-locked workflows without losing compatibility." />
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "JPEG Compression in 2026: Why Jpegli Changes the Quality-Per-Byte Game",
+        "description": "A 2026 guide to using Google's jpegli encoder for e-commerce and marketplace workflows, comparing it to MozJPEG and libjpeg-turbo, and explaining how Mochify delivers privacy-first jpegli compression.",
+        "url": "https://mochify.xyz/guides/jpeg-in-2026-jpegli",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "jpegli JPEG compression",
+            "JPEG optimization in 2026",
+            "MozJPEG vs jpegli vs libjpeg-turbo",
+            "marketplace product photo workflows",
+            "zero-retention image optimisation"
+        ],
+        "datePublished": "2026-02-09",
+        "dateModified": "2026-02-09"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">

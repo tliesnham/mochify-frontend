@@ -15,6 +15,36 @@
     <meta name="description" content="Secure your images with Zero-Retention optimization. The only way to ensure 100% data privacy in 2026. Fast, private, and storage-free image processing.">
     <meta property="og:title" content="Secure Your Images with Zero-Retention Optimization | Mochify" />
     <meta property="og:description" content="Secure your images with Zero-Retention optimization. The only way to ensure 100% data privacy in 2026. Fast, private, and storage-free image processing." />
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Secure Your Images with Zero-Retention Optimization",
+        "description": "A 2026 deep dive into zero-retention image optimization, explaining in-memory C++ processing, no-disk policies, and explicit no-AI-training guarantees, plus a practical privacy checklist for evaluating optimization tools.",
+        "url": "https://mochify.xyz/guides/privacy-image-optimization",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "zero-retention image optimization",
+            "in-memory processing architecture",
+            "no AI training on user assets",
+            "Mochify Standard Access vs Mochify Pro",
+            "2026 privacy-first vendor checklist"
+        ],
+        "datePublished": "2026-02-05",
+        "dateModified": "2026-02-05"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">

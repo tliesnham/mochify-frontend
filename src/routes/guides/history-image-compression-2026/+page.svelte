@@ -18,6 +18,36 @@
     <meta name="description" content={metadata.description}>
     <meta property="og:title" content={metadata.title} />
     <meta property="og:description" content={metadata.description} />
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "The History of Image Compression (Up to 2026)",
+        "description": "A 2026 guide tracing the history of image compression from early bitmap formats and GIF through JPEG, PNG, WebP, HEIF/AVIF, and modern codecs like JPEG XL and jpegli, with a focus on web performance and privacy-first optimization.",
+        "url": "https://mochify.xyz/guides/history-image-compression-2026",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "history of image compression",
+            "JPEG and discrete cosine transform",
+            "evolution of web image formats",
+            "WebP, AVIF, and JPEG XL emergence",
+            "jpegli and modern 2026 compression"
+        ],
+        "datePublished": "2026-02-15",
+        "dateModified": "2026-02-15"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">

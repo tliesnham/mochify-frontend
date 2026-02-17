@@ -20,56 +20,52 @@
 
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": "How to Convert Fujifilm HIF to JPG",
-            "description": "A quick guide to converting Fujifilm .HIF (10-bit HEIF) files to JPG directly in your browser without uploading data to a server.",
-            "totalTime": "PT1M",
-            "supply": [
-                {
-                    "@type": "HowToSupply",
-                    "name": "Fujifilm .HIF image files"
-                }
-            ],
-            "tool": [
-                {
-                    "@type": "HowToTool",
-                    "name": "Modern Web Browser (Chrome, Safari, Edge, or Firefox)"
-                },
-                {
-                    "@type": "HowToTool",
-                    "name": "Mochify HIF to JPG Converter"
-                }
-            ],
-            "step": [
-                {
-                    "@type": "HowToStep",
-                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step1",
-                    "name": "Access the Converter",
-                    "itemListElement": [{
-                        "@type": "HowToDirection",
-                        "text": "Navigate to the dedicated HIF to JPG conversion tool on the Mochify website."
-                    }]
-                },
-                {
-                    "@type": "HowToStep",
-                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step2",
-                    "name": "Select Your Files",
-                    "itemListElement": [{
-                        "@type": "HowToDirection",
-                        "text": "Click the file selection area to browse your computer or drag and drop your .HIF files directly into the browser window."
-                    }]
-                },
-                {
-                    "@type": "HowToStep",
-                    "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg#step3",
-                    "name": "Convert and Download",
-                    "itemListElement": [{
-                        "@type": "HowToDirection",
-                        "text": "The tool processes the conversion locally in your browser. Once finished, click the download button to save your new .JPG files."
-                    }]
-                }
-            ]
+        "@context": "https://schema.org",
+        "@type": ["TechArticle", "HowTo"],
+        "headline": "How to Convert X‑T5 / X‑H2 / X100VI / X‑T50 HIF to JPEG",
+        "description": "A practical guide for Fujifilm photographers explaining HIF/HEIF files from cameras like the X‑T5, X‑H2, X100VI, and X‑T50, and how to convert them to standard JPEG while preserving film simulations using Mochify's RAM-only pipeline.",
+        "url": "https://mochify.xyz/guides/fujifilm-hif-to-jpg",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "Fujifilm HIF to JPEG conversion",
+            "HEIF/HIF workflows for X-series cameras",
+            "preserving Fujifilm film simulations",
+            "privacy-first HIF conversion in RAM"
+        ],
+        "step": [
+            {
+            "@type": "HowToStep",
+            "name": "Transfer HIF files from your Fujifilm camera",
+            "text": "Ingest HIF or HEIF files from your X‑T5, X‑H2, X100VI, or X‑T50 to your computer using your usual card reader or tethering workflow."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Upload a batch to Mochify",
+            "text": "Drag and drop up to 25 HIF or HEIF images into Mochify’s converter, where they are processed entirely in RAM with zero disk storage."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Select JPEG as the output",
+            "text": "Choose high-quality JPEG output so that Fujifilm colour science and film simulations remain visually intact after conversion."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Download and integrate JPEGs",
+            "text": "Download the converted JPEGs and import them into your editing, archiving, or client delivery workflow as you would with native camera JPEGs."
+            }
+        ],
+        "datePublished": "2026-02-01",
+        "dateModified": "2026-02-01"
         }
     </script>
 </svelte:head>

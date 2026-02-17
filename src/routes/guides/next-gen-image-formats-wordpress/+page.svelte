@@ -16,6 +16,66 @@
     <meta name="description" content="A manual, repeatable workflow to improve LCP and reduce transfer size in WordPress without installing more image optimization plugins." />
     <meta property="og:title" content="Fix “Serve Images in Next-Gen Formats” in WordPress (No Plugins)" />
     <meta property="og:description" content="Convert to WebP/AVIF, shrink hero images, and boost LCP with a sleek Mochify workflow." />
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": ["TechArticle", "HowTo"],
+        "headline": "Fix \"Serve Images in Next-Gen Formats\" in WordPress (No Plugins) & Boost LCP",
+        "description": "A step-by-step guide for WordPress site owners to clear PageSpeed \"Serve images in next-gen formats\" warnings without plugins by pre-optimizing images with Mochify and deploying AVIF/WebP with JPEG fallbacks.",
+        "url": "https://mochify.xyz/guides/next-gen-image-formats-wordpress",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Image Optimization Guides",
+            "url": "https://mochify.xyz/guides"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mochify",
+            "url": "https://mochify.xyz"
+        },
+        "about": [
+            "WordPress image optimization",
+            "serve images in next-gen formats",
+            "Core Web Vitals and LCP",
+            "plugin-free performance tuning"
+        ],
+        "step": [
+            {
+            "@type": "HowToStep",
+            "name": "Run a performance audit",
+            "text": "Use PageSpeed Insights or Lighthouse on a representative URL and record which images trigger the \"Serve images in next-gen formats\" warning."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Collect target images from WordPress",
+            "text": "Identify hero, product, and above-the-fold images from the Media Library, theme templates, or page builder that match the flagged URLs."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Batch optimize images with Mochify",
+            "text": "Upload up to 25 source images to Mochify, convert them to AVIF or WebP, and compress them to reduce file size while keeping quality suitable for your layout."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Replace originals in WordPress",
+            "text": "Re-upload optimized assets and update image references in posts, pages, templates, or custom fields so the next-gen files are actually served."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Add picture-based fallbacks for critical assets",
+            "text": "Wrap key hero images in a picture element that serves AVIF or WebP first with a JPEG fallback to maintain compatibility on older browsers."
+            },
+            {
+            "@type": "HowToStep",
+            "name": "Re-test Core Web Vitals",
+            "text": "Run PageSpeed Insights again to confirm the next-gen warning has cleared and that Largest Contentful Paint has improved on mobile and desktop."
+            }
+        ],
+        "datePublished": "2026-02-09",
+        "dateModified": "2026-02-09"
+        }
+    </script>
 </svelte:head>
 
 <article class="bg-white rounded-none md:rounded-3xl pt-6 px-6 pb-8 md:p-12 border-x md:border border-pink-50 shadow-sm relative overflow-hidden">
