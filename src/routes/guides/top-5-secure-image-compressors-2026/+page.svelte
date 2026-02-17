@@ -368,7 +368,7 @@
                         </div>
                         <div>
                             <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Input Formats</span>
-                            <span class="text-base font-bold">JPG, PNG, WebP, AVIF, HEIC (upload only), JPEG XL</span>
+                            <span class="text-base font-bold">JPG, PNG, WebP, AVIF, HEIC, JPEG XL</span>
                         </div>
                         <div>
                             <span class="text-xs font-black text-[#4A2C2C] uppercase tracking-wider block mb-1">Modern Formats (AVIF / HEIC / JXL)</span>
@@ -555,7 +555,7 @@
 
                 <div class="mb-4">
                     <h4 class="font-bold text-[#875F42] mb-2">Weaknesses:</h4>
-                    <p class="mb-4">The 25-file batch limit means users with 500+ image catalogs must process in multiple rounds. There's no API yet (though the product strategy mentions one is planned), so automation-heavy workflows must wait. And while jpegli is technically superior, it's newer than MozJPEG - some edge cases may still favor the mature, battle-tested codec.</p>
+                    <p class="mb-4">The 25-file batch limit means users with 500+ image catalogs must process in multiple rounds. There's no API yet (it's in the works), so automation-heavy workflows must wait. And while jpegli is technically superior, it's newer than MozJPEG - some edge cases may still favor the mature, battle-tested codec.</p>
                 </div>
 
                 <p class="text-sm bg-white border border-pink-100 inline-block p-3 rounded-lg"><strong>Who It's For:</strong> Privacy-first users, e-commerce sellers processing iPhone HEIC photos for eBay/Etsy, WordPress publishers avoiding plugin bloat, and photographers who want future-proof formats (JPEG XL) without trusting a CDN.</p>
