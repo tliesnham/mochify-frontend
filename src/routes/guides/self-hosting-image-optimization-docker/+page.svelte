@@ -218,3 +218,42 @@ curl -X POST "http://localhost:5555/v1/squish" \
 
     </div>
 </article>
+
+<style>
+    :global(.prose h3, .prose h4) {
+        color: #4A2C2C !important; /* Deep Cocoa */
+        font-weight: 800;
+        margin-top: 3rem;
+        border-bottom: 1px solid #FFF0F3;
+        padding-bottom: 0.5rem;
+    }
+    :global(.prose strong) {
+        color: #4A2C2C !important; /* Makes bold text stand out without being 'black' */
+        font-weight: 700;
+    }
+
+    :global(.prose p, .prose li) {
+        color: #6C3F31 !important; /* Warm Cocoa for standard text */
+    }
+
+    /* Softening the numbers in lists */
+    :global(.prose ol > li::marker) {
+        color: #F06292; /* Using your Brand Pink for a cute touch */
+        font-weight: 800;
+    }
+    :global(.prose a), 
+    :global(.prose a:where(:not(.not-prose))) {
+        color: #F06292 !important; /* Brand Pink */
+        text-underline-offset: 4px !important;
+        text-decoration-thickness: 2px !important;
+        text-decoration-color: #FFB3C6 !important; /* Soft Pink Underline */
+        font-weight: 700 !important;
+    }
+
+    :global(.prose a:hover) {
+        color: #ec407a !important;
+        text-decoration-color: #F06292 !important;
+        background-color: #FFF0F3 !important; /* Strawberry highlight */
+        border-radius: 4px;
+    }
+</style>
