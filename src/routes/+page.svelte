@@ -86,7 +86,7 @@
             </div>
         </header>
 
-        <ImageUpload />
+        <ImageUpload showSmartMode={true} />
 
         <section class="mt-20 max-w-4xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 items-center">

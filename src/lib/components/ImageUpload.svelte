@@ -13,10 +13,11 @@
     };
 
     const props = $props();
-    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '', queryParams = '', showExifOption = false } = props;
+    let { types = ".JPG, .JPEG, .PNG, .WEBP, .AVIF, .HEIC, .HEIF", showTypes = true, output = 'jpg', compact = false, theme = 'pink', class: className = '', queryParams = '', showExifOption = false, showSmartMode = false } = props;
     const hasOutputOverride = 'output' in props;
 
     let stripExif: boolean = $state(false);
+    let smartCompress: boolean = $state(false);
 
     // Theme color mappings
     const colors = theme === 'blue' ? {
@@ -262,7 +263,7 @@
                             }, 100);
                         });
                         
-                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}&strip_exif=${stripExif}${queryParams ? '&' + queryParams : ''}`);
+                        xhr.open('POST', `${API_URL}/v1/squish?type=${imageType}&strip_exif=${stripExif}${smartCompress ? '&smartCompress=1' : ''}${queryParams ? '&' + queryParams : ''}`);
                         xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
                         xhr.responseType = 'blob';
                         xhr.send(file);
@@ -630,6 +631,41 @@
         <div class="ml-3">
             <span class="block text-sm font-bold text-[#6C3F31]">Remove EXIF Data</span>
             <span class="block text-xs text-[#875F42]/80">Strip GPS and camera metadata for extra privacy.</span>
+        </div>
+    </label>
+</div>
+{/if}
+
+{#if showSmartMode}
+<div class="mb-6 flex items-center gap-3 p-4 bg-[#E8F5E9] rounded-2xl border border-[#A5D6A7]/50 shadow-sm transition-colors hover:bg-[#C8E6C9]">
+    <label class="relative flex items-center cursor-pointer select-none">
+        <input 
+            type="checkbox" 
+            bind:checked={smartCompress}
+            class="sr-only" 
+        />
+        
+        <div class={`
+            w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 shadow-inner
+            ${smartCompress ? 'bg-[#66BB6A] border-[#66BB6A]' : 'bg-white border-[#A5D6A7]'}
+        `}>
+            
+            <svg 
+                class={`w-4 h-4 text-white transition-all duration-200 ${smartCompress ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                stroke-width="3" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+            >
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+
+        <div class="ml-3">
+            <span class="block text-sm font-bold text-[#6C3F31]">Smart Mode</span>
+            <span class="block text-xs text-[#875F42]/80">Intelligently optimize compression for best quality-to-size ratio.</span>
         </div>
     </label>
 </div>
