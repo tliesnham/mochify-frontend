@@ -90,6 +90,7 @@
             <p class="mb-6">
                 To run the engine with optimal security and performance settings, use the following command. This configuration runs the container in the background, maps the necessary ports, and secures the environment:
             </p>
+            <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
             <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
             <code class="language-bash text-sm text-[#4A2C2C] font-mono">
 docker run -d \
@@ -101,6 +102,7 @@ docker run -d \
     mochify/mochify-lite:latest
             </code>
             </pre>
+            </div>
             <h3 class="text-xl font-bold text-[#4A2C2C] mt-8 mb-4">Understanding the Configuration</h3>
             <p class="mb-6">If you are new to Docker, here is a quick breakdown of what these flags are doing:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2 marker:text-[#F06292]">
@@ -131,6 +133,7 @@ docker run -d \
                 The primary endpoint is <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">/v1/squish</code>. It accepts standard image formats (JPEG and PNG) up to 10MB in size. To optimize an image, you simply POST the binary data to your local endpoint:
             </p>
 
+            <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
             <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
                 <code class="language-bash text-sm text-[#4A2C2C] font-mono">
 curl -X POST "http://localhost:5555/v1/squish" \
@@ -139,6 +142,7 @@ curl -X POST "http://localhost:5555/v1/squish" \
         --output mochi_optimized.jpg
                 </code>
             </pre>
+            </div>
         </section>
 
         <section id="lite-vs-full">
@@ -255,22 +259,5 @@ curl -X POST "http://localhost:5555/v1/squish" \
         text-decoration-color: #F06292 !important;
         background-color: #FFF0F3 !important; /* Strawberry highlight */
         border-radius: 4px;
-    }
-
-    /* Code blocks */
-    pre {
-        background-color: #FFF5F7 !important;
-        border: 1px solid #FDE8ED;
-        border-radius: 1rem;
-        padding: 1.5rem;
-        overflow-x: auto;
-        margin: 1.5rem 0;
-    }
-
-    pre code {
-        color: #4A2C2C !important;
-        font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-        font-size: 0.875rem;
-        line-height: 1.6;
     }
 </style>
