@@ -92,7 +92,7 @@
             </p>
             <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
             <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
-            <code class="language-bash text-sm text-[#4A2C2C] font-mono">
+            <code>
 docker run -d \
     --name mochify-lite \
     -p 5555:5555 \
@@ -135,7 +135,7 @@ docker run -d \
 
             <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
             <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
-                <code class="language-bash text-sm text-[#4A2C2C] font-mono">
+                <code>
 curl -X POST "http://localhost:5555/v1/squish" \
         -H "Content-Type: image/jpeg" \
         --data-binary "@mochi.jpg" \
