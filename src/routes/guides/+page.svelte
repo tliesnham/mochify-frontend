@@ -8,7 +8,7 @@
 
     const guides = [
         {
-            title: "Fuji HIF Files Explained: How to Convert X‑T5 / X‑H2 / X100VI / X‑T50 HIF to JPEG",
+            title: "Fuji HIF Files Explained: How to Convert X-T5 / X-H2 / X100VI / X-T50 HIF to JPEG",
             description: "Fuji's HIF files are highly efficient and better quality at 10-bit but they're not supported everywhere, which can lead to frustration. Learn how to convert your camera's .HIF files to JPGs",
             url: "/guides/fujifilm-hif-to-jpg",
             category: "Image Formats",
@@ -70,6 +70,14 @@
             category: "Image Optimization",
             readTime: "15 min read",
             date: "Feb 17, 2026"
+        },
+        {
+            title: "How to Self-Host an Image Optimization API with Docker",
+            description: "Tired of uploading your images to third-party services? Learn how to set up your own image optimization API using Docker and the Mochify-Lite engine for secure, private compression.",
+            url: "/guides/self-hosting-image-optimization-docker",
+            category: "Image Optimization",
+            readTime: "5 min read",
+            date: "Feb 18, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
