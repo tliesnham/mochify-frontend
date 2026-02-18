@@ -91,7 +91,7 @@
                 To run the engine with optimal security and performance settings, use the following command. This configuration runs the container in the background, maps the necessary ports, and secures the environment:
             </p>
             <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
-            <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
+            <pre>
             <code>
 docker run -d \
     --name mochify-lite \
@@ -134,7 +134,7 @@ docker run -d \
             </p>
 
             <div class="bg-gray-800 text-white rounded-lg p-4 mb-4 overflow-x-auto">
-            <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
+            <pre>
                 <code>
 curl -X POST "http://localhost:5555/v1/squish" \
         -H "Content-Type: image/jpeg" \
