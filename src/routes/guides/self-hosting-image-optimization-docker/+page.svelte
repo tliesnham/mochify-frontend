@@ -85,13 +85,13 @@
                 Pulling the Image from Docker Hub
             </h2>
             <p class="mb-6">
-                Setting up Mochify-Lite is straightforward because it is containerized. Since it is hosted on <a href="https://hub.docker.com/r/mochify/mochify-lite">Docker Hub</a>, you can pull the image and have the engine running in seconds.
+                Setting up Mochify-Lite is straightforward because it is containerized. Since it is hosted on <a href="https://hub.docker.com/r/mochify/mochify-lite" class="text-[#F06292] font-bold underline decoration-2 decoration-[#FFB3C6] underline-offset-4 hover:text-[#ec407a] hover:decoration-[#F06292] hover:bg-[#FFF0F3] hover:rounded transition-colors">Docker Hub</a>, you can pull the image and have the engine running in seconds.
             </p>
             <p class="mb-6">
                 To run the engine with optimal security and performance settings, use the following command. This configuration runs the container in the background, maps the necessary ports, and secures the environment:
             </p>
-            <pre>
-            <code class="language-html">
+            <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
+            <code class="language-bash text-sm text-[#4A2C2C] font-mono">
 docker run -d \
     --name mochify-lite \
     -p 5555:5555 \
@@ -110,7 +110,7 @@ docker run -d \
                 <li><code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">--tmpfs:</code> Since the filesystem is read-only, this creates a small, fast 64MB buffer in RAM for the engine to process images temporarily.</li>
                 <li><code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">--security-opt=no-new-privileges:</code> Prevents the container processes from gaining additional privileges, adding an extra layer of security.</li>
             </ul>
-            <p>Once the command finishes, your local image compression engine is live and ready to receive requests at <a href="http://localhost:5555">http://localhost:5555</a>. Further example configuration can be found on <a href="https://github.com/tliesnham/mochify-docker">GitHub</a>.</p>
+            <p>Once the command finishes, your local image compression engine is live and ready to receive requests at <a href="http://localhost:5555" class="text-[#F06292] font-bold underline decoration-2 decoration-[#FFB3C6] underline-offset-4 hover:text-[#ec407a] hover:decoration-[#F06292] hover:bg-[#FFF0F3] hover:rounded transition-colors">http://localhost:5555</a>. Further example configuration can be found on <a href="https://github.com/tliesnham/mochify-docker" class="text-[#F06292] font-bold underline decoration-2 decoration-[#FFB3C6] underline-offset-4 hover:text-[#ec407a] hover:decoration-[#F06292] hover:bg-[#FFF0F3] hover:rounded transition-colors">GitHub</a>.</p>
         </section>
 
         <section id="using-the-api">
@@ -131,8 +131,8 @@ docker run -d \
                 The primary endpoint is <code class="bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded text-sm font-bold border border-pink-100">/v1/squish</code>. It accepts standard image formats (JPEG and PNG) up to 10MB in size. To optimize an image, you simply POST the binary data to your local endpoint:
             </p>
 
-            <pre>
-                <code class="language-html">
+            <pre class="bg-[#FFF5F7] rounded-2xl p-6 border border-pink-100 overflow-x-auto my-6">
+                <code class="language-bash text-sm text-[#4A2C2C] font-mono">
 curl -X POST "http://localhost:5555/v1/squish" \
         -H "Content-Type: image/jpeg" \
         --data-binary "@mochi.jpg" \
@@ -255,5 +255,22 @@ curl -X POST "http://localhost:5555/v1/squish" \
         text-decoration-color: #F06292 !important;
         background-color: #FFF0F3 !important; /* Strawberry highlight */
         border-radius: 4px;
+    }
+
+    /* Code blocks */
+    pre {
+        background-color: #FFF5F7 !important;
+        border: 1px solid #FDE8ED;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    pre code {
+        color: #4A2C2C !important;
+        font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+        font-size: 0.875rem;
+        line-height: 1.6;
     }
 </style>
