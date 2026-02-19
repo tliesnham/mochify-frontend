@@ -2,8 +2,46 @@
     import { env } from '$env/dynamic/public';
     import Navigation from '$lib/components/Navigation.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    import jxlDecWasmUrl from '@jsquash/jxl/codec/dec/jxl_dec.wasm?url';
 
     const API_URL = env.PUBLIC_API_URL || 'https://api.mochify.xyz';
+
+    // ── JXL polyfill helpers ─────────────────────────────────────
+    let jxlNativeSupport: boolean | null = $state(null);
+    let jxlDecoderReady = false;
+    let jxlPolyfillActive: boolean = $state(false);
+
+    async function checkJxlSupport(): Promise<boolean> {
+        if (jxlNativeSupport !== null) return jxlNativeSupport;
+        return new Promise(resolve => {
+            const img = new Image();
+            img.onload  = () => { jxlNativeSupport = true;  resolve(true);  };
+            img.onerror = () => { jxlNativeSupport = false; resolve(false); };
+            // Minimal valid 1×1 JXL image (base64)
+            img.src = 'data:image/jxl;base64,/woIELASCAgQAFwASxLFgkWACS8wChRAFAeKAFPoAFBKABDIBgEAAABhBgAAAfgACfgGAAFjEAD/jAAA';
+        });
+    }
+
+    async function ensureJxlDecoder(): Promise<void> {
+        if (jxlDecoderReady) return;
+        const { init } = await import('@jsquash/jxl/decode');
+        await init(fetch(jxlDecWasmUrl));
+        jxlDecoderReady = true;
+    }
+
+    async function decodeJxlToObjectUrl(blob: Blob): Promise<string> {
+        await ensureJxlDecoder();
+        const { default: decode } = await import('@jsquash/jxl/decode');
+        const ab = await blob.arrayBuffer();
+        const imageData = await decode(ab);
+        const canvas = document.createElement('canvas');
+        canvas.width  = imageData.width;
+        canvas.height = imageData.height;
+        canvas.getContext('2d')!.putImageData(imageData, 0, 0);
+        return await new Promise<string>((res, rej) =>
+            canvas.toBlob(b => b ? res(URL.createObjectURL(b)) : rej(new Error('toBlob failed')), 'image/png')
+        );
+    }
 
     // Upload state
     let uploadedFile: File | null = $state(null);
@@ -97,7 +135,26 @@
             if (!resp.ok) throw new Error(`Server error ${resp.status}`);
             const blob = await resp.blob();
             compressedSize = blob.size;
-            compressedUrl  = URL.createObjectURL(blob);
+
+            if (imageType === 'jxl') {
+                const hasNative = await checkJxlSupport();
+                if (!hasNative) {
+                    jxlPolyfillActive = true;
+                    try {
+                        compressedUrl = await decodeJxlToObjectUrl(blob);
+                    } catch {
+                        // Polyfill failed — fall back to native (onerror will catch it)
+                        compressedUrl = URL.createObjectURL(blob);
+                    } finally {
+                        jxlPolyfillActive = false;
+                    }
+                } else {
+                    compressedUrl = URL.createObjectURL(blob);
+                }
+            } else {
+                compressedUrl = URL.createObjectURL(blob);
+            }
+
             sliderPosition = 50;
         } catch (e) {
             errorMessage = e instanceof Error ? e.message : 'Compression failed. Please try again.';
@@ -126,6 +183,11 @@
         a.download = uploadedFile.name.replace(/\.[^.]+$/, '') + `_mochify.${imageType}`;
         a.click();
     }
+
+    // Eagerly probe JXL support the first time the tab is selected
+    $effect(() => {
+        if (jxlSelected && jxlNativeSupport === null) checkJxlSupport();
+    });
 
     // --- Slider pointer handling ---
     function sliderPosFromPointer(e: PointerEvent): number {
@@ -253,15 +315,25 @@
 
                     <!-- JXL browser support banner -->
                     {#if jxlSelected}
-                    <div class="flex items-start gap-3 px-5 py-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm leading-relaxed">
+                    <div class="flex items-start gap-3 px-5 py-4 {jxlNativeSupport === false ? 'bg-[#E8F5E9] border-green-200 text-[#1B5E20]' : 'bg-amber-50 border-amber-200 text-amber-800'} border rounded-2xl text-sm leading-relaxed">
+                        {#if jxlNativeSupport === false}
+                        <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#66BB6A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <span class="font-bold">WASM polyfill active.</span>
+                            Your browser doesn't support JXL natively — Mochify will decode it client-side via WebAssembly so you still see a live preview in the slider.
+                        </div>
+                        {:else}
                         <svg class="w-5 h-5 mt-0.5 shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
                         </svg>
                         <div>
-                            <span class="font-bold">JXL preview is browser-dependent.</span>
-                            Safari 17+ renders JPEG XL natively. Chrome and most Android browsers do not support it yet — the compressed side may appear blank, but the downloaded file is a valid JXL.
+                            <span class="font-bold">Checking JXL support…</span>
+                            Safari 17+ renders JPEG XL natively. For other browsers, a WASM polyfill will be loaded automatically.
                         </div>
+                        {/if}
                     </div>
                     {/if}
 
@@ -303,9 +375,17 @@
                     <button
                         class="w-full py-4 rounded-2xl font-black text-lg text-white bg-gradient-to-r from-[#FFB3C6] to-[#E0ACD5] hover:from-[#F06292] hover:to-[#D89AC7] transition-all shadow-sm active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                         onclick={processImage}
-                        disabled={isProcessing}
+                        disabled={isProcessing || jxlPolyfillActive}
                     >
-                        {#if isProcessing}
+                        {#if jxlPolyfillActive}
+                        <span class="flex items-center justify-center gap-3">
+                            <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                            </svg>
+                            Decoding JXL via WASM…
+                        </span>
+                        {:else if isProcessing}
                         <span class="flex items-center justify-center gap-3">
                             <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
