@@ -25,8 +25,10 @@
     async function ensureJxlDecoder(): Promise<void> {
         if (jxlDecoderReady) return;
         const { init } = await import('@jsquash/jxl/decode');
-        const wasmModule = await WebAssembly.compileStreaming(fetch(jxlDecWasmUrl));
-        await init(wasmModule);
+        // Pass the hashed Vite asset URL via locateFile so Emscripten fetches
+        // and instantiates the WASM itself — avoids Content-Type: application/wasm
+        // requirements that compileStreaming enforces.
+        await init({ locateFile: () => jxlDecWasmUrl });
         jxlDecoderReady = true;
     }
 
