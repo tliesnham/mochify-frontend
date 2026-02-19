@@ -202,7 +202,7 @@
                         onchange={handleFileSelect}
                     />
                     <div
-                        class="border-[4px] border-dashed {isDragOver ? 'border-[#F06292] bg-[#FFF0F3]' : 'border-[#FFE5EC] hover:border-[#FFD6E0]'} rounded-2xl p-10 text-center cursor-pointer transition-all duration-300 bg-[#FFF5F7] group"
+                        class="border-[4px] border-dashed {isDragOver ? 'border-[#F06292] bg-[#FFF0F3]' : 'border-[#FFE5EC] hover:border-[#FFD6E0]'} rounded-2xl p-16 text-center cursor-pointer transition-all duration-300 bg-[#FFF5F7] group"
                         role="button"
                         tabindex="0"
                         aria-label="Upload an image to compare"
