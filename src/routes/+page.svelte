@@ -1,10 +1,49 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import ImageUpload from '$lib/components/ImageUpload.svelte';
     import Footer from '$lib/components/Footer.svelte';
     import Navigation from '$lib/components/Navigation.svelte';
-    
-    // Simple state for FAQ toggles if needed, 
-    // but <details> works natively without JS overhead!
+
+    let fileCount = 0;
+    let fileSizeMB = 0;
+
+    function animateCount(from: number, to: number, duration: number, setter: (v: number) => void) {
+        const start = performance.now();
+        const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setter(Math.round(from + (to - from) * eased));
+            if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    }
+
+    onMount(() => {
+        // Start hero counters shortly after mount
+        const t = setTimeout(() => {
+            animateCount(0, 25, 1100, v => (fileCount = v));
+            animateCount(0, 20, 900,  v => (fileSizeMB = v));
+        }, 400);
+
+        // Scroll-triggered reveal
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        return () => {
+            clearTimeout(t);
+            observer.disconnect();
+        };
+    });
 </script>
 
 <svelte:head>
@@ -46,7 +85,12 @@
 
 <div class="min-h-screen bg-[#FDFBF7] selection:bg-[#FFF0F3] selection:text-pink-900 flex flex-col relative">
     
-    <div class="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjgiIGZpbGw9InJnYmEoMjU1LDI0MCwyNDMsMC4zKSIvPjwvZz48L3N2Zz4=')] opacity-30 pointer-events-none"></div>
+    <!-- Animated background orbs -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div class="animate-float absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-pink-200/20 blur-[80px]"></div>
+        <div class="animate-float-slow absolute -bottom-56 -left-40 w-[600px] h-[600px] rounded-full bg-rose-100/15 blur-[100px]"></div>
+        <div class="animate-float absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-pink-50/20 blur-[70px]"></div>
+    </div>
 
 
     <Navigation />
@@ -57,19 +101,24 @@
                 <h1 class="text-5xl md:text-7xl font-black text-[#4A2C2C] leading-tight">
                     Mochify
                 </h1>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-[#FF8FA3] tracking-tight">
+                <h2 class="shimmer-text text-2xl md:text-3xl font-extrabold tracking-tight">
                     Zero-Retention Image Optimization
                 </h2>
             </div>
             
             <p class="mt-6 text-[#6C3F31] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-				No more 5MB limits. Compress <strong>25 images (20MB each)</strong> at once with our <strong>native C++ engine</strong>. 
+				No more 5MB limits. Compress
+				<strong>
+					<span class="font-black text-[#F06292]">{fileCount}</span> images
+					(<span class="font-black text-[#F06292]">{fileSizeMB}MB</span> each)
+				</strong>
+				at once with our <strong>native C++ engine</strong>.
 				Get next-gen <strong>Jpegli</strong>, <strong>AVIF</strong>, and <strong>JPEG XL</strong> – smaller files, same quality, instant results.
 			</p>
 
             <div class="flex flex-wrap justify-center gap-4 mt-8">
     
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFE5F0] shadow-sm text-[#BE185D] text-sm font-bold border border-pink-100">
+                <span class="pulse-glow inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFE5F0] shadow-sm text-[#BE185D] text-sm font-bold border border-pink-100">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
@@ -88,7 +137,7 @@
 
         <ImageUpload showSmartMode={true} />
 
-        <section class="mt-20 max-w-4xl mx-auto">
+        <section class="mt-20 max-w-4xl mx-auto reveal">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <div>
@@ -121,7 +170,7 @@
                 </div>
                 
                <div class="grid md:grid-cols-1 gap-4">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-50 hover:shadow-md transition-shadow">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-50 hover:shadow-md hover:border-pink-100 transition-all duration-300" style="transition-delay: 0.1s">
                         <div class="flex items-center gap-3 mb-2">
                         <svg class="text-[#F06292] w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                         <h3 class="font-bold text-[#4A2C2C] text-lg">Privacy by Design</h3>
@@ -131,7 +180,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-50 hover:shadow-md transition-shadow">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-50 hover:shadow-md hover:border-pink-100 transition-all duration-300" style="transition-delay: 0.2s">
                         <div class="flex items-center gap-3 mb-2">
                         <svg class="text-[#F06292] w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         <h3 class="font-bold text-[#4A2C2C] text-lg">Pro Formats Free</h3>

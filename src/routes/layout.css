@@ -83,7 +83,79 @@
   }
 }
 
-/* --- 4. MOCHI COMPONENTS --- */
+/* --- 4. ANIMATIONS --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-22px) scale(1.02); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+  50% { transform: translateY(18px) scale(0.98) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(240, 98, 146, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(240, 98, 146, 0.18); }
+}
+
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 5. DYNAMIC UTILITY CLASSES --- */
+
+/* Scroll-reveal: elements start hidden and slide up into view */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating orb animation */
+.animate-float      { animation: float      9s  ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 13s ease-in-out infinite; }
+
+/* Shimmer gradient text */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--mochi-pink) 0%,
+    #FFB3C6 30%,
+    #FF8FA3 50%,
+    #FFB3C6 70%,
+    var(--mochi-pink) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Counter pop animation */
+.count-in {
+  display: inline-block;
+  animation: count-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Badge pulse glow */
+.pulse-glow {
+  animation: pulse-glow 2.8s ease-in-out infinite;
+}
+
+/* --- 6. MOCHI COMPONENTS --- */
 @layer components {
   /* The "Squishy" Button Class */
   .btn-mochi {
