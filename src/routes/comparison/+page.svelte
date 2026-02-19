@@ -25,7 +25,8 @@
     async function ensureJxlDecoder(): Promise<void> {
         if (jxlDecoderReady) return;
         const { init } = await import('@jsquash/jxl/decode');
-        await init(fetch(jxlDecWasmUrl));
+        const wasmModule = await WebAssembly.compileStreaming(fetch(jxlDecWasmUrl));
+        await init(wasmModule);
         jxlDecoderReady = true;
     }
 
@@ -142,9 +143,9 @@
                     jxlPolyfillActive = true;
                     try {
                         compressedUrl = await decodeJxlToObjectUrl(blob);
-                    } catch {
-                        // Polyfill failed — fall back to native (onerror will catch it)
-                        compressedUrl = URL.createObjectURL(blob);
+                    } catch (polyfillErr) {
+                        console.error('[JXL polyfill] decode failed:', polyfillErr);
+                        throw new Error('JXL WASM decode failed. Please try a different format.');
                     } finally {
                         jxlPolyfillActive = false;
                     }
