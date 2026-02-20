@@ -93,7 +93,6 @@
             if (parsedConfig.type) params.append('type', parsedConfig.type);
             if (parsedConfig.smartCompress) params.append('smartCompress', '1');
             
-            // Catch-all for any other NLP parameters
             for (const [key, value] of Object.entries(parsedConfig)) {
                 if (key !== 'smartCompress' && key !== 'type' && value !== false) {
                     params.append(key, String(value));
@@ -102,16 +101,13 @@
 
             const queryString = params.toString();
 
-            // ── Step 3: Process the files as raw binaries ──
-            // We use a Promise to handle the XHR upload so we can await each file cleanly.
+            // ── Step 3: Process the files and trigger downloads ──
             let completedFiles = 0;
-            const outputBlobs: Blob[] = []; 
 
             for (const file of files) {
                 const blob = await new Promise<Blob>((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
 
-                    // Track progress relative to the whole batch
                     xhr.upload.addEventListener('progress', (e) => {
                         if (e.lengthComputable) {
                             const fileProgress = (e.loaded / e.total);
@@ -122,7 +118,7 @@
 
                     xhr.addEventListener('load', () => {
                         if (xhr.status >= 200 && xhr.status < 300) {
-                            resolve(xhr.response); // Returns the processed image blob
+                            resolve(xhr.response);
                         } else {
                             reject(new Error(`Failed to process ${file.name} (Status: ${xhr.status})`));
                         }
@@ -131,24 +127,49 @@
                     xhr.addEventListener('error', () => reject(new Error('Network error during image processing.')));
                     xhr.addEventListener('abort', () => reject(new Error('Request cancelled.')));
 
-                    // Open request with query params
                     xhr.open('POST', `https://api.mochify.xyz/v1/squish?${queryString}`);
                     xhr.setRequestHeader('Referer', 'http://mochify.xyz');
-                    
-                    // CRITICAL: Set content-type to the file's type and expect a blob back
                     xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
                     xhr.responseType = 'blob'; 
-                    
-                    // CRITICAL: Send the raw file
                     xhr.send(file);
                 });
 
-                outputBlobs.push(blob);
+                // ── Step 4: Automatically Download the Blob ──
+                
+                // Extract the original filename without its extension
+                const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+                
+                // Determine the new extension (fallback to original if NLP didn't specify one)
+                const newExtension = parsedConfig.type || file.name.split('.').pop();
+                
+                // Create a temporary URL for the Blob
+                const downloadUrl = window.URL.createObjectURL(blob);
+                
+                // Create an invisible anchor tag to trigger the download
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = downloadUrl;
+                a.download = `${baseName}_mochified.${newExtension}`;
+                
+                // Append, click, and clean up
+                document.body.appendChild(a);
+                a.click();
+                
+                // Give the browser a moment before revoking the URL
+                setTimeout(() => {
+                    window.URL.revokeObjectURL(downloadUrl);
+                    document.body.removeChild(a);
+                }, 100);
+
                 completedFiles++;
             }
 
-            // Format a success message (you can later replace this with actual image previews)
-            result = `Successfully processed ${outputBlobs.length} image${outputBlobs.length === 1 ? '' : 's'}!`;
+            result = `Successfully processed and downloaded ${completedFiles} image${completedFiles === 1 ? '' : 's'}!`;
+            
+            // Optional: Clear the input after success
+            // files = [];
+            // prompt = '';
+
             isProcessing = false;
 
         } catch (err) {
