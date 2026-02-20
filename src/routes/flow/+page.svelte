@@ -99,7 +99,6 @@
 
             const nlpResponse = await fetch('https://api.mochify.xyz/v1/nlp/parse', {
                 method: 'POST',
-                headers: { 'Referer': 'http://mochify.xyz' },
                 body: nlpForm
             });
 
@@ -149,7 +148,6 @@
                     xhr.addEventListener('abort', () => reject(new Error('Request cancelled.')));
 
                     xhr.open('POST', `https://api.mochify.xyz/v1/squish?${queryString}`);
-                    xhr.setRequestHeader('Referer', 'http://mochify.xyz');
                     xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
                     xhr.responseType = 'blob'; 
                     xhr.send(file);
