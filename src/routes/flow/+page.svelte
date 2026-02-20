@@ -72,8 +72,6 @@
 
         const form = new FormData();
         form.append('prompt', prompt.trim());
-        // First image for now; expandable once the API supports multi-image
-        form.append('image', files[0]);
 
         const xhr = new XMLHttpRequest();
 
