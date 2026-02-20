@@ -7,6 +7,7 @@
     let files: File[] = $state([]);
     let isDragging: boolean = $state(false);
     let isProcessing: boolean = $state(false);
+    let uploadProgress: number = $state(0);
     let result: string | null = $state(null);
     let error: string | null = $state(null);
     let textareaEl: HTMLTextAreaElement;
@@ -62,42 +63,62 @@
         tick().then(() => { autoGrow(); textareaEl?.focus(); });
     }
 
-    async function submit() {
+    function submit() {
         if (!prompt.trim() || files.length === 0 || isProcessing) return;
         isProcessing = true;
+        uploadProgress = 0;
         result = null;
         error = null;
 
-        try {
-            const form = new FormData();
-            form.append('prompt', prompt.trim());
-            // Send the first image for now; multi-image support can be added once the API supports it
-            form.append('image', files[0]);
+        const form = new FormData();
+        form.append('prompt', prompt.trim());
+        // First image for now; expandable once the API supports multi-image
+        form.append('image', files[0]);
 
-            const res = await fetch('https://api.mochify.xyz/v1/nlp/describe', {
-                method: 'POST',
-                headers: { 'Referer': 'http://mochify.xyz' },
-                body: form
-            });
+        const xhr = new XMLHttpRequest();
 
-            const text = await res.text();
+        // Upload progress (0 → 50%)
+        xhr.upload.addEventListener('progress', (e) => {
+            if (e.lengthComputable) {
+                uploadProgress = Math.round((e.loaded / e.total) * 50);
+            }
+        });
+
+        // Upload done → server is processing (50%)
+        xhr.upload.addEventListener('load', () => {
+            uploadProgress = 50;
+        });
+
+        xhr.addEventListener('load', () => {
+            uploadProgress = 100;
             let data: unknown;
-            try { data = JSON.parse(text); } catch { data = text; }
+            try { data = JSON.parse(xhr.responseText); } catch { data = xhr.responseText; }
 
-            if (!res.ok) {
-                error = typeof data === 'object' && data !== null && 'message' in data
-                    ? String((data as Record<string, unknown>).message)
-                    : String(data);
-            } else {
+            if (xhr.status >= 200 && xhr.status < 300) {
                 result = typeof data === 'object' && data !== null
                     ? JSON.stringify(data, null, 2)
                     : String(data);
+            } else {
+                error = typeof data === 'object' && data !== null && 'message' in (data as object)
+                    ? String((data as Record<string, unknown>).message)
+                    : String(data);
             }
-        } catch (e) {
-            error = e instanceof Error ? e.message : 'Something went wrong.';
-        } finally {
             isProcessing = false;
-        }
+        });
+
+        xhr.addEventListener('error', () => {
+            error = 'Network error — please try again.';
+            isProcessing = false;
+        });
+
+        xhr.addEventListener('abort', () => {
+            error = 'Request cancelled.';
+            isProcessing = false;
+        });
+
+        xhr.open('POST', 'https://api.mochify.xyz/v1/nlp/describe');
+        xhr.setRequestHeader('Referer', 'http://mochify.xyz');
+        xhr.send(form);
     }
 </script>
 
@@ -258,15 +279,27 @@
                     </div>
 
                     <!-- Bottom hint bar -->
-                    <div class="flex items-center justify-between px-5 py-2.5 border-t border-pink-50/80 bg-white/30">
-                        <span class="text-xs text-[#875F42]/70 font-medium">
-                            {#if files.length === 0}
-                                Drop images into this box or use the clip button
-                            {:else}
-                                {files.length} {files.length === 1 ? 'image' : 'images'} attached · Shift+Enter for new line
-                            {/if}
-                        </span>
-                        <span class="text-xs text-[#875F42]/50 font-medium">↵ enter to process</span>
+                    <div class="border-t border-pink-50/80 bg-white/30">
+                        {#if isProcessing}
+                            <div class="h-1 bg-pink-50 overflow-hidden">
+                                <div
+                                    class="h-full bg-gradient-to-r from-[#F06292] to-[#e040a0] transition-all duration-300 ease-out"
+                                    style="width: {uploadProgress}%"
+                                ></div>
+                            </div>
+                        {/if}
+                        <div class="flex items-center justify-between px-5 py-2.5">
+                            <span class="text-xs text-[#875F42]/70 font-medium">
+                                {#if isProcessing}
+                                    {uploadProgress < 50 ? 'Uploading…' : uploadProgress < 100 ? 'Processing…' : 'Done'}
+                                {:else if files.length === 0}
+                                    Drop images into this box or use the clip button
+                                {:else}
+                                    {files.length} {files.length === 1 ? 'image' : 'images'} attached · Shift+Enter for new line
+                                {/if}
+                            </span>
+                            <span class="text-xs text-[#875F42]/50 font-medium">↵ enter to process</span>
+                        </div>
                     </div>
                 </div>
             </div>
