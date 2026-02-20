@@ -12,9 +12,9 @@
 <ReadProgress />
 
 <svelte:head>
-    <title>Optimizing Hero Images: Fix LCP & Boost SEO Without Plugins</title>
-    <meta name="description" content="Fix slow LCP scores from bloated hero images. Step-by-step guide for WordPress, Shopify, Squarespace, and Wix — no plugins needed. Includes format comparison and Mochify workflow.">
-    <meta property="og:title" content="Optimizing Hero Images: Fix LCP & Boost SEO Without Plugins" />
+    <title>Optimizing Hero Images: Fix LCP & Boost SEO with No Plugins</title>
+    <meta name="description" content="Your 4 sec hero loads kill rankings. Learn to compress heroes to <150KB AVIF, fix LCP to 1.3s, and boost SEO 10-20% without plugins.">
+    <meta property="og:title" content="Optimizing Hero Images: Fix LCP & Boost SEO with No Plugins" />
     <meta property="og:description" content="Your hero image loads in 4 seconds? Google notices. Learn how to compress hero images, fix LCP errors, and stop visitors from bouncing — no plugins required." />
 
     <script type="application/ld+json">
