@@ -7,7 +7,6 @@
     let files: File[] = $state([]);
     let isDragging: boolean = $state(false);
     
-    // Break down the processing state
     let isProcessing: boolean = $state(false);
     let processPhase: 'idle' | 'thinking' | 'uploading' = $state('idle');
     
@@ -66,15 +65,37 @@
         if (!prompt.trim() || files.length === 0 || isProcessing) return;
         
         isProcessing = true;
-        processPhase = 'thinking'; // Step 1: LLM Phase
+        processPhase = 'thinking';
         uploadProgress = 0;
         result = null;
         error = null;
 
         try {
+            // ── NEW: Extract dimensions from the first file ──
+            let realW = 0;
+            let realH = 0;
+            
+            await new Promise<void>((resolve) => {
+                const img = new Image();
+                img.onload = () => {
+                    realW = img.width;
+                    realH = img.height;
+                    window.URL.revokeObjectURL(img.src);
+                    resolve();
+                };
+                img.onerror = () => {
+                    // Safety net: if image is corrupted, just proceed with 0x0
+                    window.URL.revokeObjectURL(img.src);
+                    resolve();
+                };
+                img.src = window.URL.createObjectURL(files[0]);
+            });
+
             // ── Step 1: Get the configuration from the NLP endpoint ──
             const nlpForm = new FormData();
             nlpForm.append('prompt', prompt.trim());
+            if (realW > 0) nlpForm.append('realWidth', String(realW));
+            if (realH > 0) nlpForm.append('realHeight', String(realH));
 
             const nlpResponse = await fetch('https://api.mochify.xyz/v1/nlp/parse', {
                 method: 'POST',
@@ -101,7 +122,7 @@
             const queryString = params.toString();
 
             // ── Step 3: Process the files and trigger downloads ──
-            processPhase = 'uploading'; // Step 2: Transition to actual upload
+            processPhase = 'uploading';
             let completedFiles = 0;
 
             for (const file of files) {
@@ -159,7 +180,6 @@
         } catch (err) {
             error = err instanceof Error ? err.message : String(err);
         } finally {
-            // Reset states
             isProcessing = false;
             processPhase = 'idle';
         }
