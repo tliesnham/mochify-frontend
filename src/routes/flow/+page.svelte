@@ -87,75 +87,69 @@
 
             const parsedConfig = await nlpResponse.json();
 
-            // ── Step 2: Build the payload for the squish endpoint ──
-            const squishForm = new FormData();
-
-            // Append parsed NLP rules (e.g., mapping boolean smartCompress to '1' or '0')
-            if ('smartCompress' in parsedConfig) {
-                squishForm.append('smartCompress', parsedConfig.smartCompress ? '1' : '0');
-            }
-            if ('type' in parsedConfig) {
-                squishForm.append('type', parsedConfig.type);
-            }
+            // ── Step 2: Build the Query String ──
+            const params = new URLSearchParams();
             
-            // Catch-all loop just in case the NLP returns extra parameters like width, height, etc.
+            if (parsedConfig.type) params.append('type', parsedConfig.type);
+            if (parsedConfig.smartCompress) params.append('smartCompress', '1');
+            
+            // Catch-all for any other NLP parameters
             for (const [key, value] of Object.entries(parsedConfig)) {
-                if (key !== 'smartCompress' && key !== 'type') {
-                    squishForm.append(key, String(value));
+                if (key !== 'smartCompress' && key !== 'type' && value !== false) {
+                    params.append(key, String(value));
                 }
             }
 
-            // Append the actual image files 
-            // Note: Make sure 'files' is the exact form-data key your Squish API expects!
-            files.forEach(file => {
-                squishForm.append('files', file); 
-            });
+            const queryString = params.toString();
 
-            // ── Step 3: Send images to Squish and track progress ──
-            const xhr = new XMLHttpRequest();
+            // ── Step 3: Process the files as raw binaries ──
+            // We use a Promise to handle the XHR upload so we can await each file cleanly.
+            let completedFiles = 0;
+            const outputBlobs: Blob[] = []; 
 
-            // Upload progress (0 → 50%)
-            xhr.upload.addEventListener('progress', (e) => {
-                if (e.lengthComputable) {
-                    uploadProgress = Math.round((e.loaded / e.total) * 50);
-                }
-            });
+            for (const file of files) {
+                const blob = await new Promise<Blob>((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
 
-            // Upload done → server is processing (50%)
-            xhr.upload.addEventListener('load', () => {
-                uploadProgress = 50;
-            });
+                    // Track progress relative to the whole batch
+                    xhr.upload.addEventListener('progress', (e) => {
+                        if (e.lengthComputable) {
+                            const fileProgress = (e.loaded / e.total);
+                            const baseProgress = completedFiles / files.length;
+                            uploadProgress = Math.round((baseProgress + (fileProgress / files.length)) * 100);
+                        }
+                    });
 
-            xhr.addEventListener('load', () => {
-                uploadProgress = 100;
-                let data: unknown;
-                try { data = JSON.parse(xhr.responseText); } catch { data = xhr.responseText; }
+                    xhr.addEventListener('load', () => {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            resolve(xhr.response); // Returns the processed image blob
+                        } else {
+                            reject(new Error(`Failed to process ${file.name} (Status: ${xhr.status})`));
+                        }
+                    });
 
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    result = typeof data === 'object' && data !== null
-                        ? JSON.stringify(data, null, 2)
-                        : String(data);
-                } else {
-                    error = typeof data === 'object' && data !== null && 'message' in (data as object)
-                        ? String((data as Record<string, unknown>).message)
-                        : String(data);
-                }
-                isProcessing = false;
-            });
+                    xhr.addEventListener('error', () => reject(new Error('Network error during image processing.')));
+                    xhr.addEventListener('abort', () => reject(new Error('Request cancelled.')));
 
-            xhr.addEventListener('error', () => {
-                error = 'Network error during image processing — please try again.';
-                isProcessing = false;
-            });
+                    // Open request with query params
+                    xhr.open('POST', `https://api.mochify.xyz/v1/squish?${queryString}`);
+                    xhr.setRequestHeader('Referer', 'http://mochify.xyz');
+                    
+                    // CRITICAL: Set content-type to the file's type and expect a blob back
+                    xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
+                    xhr.responseType = 'blob'; 
+                    
+                    // CRITICAL: Send the raw file
+                    xhr.send(file);
+                });
 
-            xhr.addEventListener('abort', () => {
-                error = 'Request cancelled.';
-                isProcessing = false;
-            });
+                outputBlobs.push(blob);
+                completedFiles++;
+            }
 
-            xhr.open('POST', 'https://api.mochify.xyz/v1/squish');
-            xhr.setRequestHeader('Referer', 'http://mochify.xyz');
-            xhr.send(squishForm);
+            // Format a success message (you can later replace this with actual image previews)
+            result = `Successfully processed ${outputBlobs.length} image${outputBlobs.length === 1 ? '' : 's'}!`;
+            isProcessing = false;
 
         } catch (err) {
             error = err instanceof Error ? err.message : String(err);
