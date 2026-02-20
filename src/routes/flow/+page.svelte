@@ -7,7 +7,7 @@
     let files: File[] = $state([]);
     let isDragging: boolean = $state(false);
     
-    // NEW: Break down the processing state
+    // Break down the processing state
     let isProcessing: boolean = $state(false);
     let processPhase: 'idle' | 'thinking' | 'uploading' = $state('idle');
     
@@ -195,9 +195,61 @@
 
         <div class="w-full max-w-2xl">
             <div class="relative rounded-3xl transition-all duration-300 {isDragging ? 'prompt-glow' : ''}">
-                <div class="relative rounded-3xl border bg-white/65 backdrop-blur-2xl shadow-2xl shadow-pink-100/60 transition-all duration-300 overflow-hidden {isDragging ? 'border-pink-300' : 'border-white/70'}">
+                <div 
+                    class="relative rounded-3xl border bg-white/65 backdrop-blur-2xl shadow-2xl shadow-pink-100/60 transition-all duration-300 overflow-hidden {isDragging ? 'border-pink-300' : 'border-white/70'}"
+                    ondragover={handleDragOver}
+                    ondragleave={handleDragLeave}
+                    ondrop={handleDrop}
+                    role="region"
+                    aria-label="Image processing prompt input area"
+                >
                     
                     <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-pink-200/80 to-transparent"></div>
+
+                    {#if isDragging}
+                        <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-pink-50/80 backdrop-blur-sm pointer-events-none">
+                            <div class="w-11 h-11 rounded-xl bg-white/80 shadow-md flex items-center justify-center mb-2.5 animate-bounce">
+                                <svg class="w-5 h-5 text-[#F06292]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                                </svg>
+                            </div>
+                            <p class="text-[#4A2C2C] font-bold text-sm">Drop to add images</p>
+                        </div>
+                    {/if}
+
+                    {#if files.length > 0}
+                        <div class="flex items-center gap-2 flex-wrap px-5 pt-5 pb-2">
+                            {#each files as file, i}
+                                <div class="relative group flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-xl overflow-hidden border-2 border-pink-100 shadow-sm bg-pink-50">
+                                        <img
+                                            src={URL.createObjectURL(file)}
+                                            alt={file.name}
+                                            class="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <button
+                                        onclick={() => removeFile(i)}
+                                        class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#4A2C2C] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md cursor-pointer"
+                                        aria-label="Remove {file.name}"
+                                    >
+                                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            {/each}
+                            <button
+                                onclick={() => fileInputEl?.click()}
+                                class="flex-shrink-0 w-14 h-14 rounded-xl border-2 border-dashed border-pink-200 bg-pink-50/50 hover:bg-pink-50 hover:border-pink-300 transition-all flex items-center justify-center text-pink-400 hover:text-[#F06292]"
+                                aria-label="Add more images"
+                            >
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                                </svg>
+                            </button>
+                        </div>
+                    {/if}
 
                     <div class="flex items-center gap-3 px-5 py-4">
                         <button onclick={() => fileInputEl?.click()} class="flex-shrink-0 p-2.5 rounded-xl text-[#875F42] hover:text-[#F06292] hover:bg-pink-50 transition-all">
@@ -252,7 +304,31 @@
                 </div>
             </div>
         </div>
+
+        {#if result || error}
+            <div class="w-full max-w-2xl mt-6">
+                <div class="rounded-3xl border bg-white/65 backdrop-blur-2xl shadow-xl shadow-pink-100/40 border-white/70 overflow-hidden">
+                    <div class="px-5 py-3 border-b border-pink-50/80 bg-white/30 flex items-center gap-2">
+                        {#if error}
+                            <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
+                            <span class="text-xs font-semibold text-red-600">Error</span>
+                        {:else}
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                            <span class="text-xs font-semibold text-[#4A2C2C]">Response</span>
+                        {/if}
+                    </div>
+                    <pre class="px-5 py-4 text-sm text-[#4A2C2C] whitespace-pre-wrap break-words font-mono leading-relaxed {error ? 'text-red-700' : ''}">{error ?? result}</pre>
+                </div>
+            </div>
+        {/if}
     </main>
 
     <Footer />
 </div>
+
+<style>
+    .prompt-glow {
+        box-shadow: 0 0 0 3px rgba(240, 98, 146, 0.25), 0 0 40px rgba(240, 98, 146, 0.15);
+        border-radius: 1.5rem;
+    }
+</style>
