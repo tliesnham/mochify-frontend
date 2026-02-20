@@ -116,7 +116,7 @@
             isProcessing = false;
         });
 
-        xhr.open('POST', 'https://api.mochify.xyz/v1/nlp/describe');
+        xhr.open('POST', 'https://api.mochify.xyz/v1/nlp/parse');
         xhr.setRequestHeader('Referer', 'http://mochify.xyz');
         xhr.send(form);
     }
