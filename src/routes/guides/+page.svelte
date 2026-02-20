@@ -78,6 +78,14 @@
             category: "Image Optimization",
             readTime: "5 min read",
             date: "Feb 18, 2026"
+        },
+        {
+            title: "Optimizing Hero Images for Web Performance: A 2026 Guide",
+            description: "Learn how to optimize your website's hero images for faster load times and better Core Web Vitals in 2026. A step-by-step guide to choosing the right format, compression settings, and responsive techniques.",
+            url: "/guides/optimizing-hero-images",
+            category: "Image Optimization",
+            readTime: "14 min read",
+            date: "Feb 20, 2026"
         }
     ];
     guides.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
