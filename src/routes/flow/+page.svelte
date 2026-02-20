@@ -63,60 +63,104 @@
         tick().then(() => { autoGrow(); textareaEl?.focus(); });
     }
 
-    function submit() {
+    async function submit() {
         if (!prompt.trim() || files.length === 0 || isProcessing) return;
         isProcessing = true;
         uploadProgress = 0;
         result = null;
         error = null;
 
-        const form = new FormData();
-        form.append('prompt', prompt.trim());
+        try {
+            // ── Step 1: Get the configuration from the NLP endpoint ──
+            const nlpForm = new FormData();
+            nlpForm.append('prompt', prompt.trim());
 
-        const xhr = new XMLHttpRequest();
+            const nlpResponse = await fetch('https://api.mochify.xyz/v1/nlp/parse', {
+                method: 'POST',
+                headers: { 'Referer': 'http://mochify.xyz' },
+                body: nlpForm
+            });
 
-        // Upload progress (0 → 50%)
-        xhr.upload.addEventListener('progress', (e) => {
-            if (e.lengthComputable) {
-                uploadProgress = Math.round((e.loaded / e.total) * 50);
+            if (!nlpResponse.ok) {
+                throw new Error(`Failed to understand prompt (Status: ${nlpResponse.status})`);
             }
-        });
 
-        // Upload done → server is processing (50%)
-        xhr.upload.addEventListener('load', () => {
-            uploadProgress = 50;
-        });
+            const parsedConfig = await nlpResponse.json();
 
-        xhr.addEventListener('load', () => {
-            uploadProgress = 100;
-            let data: unknown;
-            try { data = JSON.parse(xhr.responseText); } catch { data = xhr.responseText; }
+            // ── Step 2: Build the payload for the squish endpoint ──
+            const squishForm = new FormData();
 
-            if (xhr.status >= 200 && xhr.status < 300) {
-                result = typeof data === 'object' && data !== null
-                    ? JSON.stringify(data, null, 2)
-                    : String(data);
-            } else {
-                error = typeof data === 'object' && data !== null && 'message' in (data as object)
-                    ? String((data as Record<string, unknown>).message)
-                    : String(data);
+            // Append parsed NLP rules (e.g., mapping boolean smartCompress to '1' or '0')
+            if ('smartCompress' in parsedConfig) {
+                squishForm.append('smartCompress', parsedConfig.smartCompress ? '1' : '0');
             }
-            isProcessing = false;
-        });
+            if ('type' in parsedConfig) {
+                squishForm.append('type', parsedConfig.type);
+            }
+            
+            // Catch-all loop just in case the NLP returns extra parameters like width, height, etc.
+            for (const [key, value] of Object.entries(parsedConfig)) {
+                if (key !== 'smartCompress' && key !== 'type') {
+                    squishForm.append(key, String(value));
+                }
+            }
 
-        xhr.addEventListener('error', () => {
-            error = 'Network error — please try again.';
-            isProcessing = false;
-        });
+            // Append the actual image files 
+            // Note: Make sure 'files' is the exact form-data key your Squish API expects!
+            files.forEach(file => {
+                squishForm.append('files', file); 
+            });
 
-        xhr.addEventListener('abort', () => {
-            error = 'Request cancelled.';
-            isProcessing = false;
-        });
+            // ── Step 3: Send images to Squish and track progress ──
+            const xhr = new XMLHttpRequest();
 
-        xhr.open('POST', 'https://api.mochify.xyz/v1/nlp/parse');
-        xhr.setRequestHeader('Referer', 'http://mochify.xyz');
-        xhr.send(form);
+            // Upload progress (0 → 50%)
+            xhr.upload.addEventListener('progress', (e) => {
+                if (e.lengthComputable) {
+                    uploadProgress = Math.round((e.loaded / e.total) * 50);
+                }
+            });
+
+            // Upload done → server is processing (50%)
+            xhr.upload.addEventListener('load', () => {
+                uploadProgress = 50;
+            });
+
+            xhr.addEventListener('load', () => {
+                uploadProgress = 100;
+                let data: unknown;
+                try { data = JSON.parse(xhr.responseText); } catch { data = xhr.responseText; }
+
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    result = typeof data === 'object' && data !== null
+                        ? JSON.stringify(data, null, 2)
+                        : String(data);
+                } else {
+                    error = typeof data === 'object' && data !== null && 'message' in (data as object)
+                        ? String((data as Record<string, unknown>).message)
+                        : String(data);
+                }
+                isProcessing = false;
+            });
+
+            xhr.addEventListener('error', () => {
+                error = 'Network error during image processing — please try again.';
+                isProcessing = false;
+            });
+
+            xhr.addEventListener('abort', () => {
+                error = 'Request cancelled.';
+                isProcessing = false;
+            });
+
+            xhr.open('POST', 'https://api.mochify.xyz/v1/squish');
+            xhr.setRequestHeader('Referer', 'http://mochify.xyz');
+            xhr.send(squishForm);
+
+        } catch (err) {
+            error = err instanceof Error ? err.message : String(err);
+            isProcessing = false;
+        }
     }
 </script>
 
